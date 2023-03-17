@@ -60,7 +60,6 @@ public class BossEnemy : MonoBehaviour
 
         length = animator.GetCurrentAnimatorStateInfo(0).length;
         timeDuringAttack = length + timeBetweenAttack;
-        Debug.Log(length);
     }
 
     private void Patrol()
