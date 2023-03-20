@@ -1118,7 +1118,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Alan
+  m_text: Alan Wilkinson
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 535d32e57dca0ca489e2b29587a13244, type: 2}
   m_sharedMaterial: {fileID: -5390045485235710554, guid: 535d32e57dca0ca489e2b29587a13244, type: 2}
@@ -2523,8 +2523,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 121.2298, y: -203.91513}
-  m_SizeDelta: {x: 92.4571, y: 34.8692}
+  m_AnchoredPosition: {x: 209.07, y: -203.91513}
+  m_SizeDelta: {x: 268.14, y: 34.8692}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &740307075
 MonoBehaviour:
