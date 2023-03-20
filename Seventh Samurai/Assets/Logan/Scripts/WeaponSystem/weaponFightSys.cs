@@ -10,6 +10,7 @@ public class weaponFightSys : MonoBehaviour
     private float nextFireTime = 0f;
     public static int noOfClicks = 0;
     float lastClickedTime = 0;
+    float maxComboDelay = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -21,5 +22,15 @@ public class weaponFightSys : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnClick()
+    {
+        lastClickedTime = Time.time;
+        noOfClicks++;
+        if(noOfClicks == 1)
+        {
+
+        }
     }
 }
