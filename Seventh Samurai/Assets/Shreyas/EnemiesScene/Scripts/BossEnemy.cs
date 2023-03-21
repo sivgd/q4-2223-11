@@ -42,16 +42,13 @@ public class BossEnemy : MonoBehaviour
         playerSightInRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, AttackRange, whatIsPlayer);
 
-        if (!playerSightInRange && !playerInAttackRange)
-        {
-            Patrol();
-        }
-        if (playerSightInRange && !playerInAttackRange)
+
+        if (!playerInAttackRange && !alreadyAttacked)
         {
             Chase();
         }
 
-        if (playerInAttackRange && playerSightInRange)
+        if (playerInAttackRange)
         {
             Attack();
         }
@@ -60,70 +57,43 @@ public class BossEnemy : MonoBehaviour
 
         length = animator.GetCurrentAnimatorStateInfo(0).length;
         timeDuringAttack = length + timeBetweenAttack;
+
+        direction = (player.position - transform.position).normalized;
+        rotGoal = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
     }
 
-    private void Patrol()
-    {
-        animator.SetBool("Attack", false);
-        if (!walkPointSet)
-        {
-            SearchWalkPoint();
-        }
-
-        if (walkPointSet)
-        {
-            agent.SetDestination(walkPoint);
-        }
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        if (distanceToWalkPoint.magnitude < 1)
-        {
-            walkPointSet = false;
-        }
-    }
-    private void SearchWalkPoint()
-    {
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-        {
-            walkPointSet = true;
-        }
-    }
     private void Chase()
     {
-        animator.SetBool("Attack", false);
         agent.SetDestination(player.position);
     }
 
     private void Attack()
     {
         agent.SetDestination(transform.position);
-
-        direction = (player.position - transform.position).normalized;
-        rotGoal = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
-
-        if (!alreadyAttacked)
-        {
-            StartCoroutine(attackAnim());
-        }
+        StartCoroutine(waitBeforeAttack());
     }
     IEnumerator attackAnim()
     {
         animator.SetBool("Attack", true);
         alreadyAttacked = true;
         yield return new WaitForSeconds(length);
+        Debug.Log(length);
         animator.SetBool("Attack", false);
         Invoke(nameof(Resetenemy), timeBetweenAttack);
     }
     private void Resetenemy()
     {
         alreadyAttacked = false;
+    }
+
+    IEnumerator waitBeforeAttack()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (!alreadyAttacked)
+        {
+            StartCoroutine(attackAnim());
+        }
     }
 
     private void OnDrawGizmosSelected()

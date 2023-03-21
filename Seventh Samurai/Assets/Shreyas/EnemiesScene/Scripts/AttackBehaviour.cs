@@ -8,7 +8,7 @@ public class AttackBehaviour : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        attackAnim = Random.Range(0, 3);
+        attackAnim = Random.Range(0, 4);
 
         animator.SetFloat("AttackAnim", attackAnim);
     }

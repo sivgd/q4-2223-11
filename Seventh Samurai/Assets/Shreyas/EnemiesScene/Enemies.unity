@@ -1596,7 +1596,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620843321}
-  m_LocalRotation: {x: 0.1698063, y: -0.0022220097, z: 0.00038287256, w: 0.9854749}
+  m_LocalRotation: {x: 0.16980648, y: -0.0017163453, z: 0.00029574192, w: 0.9854759}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1672,7 +1672,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730730632}
-  m_LocalRotation: {x: 0.15951398, y: -0.001335531, z: 0.00021579918, w: 0.9871948}
+  m_LocalRotation: {x: 0.15951402, y: -0.0010316028, z: 0.00016668954, w: 0.98719513}
   m_LocalPosition: {x: 0, y: 3.357393, z: -5.882969}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1796,8 +1796,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3511f10b889e5d429434e4177b68d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCol: {fileID: 1836843103}
-  animator: {fileID: 1139188254}
 --- !u!114 &1824797004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1812,7 +1810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1824797005}
   cam: {fileID: 1730730633}
-  speed: 6
+  speed: 9
   gravity: -32.33
   jumpHeight: 2
   turnSmoothTime: 0.1
@@ -3830,10 +3828,10 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointSet: 0
   walkPointRange: 10
-  timeBetweenAttack: 2
+  timeBetweenAttack: 2.1
   alreadyAttacked: 0
-  sightRange: 8.4
-  AttackRange: 1.19
+  sightRange: 0
+  AttackRange: 1.14
   playerSightInRange: 0
   playerInAttackRange: 0
   turnSpeed: 0.1
