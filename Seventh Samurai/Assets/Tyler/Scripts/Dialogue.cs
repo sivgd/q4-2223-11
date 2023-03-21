@@ -8,11 +8,13 @@ public class Dialogue : MonoBehaviour
 {
 
     public TextMeshProUGUI textComponent;
+    public TextMeshProUGUI nameComponent;
     public Sprite characterSprite;
+    public GameObject characterIcon;
     public Sprite[] sprites;
+    public string[] names;
     public string[] lines;
     public float textSpeed;
-    public Image SpriteLocation;
 
     private int index;
 
@@ -20,7 +22,9 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         textComponent.text = string.Empty;
+        nameComponent.text = string.Empty;
         characterSprite = sprites[0];
+        nameComponent.text = names[0];
         
         StartDialogue();
     }
@@ -34,11 +38,13 @@ public class Dialogue : MonoBehaviour
             {
                 NextLine();
                 characterSprite = sprites[index];
+                nameComponent.text = names[index];
             }
             else
             {
                 StopAllCoroutines();
                 textComponent.text = lines[index];
+                nameComponent.text = names[index];
             }
         }
     }
@@ -64,6 +70,7 @@ public class Dialogue : MonoBehaviour
         {
             index++;
             textComponent.text = string.Empty;
+            nameComponent.text = string.Empty;
             StartCoroutine(TypeLine());
         }
         else
