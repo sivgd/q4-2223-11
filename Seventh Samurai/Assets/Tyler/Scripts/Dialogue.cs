@@ -6,7 +6,7 @@ using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
-
+    public Animator blackScreen;
     public TextMeshProUGUI textComponent;
     public TextMeshProUGUI nameComponent;
     public Sprite characterSprite;
@@ -21,10 +21,14 @@ public class Dialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        blackScreen.Play("BlackScreenTransition");
+        index = 0;
         textComponent.text = string.Empty;
         nameComponent.text = string.Empty;
         characterSprite = sprites[0];
         nameComponent.text = names[0];
+        characterIcon.GetComponent<Image>().sprite = characterSprite;
+
         
         StartDialogue();
     }
@@ -39,12 +43,15 @@ public class Dialogue : MonoBehaviour
                 NextLine();
                 characterSprite = sprites[index];
                 nameComponent.text = names[index];
+                characterIcon.GetComponent<Image>().sprite = sprites[index];
             }
             else
             {
                 StopAllCoroutines();
                 textComponent.text = lines[index];
                 nameComponent.text = names[index];
+                blackScreen.speed = -1;
+                blackScreen.Play("BlackScreenTransition");
             }
         }
     }
