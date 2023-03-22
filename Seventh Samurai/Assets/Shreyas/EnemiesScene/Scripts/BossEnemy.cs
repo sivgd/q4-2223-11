@@ -17,12 +17,15 @@ public class BossEnemy : MonoBehaviour
     public float walkPointRange;
     float timeDuringAttack;
     public float timeBetweenAttack;
+    public float timeBetweenAttack2;
+    public float timeBetweenAttack3;
+    bool keepTiming;
     [HideInInspector]
     public bool alreadyAttacked;
 
     [Header("Range")]
-    public float sightRange, AttackRange;
-    public bool playerSightInRange, playerInAttackRange;
+    public float attackRange, attackRange2, attackRange3;
+    public bool playerInAttackRange, playerInAttackRange2, playerInAttackRange3;
 
     [Header("Look")]
     public float turnSpeed;
@@ -36,21 +39,39 @@ public class BossEnemy : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         atLength = animator.GetBehaviour<AttackBehaviour>();
+        keepTiming = true;
     }
     private void Update()
     {
-        playerSightInRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, AttackRange, whatIsPlayer);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        playerInAttackRange2 = Physics.CheckSphere(transform.position, attackRange2, whatIsPlayer);
+        playerInAttackRange3 = Physics.CheckSphere(transform.position, attackRange3, whatIsPlayer);
 
-
-        if (!playerInAttackRange && !alreadyAttacked)
+        if(keepTiming)
         {
-            Chase();
+            timeBetweenAttack -= Time.deltaTime;
         }
 
-        if (playerInAttackRange)
+        if (!playerInAttackRange2 && !alreadyAttacked && timeBetweenAttack > 0)
+        {
+            Chase();
+            keepTiming = true;
+        }
+
+        if(playerInAttackRange && !playerInAttackRange2 && !playerInAttackRange3 && timeBetweenAttack <= 0)
         {
             Attack();
+            keepTiming = false;
+        }
+
+        if (playerInAttackRange && playerInAttackRange2 && !playerInAttackRange3)
+        {
+            Attack2();
+        }
+        
+        if(playerInAttackRange && playerInAttackRange2 && playerInAttackRange3)
+        {
+            Attack3();
         }
 
         animator.SetFloat("Move", agent.velocity.magnitude);
@@ -67,24 +88,66 @@ public class BossEnemy : MonoBehaviour
     {
         agent.SetDestination(player.position);
     }
-
     private void Attack()
     {
         agent.SetDestination(transform.position);
+        if (!alreadyAttacked)
+        {
+            animator.SetBool("Attack2", false);
+            StartCoroutine(attackAnim());
+        }
+    }
+    private void Attack2()
+    {
+        agent.SetDestination(transform.position);
         StartCoroutine(waitBeforeAttack());
+    }
+    private void Attack3()
+    {
+        agent.SetDestination(transform.position);
+
+        if (!alreadyAttacked)
+        {
+            animator.SetBool("Attack2", false);
+            StartCoroutine(attackAnim3());
+        }
     }
     IEnumerator attackAnim()
     {
         animator.SetBool("Attack", true);
         alreadyAttacked = true;
-        yield return new WaitForSeconds(length);
+        yield return new WaitForSeconds(2.433f);
         Debug.Log(length);
         animator.SetBool("Attack", false);
-        Invoke(nameof(Resetenemy), timeBetweenAttack);
+        Invoke(nameof(Resetenemy2), timeBetweenAttack);
+    }
+    IEnumerator attackAnim2()
+    {
+        animator.SetBool("Attack2", true);
+        alreadyAttacked = true;
+        yield return new WaitForSeconds(length);
+        Debug.Log(length);
+        animator.SetBool("Attack2", false);
+        Invoke(nameof(Resetenemy), timeBetweenAttack2);
+    }
+    IEnumerator attackAnim3()
+    {
+        animator.SetBool("Attack3", true);
+        alreadyAttacked = true;
+        yield return new WaitForSeconds(1.2f);
+        animator.SetBool("Attack3", false);
+        Invoke(nameof(Resetenemy), timeBetweenAttack3);
     }
     private void Resetenemy()
     {
         alreadyAttacked = false;
+    }
+    private void Resetenemy2()
+    {
+        float timeAdd = Random.Range(15, 30);
+        alreadyAttacked = false;
+        timeBetweenAttack += timeAdd;
+        keepTiming = true;
     }
 
     IEnumerator waitBeforeAttack()
@@ -92,16 +155,19 @@ public class BossEnemy : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         if (!alreadyAttacked)
         {
-            StartCoroutine(attackAnim());
+            animator.SetBool("Attack3", false);
+            StartCoroutine(attackAnim2());
         }
     }
 
     private void OnDrawGizmosSelected()
     {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, AttackRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange2);
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange3);
 
     }
 

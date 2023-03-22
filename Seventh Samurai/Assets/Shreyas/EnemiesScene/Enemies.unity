@@ -1596,7 +1596,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620843321}
-  m_LocalRotation: {x: 0.16980648, y: -0.0017163453, z: 0.00029574192, w: 0.9854759}
+  m_LocalRotation: {x: 0.16980667, y: -0.0008345393, z: 0.00014379872, w: 0.98547703}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1672,7 +1672,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730730632}
-  m_LocalRotation: {x: 0.15951402, y: -0.0010316028, z: 0.00016668954, w: 0.98719513}
+  m_LocalRotation: {x: 0.1595141, y: -0.0005015964, z: 0.00008104949, w: 0.98719555}
   m_LocalPosition: {x: 0, y: 3.357393, z: -5.882969}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1810,7 +1810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1824797005}
   cam: {fileID: 1730730633}
-  speed: 9
+  speed: 22
   gravity: -32.33
   jumpHeight: 2
   turnSmoothTime: 0.1
@@ -3595,7 +3595,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5597716880904315677}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.28, y: 0.003, z: -0.34}
+  m_LocalPosition: {x: -22.8, y: 0.003, z: -0.34}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 771408254847441203}
@@ -3828,12 +3828,16 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointSet: 0
   walkPointRange: 10
-  timeBetweenAttack: 2.1
+  timeBetweenAttack: 5
+  timeBetweenAttack2: 2.1
+  timeBetweenAttack3: 1
   alreadyAttacked: 0
-  sightRange: 0
-  AttackRange: 1.14
-  playerSightInRange: 0
+  attackRange: 55.07
+  attackRange2: 1.99
+  attackRange3: 1.41
   playerInAttackRange: 0
+  playerInAttackRange2: 0
+  playerInAttackRange3: 0
   turnSpeed: 0.1
   length: 0
 --- !u!195 &5597716880904315680
