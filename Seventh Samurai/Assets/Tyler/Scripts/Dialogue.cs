@@ -50,7 +50,6 @@ public class Dialogue : MonoBehaviour
                 StopAllCoroutines();
                 textComponent.text = lines[index];
                 nameComponent.text = names[index];
-                blackScreen.speed = -1;
                 blackScreen.Play("BlackScreenTransition");
             }
         }
