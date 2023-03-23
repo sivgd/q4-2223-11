@@ -34,6 +34,8 @@ public class BossEnemy : MonoBehaviour
 
     AttackBehaviour atLength;
     public float length;
+    public GameObject fire;
+    public Transform firePos;
     //AIManager aimanager;
     private void Awake()
     {
@@ -114,11 +116,16 @@ public class BossEnemy : MonoBehaviour
     }
     IEnumerator attackAnim()
     {
-        animator.SetBool("Attack", true);
-        alreadyAttacked = true;
-        yield return new WaitForSeconds(2.433f);
-        Debug.Log(length);
-        animator.SetBool("Attack", false);
+        for (int i = 0; i < 3; i++)
+        {
+            animator.SetBool("Attack", true);
+            alreadyAttacked = true;
+            yield return new WaitForSeconds(1.4f);
+            Instantiate(fire, firePos.transform.position, firePos.transform.rotation);
+            yield return new WaitForSeconds(1.233f);
+            animator.SetBool("Attack", false);
+            yield return new WaitForSeconds(2);
+        }
         Invoke(nameof(Resetenemy2), timeBetweenAttack);
     }
     IEnumerator attackAnim2()
@@ -126,7 +133,6 @@ public class BossEnemy : MonoBehaviour
         animator.SetBool("Attack2", true);
         alreadyAttacked = true;
         yield return new WaitForSeconds(length);
-        Debug.Log(length);
         animator.SetBool("Attack2", false);
         Invoke(nameof(Resetenemy), timeBetweenAttack2);
     }
@@ -144,7 +150,7 @@ public class BossEnemy : MonoBehaviour
     }
     private void Resetenemy2()
     {
-        float timeAdd = Random.Range(15, 30);
+        float timeAdd = Random.Range(2, 5);
         alreadyAttacked = false;
         timeBetweenAttack += timeAdd;
         keepTiming = true;
@@ -159,7 +165,6 @@ public class BossEnemy : MonoBehaviour
             StartCoroutine(attackAnim2());
         }
     }
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
