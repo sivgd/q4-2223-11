@@ -54,7 +54,7 @@ public class BossEnemy : MonoBehaviour
             timeBetweenAttack -= Time.deltaTime;
         }
 
-        if (!playerInAttackRange2 && !alreadyAttacked && timeBetweenAttack > 0)
+        if (!playerInAttackRange2 && !playerInAttackRange3 && !alreadyAttacked)
         {
             Chase();
             keepTiming = true;
@@ -69,11 +69,13 @@ public class BossEnemy : MonoBehaviour
         if (playerInAttackRange && playerInAttackRange2 && !playerInAttackRange3)
         {
             Attack2();
+            keepTiming = false;
         }
         
         if(playerInAttackRange && playerInAttackRange2 && playerInAttackRange3)
         {
             Attack3();
+            keepTiming = false;
         }
 
         animator.SetFloat("Move", agent.velocity.magnitude);
@@ -118,13 +120,20 @@ public class BossEnemy : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            animator.SetBool("Attack", true);
-            alreadyAttacked = true;
-            yield return new WaitForSeconds(1.4f);
-            Instantiate(fire, firePos.transform.position, firePos.transform.rotation);
-            yield return new WaitForSeconds(1.233f);
-            animator.SetBool("Attack", false);
-            yield return new WaitForSeconds(2);
+            if(playerInAttackRange && !playerInAttackRange2 && !playerInAttackRange3)
+            {
+                animator.SetBool("Attack", true);
+                alreadyAttacked = true;
+                yield return new WaitForSeconds(1.4f);
+                Instantiate(fire, firePos.transform.position, firePos.transform.rotation);
+                yield return new WaitForSeconds(1.233f);
+                animator.SetBool("Attack", false);
+                yield return new WaitForSeconds(0.5f);
+            }
+            else
+            {
+                break;
+            }
         }
         Invoke(nameof(Resetenemy2), timeBetweenAttack);
     }
@@ -150,7 +159,7 @@ public class BossEnemy : MonoBehaviour
     }
     private void Resetenemy2()
     {
-        float timeAdd = Random.Range(2, 5);
+        float timeAdd = Random.Range(10, 15);
         alreadyAttacked = false;
         timeBetweenAttack += timeAdd;
         keepTiming = true;
