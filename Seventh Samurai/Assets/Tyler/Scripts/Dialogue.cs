@@ -15,14 +15,14 @@ public class Dialogue : MonoBehaviour
     public string[] names;
     public string[] lines;
     public float textSpeed;
-
-    private int index;
+    public int index;
 
     // Start is called before the first frame update
     void Start()
     {
         blackScreen.Play("BlackScreenTransition");
         index = 0;
+        blackScreen.SetInteger("IndexNum", index);
         textComponent.text = string.Empty;
         nameComponent.text = string.Empty;
         characterSprite = sprites[0];
@@ -50,7 +50,6 @@ public class Dialogue : MonoBehaviour
                 StopAllCoroutines();
                 textComponent.text = lines[index];
                 nameComponent.text = names[index];
-                blackScreen.Play("BlackScreenTransition");
             }
         }
     }
@@ -81,7 +80,8 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive(false); 
+            blackScreen.Play("BlackScreenTransition(Negitive)");
         }
     }
 }
