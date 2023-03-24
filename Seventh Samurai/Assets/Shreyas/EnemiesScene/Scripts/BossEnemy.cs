@@ -28,6 +28,8 @@ public class BossEnemy : MonoBehaviour
     public float attackRange;
     public float timeBetweenAttack;
     public bool playerInAttackRange;
+    public GameObject fire;
+    public Transform firePos;
 
     [Header("Attack 2")]
     public float attackRange2;
@@ -39,11 +41,14 @@ public class BossEnemy : MonoBehaviour
     public bool playerInAttackRange2;
 
     [Header("Attack 3")]
-    public float attackRange3;
+    public float MinJumpDistance = 1.5f;
+    public float MaxJumpDistance = 5f;
+    public AnimationCurve HeightCurve;
+    public float JumpSpeed;
+    public Transform playerGroundCheck;
     public float timeBetweenAttack3;
+    public float attackRange3;
     public bool playerInAttackRange3;
-    public GameObject fire;
-    public Transform firePos;
 
     [Header("Look")]
     public float turnSpeed;
@@ -68,25 +73,25 @@ public class BossEnemy : MonoBehaviour
             timeBetweenAttack -= Time.deltaTime;
         }
 
-        if (!playerInAttackRange2 && !playerInAttackRange3 && !alreadyAttacked)
+        if (!playerInAttackRange2 && playerInAttackRange3 && !alreadyAttacked)
         {
             Chase();
             keepTiming = true;
         }
 
-        if(playerInAttackRange && !playerInAttackRange2 && !playerInAttackRange3 && timeBetweenAttack <= 0)
+        if(playerInAttackRange && !playerInAttackRange2 && playerInAttackRange3 && timeBetweenAttack <= 0)
         {
             Attack();
             keepTiming = false;
         }
 
-        if (playerInAttackRange && playerInAttackRange2 && !playerInAttackRange3)
+        if (playerInAttackRange && playerInAttackRange2 && playerInAttackRange3)
         {
             Attack2();
             keepTiming = false;
         }
         
-        if(playerInAttackRange && playerInAttackRange2 && playerInAttackRange3)
+        if(!playerInAttackRange && !playerInAttackRange2 && playerInAttackRange3)
         {
             Attack3();
             keepTiming = false;
@@ -134,7 +139,7 @@ public class BossEnemy : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            if(playerInAttackRange && !playerInAttackRange2 && !playerInAttackRange3)
+            if(playerInAttackRange && !playerInAttackRange2 && playerInAttackRange3)
             {
                 animator.SetBool("Attack", true);
                 alreadyAttacked = true;
@@ -188,7 +193,28 @@ public class BossEnemy : MonoBehaviour
     {
         animator.SetBool("Attack3", true);
         alreadyAttacked = true;
-        yield return new WaitForSeconds(1.2f);
+        agent.enabled = false;
+
+        Vector3 startingPos = transform.position;
+        animator.SetBool("Attack3", true);
+        yield return new WaitForSeconds(0.13f);
+        for (float time = 0; time < 1; time += Time.deltaTime * JumpSpeed)
+        {
+            if(!playerInAttackRange2)
+            {
+                transform.position = Vector3.Lerp(startingPos, playerGroundCheck.transform.position, time) + Vector3.up * HeightCurve.Evaluate(time);
+            }
+            yield return null;
+        }
+        animator.SetBool("BossLanded", true);
+        yield return new WaitForSeconds(2f);
+        animator.SetBool("BossLanded", false);
+        agent.enabled = true;
+
+        if(NavMesh.SamplePosition(playerGroundCheck.transform.position, out NavMeshHit hit, 1f, agent.areaMask) && !playerInAttackRange2)
+        {
+            agent.Warp(hit.position);
+        }
         animator.SetBool("Attack3", false);
         Invoke(nameof(Resetenemy), timeBetweenAttack3);
     }
