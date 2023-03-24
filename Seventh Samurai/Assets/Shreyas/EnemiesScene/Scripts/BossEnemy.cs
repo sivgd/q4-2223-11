@@ -15,27 +15,41 @@ public class BossEnemy : MonoBehaviour
     [HideInInspector]
     public bool walkPointSet;
     public float walkPointRange;
+
+    [Header("Attack Stuff")]
     float timeDuringAttack;
-    public float timeBetweenAttack;
-    public float timeBetweenAttack2;
-    public float timeBetweenAttack3;
     bool keepTiming;
     [HideInInspector]
     public bool alreadyAttacked;
+    AttackBehaviour atLength;
+    public float length;
 
-    [Header("Range")]
-    public float attackRange, attackRange2, attackRange3;
-    public bool playerInAttackRange, playerInAttackRange2, playerInAttackRange3;
+    [Header("Attack 1")]
+    public float attackRange;
+    public float timeBetweenAttack;
+    public bool playerInAttackRange;
+
+    [Header("Attack 2")]
+    public float attackRange2;
+    public float coolDownTime = 2f;
+    bool hit1;
+    bool hit2;
+    bool hit3;
+    bool inAttackRange;
+    public bool playerInAttackRange2;
+
+    [Header("Attack 3")]
+    public float attackRange3;
+    public float timeBetweenAttack3;
+    public bool playerInAttackRange3;
+    public GameObject fire;
+    public Transform firePos;
 
     [Header("Look")]
     public float turnSpeed;
     Quaternion rotGoal;
     Vector3 direction;
 
-    AttackBehaviour atLength;
-    public float length;
-    public GameObject fire;
-    public Transform firePos;
     //AIManager aimanager;
     private void Awake()
     {
@@ -124,9 +138,9 @@ public class BossEnemy : MonoBehaviour
             {
                 animator.SetBool("Attack", true);
                 alreadyAttacked = true;
-                yield return new WaitForSeconds(1.4f);
+                yield return new WaitForSeconds(1.8f);
                 Instantiate(fire, firePos.transform.position, firePos.transform.rotation);
-                yield return new WaitForSeconds(1.233f);
+                yield return new WaitForSeconds(1.2f);
                 animator.SetBool("Attack", false);
                 yield return new WaitForSeconds(0.5f);
             }
@@ -141,9 +155,34 @@ public class BossEnemy : MonoBehaviour
     {
         animator.SetBool("Attack2", true);
         alreadyAttacked = true;
-        yield return new WaitForSeconds(length);
+        animator.SetBool("Hit1", true);
+        yield return new WaitForSeconds(1.667f);
+        animator.SetBool("Hit1", false);
+        if (playerInAttackRange2 == true)
+        {
+            animator.SetBool("Hit2", true);
+            yield return new WaitForSeconds(1.5f);
+            animator.SetBool("Hit2", false);
+            if(playerInAttackRange2 == true)
+            {
+                animator.SetBool("Hit3", true);
+                yield return new WaitForSeconds(2.433f);
+                animator.SetBool("Hit3", false);
+            }
+            else
+            {
+                animator.SetBool("Attack2", false);
+                Invoke(nameof(Resetenemy), coolDownTime);
+            }
+        }
+        else
+        {
+            animator.SetBool("Attack2", false);
+            Invoke(nameof(Resetenemy), coolDownTime);
+        }
         animator.SetBool("Attack2", false);
-        Invoke(nameof(Resetenemy), timeBetweenAttack2);
+        Invoke(nameof(Resetenemy), coolDownTime);
+
     }
     IEnumerator attackAnim3()
     {
