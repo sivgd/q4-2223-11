@@ -25,14 +25,14 @@ public class BossEnemy : MonoBehaviour
     public float length;
     public GameObject slashEffect;
 
-    [Header("Attack 1")]
+    [Header("Fire Attack")]
     public float attackRange;
     public float timeBetweenAttack;
     public bool playerInAttackRange;
     public GameObject fire;
     public Transform firePos;
 
-    [Header("Attack 2")]
+    [Header("Basic Attack")]
     public float attackRange2;
     public float coolDownTime = 2f;
     bool hit1;
@@ -41,7 +41,7 @@ public class BossEnemy : MonoBehaviour
     bool inAttackRange;
     public bool playerInAttackRange2;
 
-    [Header("Attack 3")]
+    [Header("Jump Attack")]
     public AnimationCurve HeightCurve;
     public float JumpSpeed;
     public Transform playerGroundCheck;
