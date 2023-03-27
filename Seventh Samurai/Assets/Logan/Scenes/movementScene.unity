@@ -204,7 +204,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153869869}
-  m_LocalRotation: {x: 0.053714152, y: -0.0014196896, z: 0.000076367745, w: 0.99855536}
+  m_LocalRotation: {x: 0.05371409, y: -0.0020466398, z: 0.000110092544, w: 0.9985543}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -278,7 +278,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154804346}
-  m_LocalRotation: {x: 0.028651042, y: 0.0000000070722552, z: -2.0271072e-10, w: 0.9995895}
+  m_LocalRotation: {x: 0.028651044, y: 0.00000000922217, z: -2.6433333e-10, w: 0.9995895}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -831,7 +831,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21558
+  m_Name: pb_Mesh22070
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1100,7 +1100,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443448308}
-  m_LocalRotation: {x: 0.053714156, y: -0.0014196896, z: 0.000076367745, w: 0.99855536}
+  m_LocalRotation: {x: 0.053714093, y: -0.00204664, z: 0.00011009258, w: 0.9985543}
   m_LocalPosition: {x: 0, y: 2.007, z: -6.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2284,6 +2284,7 @@ GameObject:
   - component: {fileID: 1918481336}
   - component: {fileID: 1918481338}
   - component: {fileID: 1918481337}
+  - component: {fileID: 1918481339}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2364,6 +2365,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1918481339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918481334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31fdaddba1478564b80f278f40dd28af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1389163774}
+  cooldownTime: 0.8
 --- !u!1 &1983844486
 GameObject:
   m_ObjectHideFlags: 3
