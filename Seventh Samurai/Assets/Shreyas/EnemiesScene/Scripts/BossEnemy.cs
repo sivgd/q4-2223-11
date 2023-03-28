@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class BossEnemy : MonoBehaviour
 {
-    [Header("EnemyMove")]
+    [Header("Enemy Move")]
     NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
@@ -122,6 +122,7 @@ public class BossEnemy : MonoBehaviour
     {
         agent.SetDestination(player.position);
     }
+    //Fire Attack
     private void Attack()
     {
         if(attack3 == false)
@@ -158,6 +159,7 @@ public class BossEnemy : MonoBehaviour
         Invoke(nameof(Resetenemy2), timeBetweenAttack);
     }
 
+    //Combo Attack
     private void Attack2()
     {
         if(attack3 == false)
@@ -200,6 +202,7 @@ public class BossEnemy : MonoBehaviour
         Invoke(nameof(Resetenemy), coolDownTime);
     }
 
+    //Jump Attack
     private void Attack3()
     {
         attack3 = true;
