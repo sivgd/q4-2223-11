@@ -149,7 +149,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309486018}
-  m_LocalRotation: {x: 0.08032444, y: 0.0012244462, z: -0.00009867183, w: 0.99676806}
+  m_LocalRotation: {x: 0.08032446, y: 0.0010190065, z: -0.000082116494, w: 0.99676824}
   m_LocalPosition: {x: 5.89, y: 2.380393, z: -5.882969}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5973,7 +5973,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074787846}
-  m_LocalRotation: {x: 0.09811498, y: -0.00040282612, z: 0.0000397149, w: 0.995175}
+  m_LocalRotation: {x: 0.09811497, y: -0.00074467825, z: 0.00007341834, w: 0.9951748}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -15126,6 +15126,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 02bdee074541b894b90657e3c2a64fed, type: 2}
   - {fileID: 11400000, guid: 7ed72e5ec0dabbe4d85a03459955158f, type: 2}
   - {fileID: 11400000, guid: 61b1b70754cab3e47a97adf6262f4d7f, type: 2}
+  timeBetweenAttacks: 0.5
   weapon: {fileID: 4958223257855948724}
 --- !u!114 &6185489684467484739
 MonoBehaviour:

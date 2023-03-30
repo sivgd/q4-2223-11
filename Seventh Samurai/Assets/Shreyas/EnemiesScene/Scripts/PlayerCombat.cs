@@ -9,6 +9,10 @@ public class PlayerCombat : MonoBehaviour
     float lastComboEnd;
     int comboCounter;
 
+    private tpMovement pMove;
+
+    public float timeBetweenAttacks = 0.9f;
+
     Animator anim;
     [SerializeField] Weapon weapon;
 
@@ -17,6 +21,7 @@ public class PlayerCombat : MonoBehaviour
     {
         weapon.DisableTriggerBox();
         anim = GetComponent<Animator>();
+        pMove = GetComponent<tpMovement>();
     }
 
     // Update is called once per frame
@@ -25,6 +30,7 @@ public class PlayerCombat : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             weapon.EnableTriggerBox();
+            pMove.enabled = false;
             Attack();
         }
         ExitAttack();
@@ -32,14 +38,21 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack()
     {
-        if(Time.time - lastComboEnd > 1f && comboCounter <= combo.Count)
+
+        
+
+        if (Time.time - lastComboEnd > 1f && comboCounter <= combo.Count)
         {
+            pMove.enabled = false;
             CancelInvoke("EndCombo");
 
-            if(Time.time - lastClickedTime >= 0.9f)
+            if(Time.time - lastClickedTime >= timeBetweenAttacks)
             {
+                
+
                 anim.runtimeAnimatorController = combo[comboCounter].animatorOV;
                 anim.Play("AttackState", 0, 0);
+                //pMove.enabled = false;
                 weapon.damage = combo[comboCounter].damage;
 
                 comboCounter++;
@@ -55,9 +68,11 @@ public class PlayerCombat : MonoBehaviour
 
     void ExitAttack()
     {
+        
         if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             Invoke("EndCombo", 1);
+            pMove.enabled = true;
         }
     }
 
