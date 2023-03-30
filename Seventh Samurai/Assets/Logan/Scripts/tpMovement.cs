@@ -66,8 +66,6 @@ public class tpMovement : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             animator.SetFloat("movementSpeed", 1);
-            //StartCoroutine(changeAniMove());
-            //StopCoroutine(changeAniMoveDown());
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
@@ -76,33 +74,7 @@ public class tpMovement : MonoBehaviour
         {
             animator.SetFloat("movementSpeed", 0);
         }
-        //else
-        //{
-        //    StopCoroutine(changeAniMove());
-        //    StartCoroutine(changeAniMoveDown());
-        //}
     }   
 
-        //IEnumerator changeAniMove()
-        //{
-        //    if (animator.GetFloat("movementSpeed") <= 1)
-        //    {
-        //        animator.SetFloat("movementSpeed", (animator.GetFloat("movementSpeed") + (aniTransSpeed * 3)));
-        //    }
-
-        //    yield return null;
-        //}
-
-        //IEnumerator changeAniMoveDown()
-        //{
-        //    if (animator.GetFloat("movementSpeed") >= 0)
-        //    {
-        //        animator.SetFloat("movementSpeed", (animator.GetFloat("movementSpeed") - aniTransSpeed));
-        //    }
-
-        //    yield return null;
-        //}
-
-    
 
 }

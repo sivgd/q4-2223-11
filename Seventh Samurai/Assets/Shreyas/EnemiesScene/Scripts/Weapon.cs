@@ -15,15 +15,15 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var enemy = other.gameObject.GetComponent<BossEnemy>();
-        if(enemy != null)
+        var bossEnemy = other.gameObject.GetComponent<BossEnemy>();
+        if(bossEnemy != null)
         {
-            enemy.health -= damage;
+            bossEnemy.health -= damage;
 
 
-            if(enemy.health < 0)
+            if(bossEnemy.health < 0)
             {
-                Destroy(enemy.gameObject);
+                Destroy(bossEnemy.gameObject);
             }
         }
       
