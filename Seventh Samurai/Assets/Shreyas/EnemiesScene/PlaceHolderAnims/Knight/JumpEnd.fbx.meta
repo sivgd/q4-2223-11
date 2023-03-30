@@ -8,7 +8,7 @@ ModelImporter:
     second: Sword And Shield Attack (1)
   - first:
       74: -2137524732302501940
-    second: Sword And Shield Attack
+    second: JumpEnd
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -38,7 +38,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Sword And Shield Attack
+      name: JumpEnd
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0

@@ -55,6 +55,9 @@ public class BossEnemy : MonoBehaviour
     Quaternion rotGoal;
     Vector3 direction;
 
+    [Header("Health")]
+    public float maxHealth;
+    public float health;
     //AIManager aimanager;
     private void Awake()
     {
