@@ -29,7 +29,6 @@ public class PlayerCombat : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            weapon.EnableTriggerBox();
             pMove.enabled = false;
             Attack();
         }
@@ -39,8 +38,6 @@ public class PlayerCombat : MonoBehaviour
     void Attack()
     {
 
-        
-
         if (Time.time - lastComboEnd > 1f && comboCounter <= combo.Count)
         {
             pMove.enabled = false;
@@ -48,10 +45,9 @@ public class PlayerCombat : MonoBehaviour
 
             if(Time.time - lastClickedTime >= timeBetweenAttacks)
             {
-                
-
                 anim.runtimeAnimatorController = combo[comboCounter].animatorOV;
                 anim.Play("AttackState", 0, 0);
+                weapon.EnableTriggerBox();
                 //pMove.enabled = false;
                 weapon.damage = combo[comboCounter].damage;
 
