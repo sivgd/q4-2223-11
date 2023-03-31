@@ -36,7 +36,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Gold Metal.002
-    second: {fileID: 2100000, guid: f1538785e0ac28847b8a1463ffb87160, type: 2}
+    second: {fileID: 2100000, guid: e9ee4531ddee93a4997726596a794c8c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -76,7 +76,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Sheat Rope.002
-    second: {fileID: 2100000, guid: d8897a3e2bd1fc9439b5102f4d96b432, type: 2}
+    second: {fileID: 2100000, guid: e9ee4531ddee93a4997726596a794c8c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
