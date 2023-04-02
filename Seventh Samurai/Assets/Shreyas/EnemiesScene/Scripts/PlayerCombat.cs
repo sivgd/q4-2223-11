@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public List<AttackSO> combo;
+    public List<PlayerAttackSO> combo;
     float lastClickedTime;
     float lastComboEnd;
     int comboCounter;
@@ -14,12 +14,11 @@ public class PlayerCombat : MonoBehaviour
     public float timeBetweenAttacks = 0.9f;
 
     Animator anim;
-    [SerializeField] Weapon weapon;
 
     // Start is called before the first frame update
     void Start()
     {
-        weapon.DisableTriggerBox();
+        //weapon.DisableTriggerBox();
         anim = GetComponent<Animator>();
         pMove = GetComponent<tpMovement>();
     }
@@ -37,19 +36,16 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack()
     {
-
         if (Time.time - lastComboEnd > 1f && comboCounter <= combo.Count)
         {
-            pMove.enabled = false;
             CancelInvoke("EndCombo");
 
             if(Time.time - lastClickedTime >= timeBetweenAttacks)
             {
                 anim.runtimeAnimatorController = combo[comboCounter].animatorOV;
                 anim.Play("AttackState", 0, 0);
-                weapon.EnableTriggerBox();
-                //pMove.enabled = false;
-                weapon.damage = combo[comboCounter].damage;
+                //weapon.EnableTriggerBox();
+                //weapon.damage = combo[comboCounter].damage;
 
                 comboCounter++;
                 lastClickedTime = Time.time;
@@ -75,7 +71,7 @@ public class PlayerCombat : MonoBehaviour
     void EndCombo()
     {
         comboCounter = 0;
-        weapon.DisableTriggerBox();
+        //weapon.DisableTriggerBox();
         lastComboEnd = Time.time;
     }
 }

@@ -149,7 +149,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309486018}
-  m_LocalRotation: {x: 0.08032444, y: 0.0012244462, z: -0.00009867183, w: 0.99676806}
+  m_LocalRotation: {x: 0.08032445, y: 0.0009832811, z: -0.000079237565, w: 0.9967683}
   m_LocalPosition: {x: 5.89, y: 2.380393, z: -5.882969}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5973,7 +5973,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074787846}
-  m_LocalRotation: {x: 0.09811498, y: -0.00040282612, z: 0.0000397149, w: 0.995175}
+  m_LocalRotation: {x: 0.09811495, y: -0.0008041256, z: 0.000079279285, w: 0.99517477}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14669,8 +14669,8 @@ MonoBehaviour:
       inWeight: 0.5042011
       outWeight: 0.3857307
     - serializedVersion: 3
-      time: 1.0058129
-      value: -0.16284621
+      time: 1.0012665
+      value: 0.0017229482
       inSlope: -5.87182
       outSlope: -5.87182
       tangentMode: 0
@@ -14686,8 +14686,6 @@ MonoBehaviour:
   attackRange3: 36.81
   playerInAttackRange3: 0
   turnSpeed: 0.1
-  maxHealth: 0
-  health: 100
 --- !u!195 &5597716880904315680
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -14698,7 +14696,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 9
+  m_Speed: 5
   m_Acceleration: 12
   avoidancePriority: 50
   m_AngularSpeed: 5000
@@ -15159,7 +15157,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7ed72e5ec0dabbe4d85a03459955158f, type: 2}
   - {fileID: 11400000, guid: 61b1b70754cab3e47a97adf6262f4d7f, type: 2}
   timeBetweenAttacks: 0.5
-  weapon: {fileID: 4958223257855948724}
 --- !u!114 &6185489684467484739
 MonoBehaviour:
   m_ObjectHideFlags: 0
