@@ -18,7 +18,6 @@ public class PlayerCombat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //weapon.DisableTriggerBox();
         anim = GetComponent<Animator>();
         pMove = GetComponent<tpMovement>();
     }
@@ -44,7 +43,6 @@ public class PlayerCombat : MonoBehaviour
             {
                 anim.runtimeAnimatorController = combo[comboCounter].animatorOV;
                 anim.Play("AttackState", 0, 0);
-                //weapon.EnableTriggerBox();
                 //weapon.damage = combo[comboCounter].damage;
 
                 comboCounter++;
@@ -71,7 +69,6 @@ public class PlayerCombat : MonoBehaviour
     void EndCombo()
     {
         comboCounter = 0;
-        //weapon.DisableTriggerBox();
         lastComboEnd = Time.time;
     }
 }

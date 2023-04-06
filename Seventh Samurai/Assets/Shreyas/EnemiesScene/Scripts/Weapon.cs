@@ -16,24 +16,14 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var bossEnemy = other.gameObject.GetComponent<BossEnemy>();
-        if(bossEnemy != null)
+        var bossHealth = other.gameObject.GetComponent<BossHealth>();
+        if(bossHealth != null)
         {
-            //bossEnemy.health -= damage;
-            //if (bossEnemy.health <= 0)
-            //{
-            //    Destroy(bossEnemy.gameObject);
-            //}
+            bossHealth.currentHealth -= damage;
+            if (bossHealth.currentHealth <= 0)
+            {
+                Destroy(bossHealth.gameObject);
+            }
         }
-    }
-
-    public void EnableTriggerBox()
-    {
-        triggerBox.enabled = true;
-    }
-
-    public void DisableTriggerBox()
-    {
-        triggerBox.enabled = false;
     }
 }

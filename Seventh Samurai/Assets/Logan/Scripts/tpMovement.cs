@@ -25,6 +25,9 @@ public class tpMovement : MonoBehaviour
     public Animator animator;
     public float aniTransSpeed = 0.01f;
 
+    [Header("Dash Stuff")]
+    public float dashSpeed;
+    public float dashTime;
 
     Vector3 velocity;
     
@@ -45,6 +48,12 @@ public class tpMovement : MonoBehaviour
         {
             velocity.y = -2f;
         }
+        if(Input.GetKeyDown("e"))
+        {
+            animator.SetBool("Dash", true);
+            StartCoroutine(Dash());
+        }
+
 
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -74,7 +83,27 @@ public class tpMovement : MonoBehaviour
         {
             animator.SetBool("Run", false);
         }
-    }   
 
+    }
 
+    IEnumerator Dash()
+    {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+        float startTime = Time.time;
+        float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+        Vector3 moveDir = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;
+        while (Time.time < startTime + dashTime)
+        {
+            controller.Move(moveDir * dashSpeed * Time.deltaTime);
+
+            yield return null;
+        }
+
+        animator.SetBool("Dash", false);
+    }
 }
