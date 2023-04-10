@@ -28,14 +28,18 @@ public class tpMovement : MonoBehaviour
     [Header("Dash Stuff")]
     public float dashSpeed;
     public float dashTime;
-
+    public float dashCooldown;
+    public bool canDash;
+    public bool dashTrue;
+    PlayerCombat PC;
     Vector3 velocity;
-    
 
 
     private void Start()
     {
-
+        canDash = true;
+        dashTrue = false;
+        PC = GetComponent<PlayerCombat>();
     }
 
     // Update is called once per frame
@@ -48,12 +52,14 @@ public class tpMovement : MonoBehaviour
         {
             velocity.y = -2f;
         }
-        if(Input.GetKeyDown("e"))
+        if(Input.GetKeyDown("e") && canDash == true)
         {
+            canDash = false;
+            dashTrue = true;
+            gravity = 0;
             animator.SetBool("Dash", true);
             StartCoroutine(Dash());
         }
-
 
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -103,7 +109,10 @@ public class tpMovement : MonoBehaviour
 
             yield return null;
         }
-
+        gravity = -32f;
         animator.SetBool("Dash", false);
+        dashTrue = false;
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 }

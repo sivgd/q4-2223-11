@@ -149,7 +149,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309486018}
-  m_LocalRotation: {x: 0.08032445, y: 0.0009835211, z: -0.00007925691, w: 0.9967683}
+  m_LocalRotation: {x: 0.08032444, y: 0.0012244462, z: -0.00009867183, w: 0.99676806}
   m_LocalPosition: {x: 5.89, y: 2.380393, z: -5.882969}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5869,7 +5869,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915091871}
-  m_LocalRotation: {x: 0.079012014, y: 0.000017773773, z: -0.0000014087459, w: 0.9968737}
+  m_LocalRotation: {x: 0.07901202, y: 0.000017778062, z: -0.000001409086, w: 0.9968737}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5973,7 +5973,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074787846}
-  m_LocalRotation: {x: 0.09811495, y: -0.0008037259, z: 0.000079239886, w: 0.99517477}
+  m_LocalRotation: {x: 0.09811498, y: -0.00040282606, z: 0.000039714898, w: 0.995175}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14669,13 +14669,13 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5597716880904315677}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: eda816479bca0e54ba03a3491c755790, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.38709253
-  m_Height: 1.6659377
+  m_Radius: 0.8125319
+  m_Height: 3.7674863
   m_Direction: 1
-  m_Center: {x: 0, y: 0.83, z: 0}
+  m_Center: {x: -0.0013283094, y: 1.8807744, z: 0.030289888}
 --- !u!54 &5597716880904315682
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15063,7 +15063,7 @@ MonoBehaviour:
   controller: {fileID: 6185489684467484737}
   cam: {fileID: 309486019}
   speed: 9
-  gravity: -32.33
+  gravity: -32
   jumpHeight: 2
   turnSmoothTime: 0.1
   groundCheck: {fileID: 994142654}
@@ -15076,6 +15076,9 @@ MonoBehaviour:
   aniTransSpeed: 0.01
   dashSpeed: 20
   dashTime: 0.3
+  dashCooldown: 2
+  canDash: 0
+  dashTrue: 0
 --- !u!143 &6185489684467484737
 CharacterController:
   m_ObjectHideFlags: 0
@@ -15113,6 +15116,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7ed72e5ec0dabbe4d85a03459955158f, type: 2}
   - {fileID: 11400000, guid: 61b1b70754cab3e47a97adf6262f4d7f, type: 2}
   timeBetweenAttacks: 0.5
+  attackTrue: 0
 --- !u!114 &6185489684467484739
 MonoBehaviour:
   m_ObjectHideFlags: 0

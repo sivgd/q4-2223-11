@@ -12,12 +12,13 @@ public class PlayerCombat : MonoBehaviour
     private tpMovement pMove;
 
     public float timeBetweenAttacks = 0.9f;
-
+    public bool attackTrue;
     Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
+        attackTrue = true;
         anim = GetComponent<Animator>();
         pMove = GetComponent<tpMovement>();
     }
@@ -25,9 +26,8 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && attackTrue == true && pMove.isGrounded == true)
         {
-            pMove.enabled = false;
             Attack();
         }
         ExitAttack();
@@ -37,6 +37,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Time.time - lastComboEnd > 1f && comboCounter <= combo.Count)
         {
+            pMove.enabled = false;
             CancelInvoke("EndCombo");
 
             if(Time.time - lastClickedTime >= timeBetweenAttacks)

@@ -53,12 +53,15 @@ public class BossEnemy : MonoBehaviour
     [Header("Look")]
     public float turnSpeed;
     Quaternion rotGoal;
+    Vector3 lookDirection;
     Vector3 direction;
     //AIManager aimanager;
+    Rigidbody rb;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         atLength = animator.GetBehaviour<AttackBehaviour>();
+        rb = GetComponent<Rigidbody>();
         keepTiming = true;
         slashEffect.SetActive(false);
     }
@@ -103,20 +106,11 @@ public class BossEnemy : MonoBehaviour
         timeDuringAttack = length + timeBetweenAttack;
 
 
-        direction = (playerGroundCheck.position - transform.position).normalized;
+        lookDirection = new Vector3(playerGroundCheck.position.x, transform.position.y, playerGroundCheck.position.z);
+        direction = (lookDirection - transform.position).normalized;
         rotGoal = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
     }
-    //private void lockRot()
-    //{
-    //    Vector3 playerLock = new Vector3(transform.position.x, player.position.y, player.position.z);
-    //}
-    //private void lookAtPlayer()
-    //{
-    //    direction = (player.position - transform.position).normalized;
-    //    rotGoal = Quaternion.LookRotation(direction);
-    //    transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
-    //}
     private void Chase()
     {
         agent.SetDestination(player.position);
