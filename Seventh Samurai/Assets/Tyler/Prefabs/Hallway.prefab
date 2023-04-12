@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 4094815497917324268}
   - component: {fileID: 4094815497917324271}
   - component: {fileID: 4094815497917324270}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1138,7 +1138,7 @@ GameObject:
   - component: {fileID: 4094815499452422644}
   - component: {fileID: 4094815499452422647}
   - component: {fileID: 4094815499452422646}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1451,7 +1451,7 @@ GameObject:
   - component: {fileID: 4094815499487307836}
   - component: {fileID: 4094815499487307839}
   - component: {fileID: 4094815499487307838}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1983,7 +1983,7 @@ GameObject:
   - component: {fileID: 4094815499488401486}
   - component: {fileID: 4094815499488401481}
   - component: {fileID: 4094815499488401480}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2296,13 +2296,13 @@ GameObject:
   - component: {fileID: 1573471112347994826}
   - component: {fileID: 4599804500795573563}
   - component: {fileID: 4568816965736939246}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &376601724901234899
 Transform:
   m_ObjectHideFlags: 0
@@ -2609,13 +2609,13 @@ GameObject:
   - component: {fileID: 8308126931822836338}
   - component: {fileID: 9183185585689225775}
   - component: {fileID: 2668689407717579865}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8006434384377784807
 Transform:
   m_ObjectHideFlags: 0
@@ -2922,13 +2922,13 @@ GameObject:
   - component: {fileID: 7940610503247360005}
   - component: {fileID: 5314495596872705181}
   - component: {fileID: 8685746084013728839}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Lockdoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &76395761533217993
 Transform:
   m_ObjectHideFlags: 0
@@ -4001,7 +4001,7 @@ GameObject:
   - component: {fileID: 3946194800177853861}
   - component: {fileID: 276049473221728080}
   - component: {fileID: 3180233215924885630}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Lockdoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
