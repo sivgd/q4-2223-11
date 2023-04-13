@@ -33,10 +33,11 @@ public class tpMovement : MonoBehaviour
     public bool dashTrue;
     PlayerCombat PC;
     Vector3 velocity;
-
+    public bool canMove;
 
     private void Start()
     {
+        canMove = true;
         canDash = true;
         dashTrue = false;
         PC = GetComponent<PlayerCombat>();
@@ -52,7 +53,7 @@ public class tpMovement : MonoBehaviour
         {
             velocity.y = -2f;
         }
-        if(Input.GetKeyDown("e") && canDash == true)
+        if(Input.GetKeyDown("e") && canDash == true && canMove == true)
         {
             canDash = false;
             dashTrue = true;
@@ -69,13 +70,13 @@ public class tpMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && canMove == true)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
 
-        if (direction.magnitude >= 0.1f)
+        if (direction.magnitude >= 0.1f && canMove == true)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);

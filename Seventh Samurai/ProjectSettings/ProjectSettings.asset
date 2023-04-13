@@ -16,7 +16,7 @@ PlayerSettings:
   productName: Seventh Samurai
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.114542544, g: 0.41829467, b: 0.735849, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 0.5

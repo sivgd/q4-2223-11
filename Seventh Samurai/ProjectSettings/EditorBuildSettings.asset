@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Tyler/Scenes/Level.unity
     guid: 183496699d97e26479a0d5030202f4be
+  - enabled: 1
+    path: Assets/Tyler/Scenes/BossLevel.unity
+    guid: bf2ce9c49b45036409fa0d83c91f7ad9
   m_configObjects: {}
