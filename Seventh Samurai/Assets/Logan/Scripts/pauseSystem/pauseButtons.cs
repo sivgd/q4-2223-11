@@ -11,12 +11,13 @@ public class pauseButtons : MonoBehaviour
     private GameObject returnToMenu;
     private GameObject pauseCanvasObj;
     private GameObject settingsCanvasObj;
-
+    public GameObject fadeOut;
     //buttons
 
     //bools
-    private bool isPaused;
-
+    public bool isPaused;
+    public tpMovement tp;
+    public PlayerCombat PC;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +63,8 @@ public class pauseButtons : MonoBehaviour
     public void returnToMenuButton()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("startScreen");
+        pauseCanvasObj.SetActive(false);
+        StartCoroutine(FadeWait());
     }
 
     public void openSettings()
@@ -77,4 +79,13 @@ public class pauseButtons : MonoBehaviour
         settingsCanvasObj.SetActive(false);
     }
 
+    IEnumerator FadeWait()
+    {
+        fadeOut.SetActive(true);
+        tp.speed = 0;
+        tp.canMove = false;
+        PC.canAttack = false;
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("startScreen");
+    }
 }

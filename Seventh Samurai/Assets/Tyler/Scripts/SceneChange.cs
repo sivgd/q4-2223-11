@@ -7,6 +7,7 @@ public class SceneChange : MonoBehaviour
 {
     public GameObject anim;
     public tpMovement tp;
+    public PlayerCombat PC;
     private void OnTriggerEnter(Collider other)
     {
         StartCoroutine(FadeWait());
@@ -16,6 +17,7 @@ public class SceneChange : MonoBehaviour
     {
         tp.speed = 0;
         tp.canMove = false;
+        PC.canAttack = false;
         anim.SetActive(true);
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

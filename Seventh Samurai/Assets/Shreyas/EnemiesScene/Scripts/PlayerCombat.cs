@@ -12,13 +12,13 @@ public class PlayerCombat : MonoBehaviour
     private tpMovement pMove;
 
     public float timeBetweenAttacks = 0.9f;
-    public bool attackTrue;
+    public bool canAttack;
     Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        attackTrue = true;
+        canAttack = true;
         anim = GetComponent<Animator>();
         pMove = GetComponent<tpMovement>();
     }
@@ -26,7 +26,7 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && attackTrue == true && pMove.isGrounded == true)
+        if(Input.GetMouseButtonDown(0) && canAttack == true && pMove.isGrounded == true)
         {
             Attack();
         }

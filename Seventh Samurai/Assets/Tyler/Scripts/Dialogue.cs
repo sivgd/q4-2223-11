@@ -17,6 +17,7 @@ public class Dialogue : MonoBehaviour
     public float textSpeed;
     public int index;
 
+    public pauseButtons PB;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +37,7 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !PB.isPaused)
         {
             if(textComponent.text == lines[index])
             {
