@@ -16525,7 +16525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1311525996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17166,9 +17166,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Animator
-
-    2D Art '
+  m_text: "Animator\n2D Art \nWeight Painting\nRigging"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 535d32e57dca0ca489e2b29587a13244, type: 2}
   m_sharedMaterial: {fileID: -5390045485235710554, guid: 535d32e57dca0ca489e2b29587a13244, type: 2}
@@ -19707,7 +19705,9 @@ MonoBehaviour:
     post
     processing
 
-    UI Design'
+    UI Design
+
+    Rigging'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 535d32e57dca0ca489e2b29587a13244, type: 2}
   m_sharedMaterial: {fileID: -5390045485235710554, guid: 535d32e57dca0ca489e2b29587a13244, type: 2}

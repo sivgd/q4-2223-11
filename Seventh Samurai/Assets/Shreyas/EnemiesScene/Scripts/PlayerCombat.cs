@@ -14,6 +14,7 @@ public class PlayerCombat : MonoBehaviour
     public float timeBetweenAttacks = 0.9f;
     public bool canAttack;
     Animator anim;
+    public GameObject weapon;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class PlayerCombat : MonoBehaviour
         canAttack = true;
         anim = GetComponent<Animator>();
         pMove = GetComponent<tpMovement>();
+        weapon.SetActive(false);
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 anim.runtimeAnimatorController = combo[comboCounter].animatorOV;
                 anim.Play("AttackState", 0, 0);
+                weapon.SetActive(true);
                 //weapon.damage = combo[comboCounter].damage;
 
                 comboCounter++;
@@ -63,6 +66,7 @@ public class PlayerCombat : MonoBehaviour
         if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             Invoke("EndCombo", 1);
+            weapon.SetActive(false);
             pMove.enabled = true;
         }
     }

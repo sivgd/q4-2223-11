@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public float damage;
-
-    BoxCollider triggerBox;
+    float damage;
 
     public CapsuleCollider bossCollider;
+
+    int comboCounter;
+    public List<PlayerAttackSO> combo;
     private void Start()
     {
-        triggerBox = GetComponent<BoxCollider>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,7 +19,7 @@ public class Weapon : MonoBehaviour
         var bossHealth = other.gameObject.GetComponent<BossHealth>();
         if(bossHealth != null)
         {
-            bossHealth.currentHealth -= damage;
+            bossHealth.currentHealth -= combo[comboCounter].damage;
             if (bossHealth.currentHealth <= 0)
             {
                 Destroy(bossHealth.gameObject);
