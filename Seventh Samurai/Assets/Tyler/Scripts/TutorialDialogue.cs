@@ -16,6 +16,7 @@ public class TutorialDialogue : MonoBehaviour
     public string[] lines;
     public float textSpeed;
     public int index;
+    
 
     public pauseButtons PB;
     // Start is called before the first frame update
@@ -29,8 +30,7 @@ public class TutorialDialogue : MonoBehaviour
         characterSprite = sprites[0];
         nameComponent.text = names[0];
         characterIcon.GetComponent<Image>().sprite = characterSprite;
-
-
+        GetComponent<tpMovement>().canMove = false;
         StartDialogue();
     }
 
