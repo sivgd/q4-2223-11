@@ -78,29 +78,31 @@ public class BossEnemy : MonoBehaviour
 
         if (!playerInAttackRange2 && playerInAttackRange3 && !alreadyAttacked)
         {
+            animator.SetFloat("Move", 0);
             Chase();
             keepTiming = true;
         }
 
         if(playerInAttackRange && !playerInAttackRange2 && playerInAttackRange3 && timeBetweenAttack <= 0)
         {
+            animator.SetFloat("Move", 0);
             Attack();
             keepTiming = false;
         }
 
         if (playerInAttackRange && playerInAttackRange2 && playerInAttackRange3)
         {
+            animator.SetFloat("Move", 0);
             Attack2();
             keepTiming = false;
         }
         
         if(!playerInAttackRange && !playerInAttackRange2 && playerInAttackRange3 && !alreadyAttacked)
         {
+            animator.SetFloat("Move", 0);
             Attack3();
             keepTiming = false;
         }
-
-        animator.SetFloat("Move", agent.velocity.magnitude);
 
         length = animator.GetCurrentAnimatorStateInfo(0).length;
         timeDuringAttack = length + timeBetweenAttack;
@@ -113,6 +115,7 @@ public class BossEnemy : MonoBehaviour
     }
     private void Chase()
     {
+        animator.SetFloat("Move", 1);
         agent.SetDestination(player.position);
     }
     //Fire Attack
