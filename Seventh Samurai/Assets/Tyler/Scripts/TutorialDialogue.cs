@@ -16,6 +16,11 @@ public class TutorialDialogue : MonoBehaviour
     public string[] lines;
     public float textSpeed;
     public int index;
+    public GameObject player;
+    public Animator door1;
+    public Animator door2;
+
+    public tpMovement moveScript;
     
 
     public pauseButtons PB;
@@ -30,7 +35,9 @@ public class TutorialDialogue : MonoBehaviour
         characterSprite = sprites[0];
         nameComponent.text = names[0];
         characterIcon.GetComponent<Image>().sprite = characterSprite;
-        GetComponent<tpMovement>().canMove = false;
+        //GetComponent<tpMovement>().canMove = false;
+        moveScript = player.GetComponent<tpMovement>();
+        moveScript.canMove = false;
         StartDialogue();
     }
 
@@ -82,6 +89,9 @@ public class TutorialDialogue : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
+            moveScript.canMove = true;
+            door1.SetTrigger("Open1");
+            door2.SetTrigger("Open2");
             // blackScreen.Play("BlackScreenTransition(Negitive)");
         }
     }
