@@ -8,6 +8,9 @@ public class Weapon : MonoBehaviour
 
     public CapsuleCollider bossCollider;
 
+    public Animator anim;
+
+    public BossEnemy BE;
     //int comboCounter;
     //public List<PlayerAttackSO> combo;
     private void Start()
@@ -20,9 +23,13 @@ public class Weapon : MonoBehaviour
         if(bossHealth != null)
         {
             bossHealth.currentHealth -= damage;
+            anim.SetTrigger("Impact");
             if (bossHealth.currentHealth <= 0)
             {
-                Destroy(bossHealth.gameObject);
+                BE.enabled = false;
+                BE.col.enabled = false;
+                anim.SetBool("Death", true);
+                //Destroy(bossHealth.gameObject, 4);
             }
         }
     }

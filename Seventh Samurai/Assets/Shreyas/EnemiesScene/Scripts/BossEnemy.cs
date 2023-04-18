@@ -15,6 +15,8 @@ public class BossEnemy : MonoBehaviour
     [HideInInspector]
     public bool walkPointSet;
     public float walkPointRange;
+    bool canRotate;
+    public CapsuleCollider col;
 
     [Header("Attack Stuff")]
     float timeDuringAttack;
@@ -41,14 +43,15 @@ public class BossEnemy : MonoBehaviour
     bool inAttackRange;
     public bool playerInAttackRange2;
 
-    [Header("Jump Attack")]
-    public AnimationCurve HeightCurve;
-    public float JumpSpeed;
+    [Header("Dash Attack")]
+    //public AnimationCurve HeightCurve;
+    public float dashSpeed;
     public Transform playerGroundCheck;
     public float timeBetweenAttack3;
     public float attackRange3;
     public bool playerInAttackRange3;
     bool attack3 = false;
+    Vector3 lastPosition;
 
     [Header("Look")]
     public float turnSpeed;
@@ -64,6 +67,7 @@ public class BossEnemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         keepTiming = true;
         slashEffect.SetActive(false);
+        canRotate = true;
     }
     private void Update()
     {
@@ -107,11 +111,13 @@ public class BossEnemy : MonoBehaviour
         length = animator.GetCurrentAnimatorStateInfo(0).length;
         timeDuringAttack = length + timeBetweenAttack;
 
-
-        lookDirection = new Vector3(playerGroundCheck.position.x, transform.position.y, playerGroundCheck.position.z);
-        direction = (lookDirection - transform.position).normalized;
-        rotGoal = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
+        if(canRotate == true)
+        {
+            lookDirection = new Vector3(playerGroundCheck.position.x, transform.position.y, playerGroundCheck.position.z);
+            direction = (lookDirection - transform.position).normalized;
+            rotGoal = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
+        }
     }
     private void Chase()
     {
@@ -140,7 +146,7 @@ public class BossEnemy : MonoBehaviour
             {
                 animator.SetBool("Attack", true);
                 alreadyAttacked = true;
-                yield return new WaitForSeconds(1.8f);
+                yield return new WaitForSeconds(1.4f);
                 Instantiate(fire, firePos.transform.position, firePos.transform.rotation);
                 yield return new WaitForSeconds(1.2f);
                 animator.SetBool("Attack", false);
@@ -151,6 +157,7 @@ public class BossEnemy : MonoBehaviour
                 break;
             }
         }
+        animator.ResetTrigger("Impact");
         slashEffect.SetActive(false);
         Invoke(nameof(Resetenemy2), timeBetweenAttack);
     }
@@ -166,6 +173,7 @@ public class BossEnemy : MonoBehaviour
     }
     IEnumerator attackAnim2()
     {
+        coolDownTime = Random.Range(2f, 5f);
         slashEffect.SetActive(true);
         animator.SetBool("Attack2", true);
         alreadyAttacked = true;
@@ -185,15 +193,18 @@ public class BossEnemy : MonoBehaviour
             }
             else
             {
+                animator.ResetTrigger("Impact");
                 animator.SetBool("Attack2", false);
                 Invoke(nameof(Resetenemy), coolDownTime);
             }
         }
         else
         {
+            animator.ResetTrigger("Impact");
             animator.SetBool("Attack2", false);
             Invoke(nameof(Resetenemy), coolDownTime);
         }
+        animator.ResetTrigger("Impact");
         animator.SetBool("Attack2", false);
         Invoke(nameof(Resetenemy), coolDownTime);
     }
@@ -215,19 +226,23 @@ public class BossEnemy : MonoBehaviour
         agent.enabled = false;
         Vector3 startingPos = transform.position;
         animator.SetBool("Attack3", true);
+        lastPosition = playerGroundCheck.position;
         yield return new WaitForSeconds(0.13f);
         slashEffect.SetActive(true);
-        for (float time = 0; time < 1; time += Time.deltaTime * JumpSpeed)
+        for (float time = 0; time < 1; time += Time.deltaTime * dashSpeed)
         {
             if (!playerInAttackRange2)
             {
-                transform.position = Vector3.Lerp(startingPos, playerGroundCheck.transform.position, time) + Vector3.up * HeightCurve.Evaluate(time);
+                canRotate = false;
+                transform.position = Vector3.Lerp(startingPos, lastPosition, time);// + Vector3.up * HeightCurve.Evaluate(time);
                 //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(playerLock - transform.position), time);
             }
             yield return null;
         }
         animator.SetBool("BossLanded", true);
         yield return new WaitForSeconds(2f);
+        animator.ResetTrigger("Impact");
+        canRotate = true;
         animator.SetBool("BossLanded", false);
         //slashEffect.SetActive(false);
         agent.enabled = true;
