@@ -257,12 +257,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   bossCollider: {fileID: 37955849}
-  combo:
-  - {fileID: 11400000, guid: a5c20618b8a67a8409160a82916be95c, type: 2}
-  - {fileID: 11400000, guid: 049bf46eba8224a4a82a614b9ce5f7a1, type: 2}
-  - {fileID: 11400000, guid: a5c20618b8a67a8409160a82916be95c, type: 2}
-  - {fileID: 11400000, guid: 049bf46eba8224a4a82a614b9ce5f7a1, type: 2}
-  - {fileID: 11400000, guid: 1f4030caca7a0f746891ab6369ae9327, type: 2}
 --- !u!1 &249885568
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,8 +626,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309486018}
-  m_LocalRotation: {x: 0.0687803, y: 0.0126116425, z: -0.00086956145, w: 0.99755174}
-  m_LocalPosition: {x: 0, y: 2.380393, z: -5.882969}
+  m_LocalRotation: {x: 0.06878052, y: 0.012366243, z: -0.0008526415, w: 0.99755484}
+  m_LocalPosition: {x: 5.23, y: 2.380393, z: -3.550969}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -876,7 +870,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529240948}
-  m_LocalRotation: {x: 0.08215085, y: 0.012081527, z: -0.0009959475, w: 0.9965462}
+  m_LocalRotation: {x: 0.08215125, y: 0.011672941, z: -0.00096226553, w: 0.99655104}
   m_LocalPosition: {x: 0, y: 0, z: 0.0000019073486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6689,7 +6683,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963669030}
-  m_LocalRotation: {x: 0.04906944, y: 0.0134111205, z: -0.00065892935, w: 0.99870515}
+  m_LocalRotation: {x: 0.049069446, y: 0.013411117, z: -0.0006589291, w: 0.99870515}
   m_LocalPosition: {x: 0, y: 0, z: 0.0000019073486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6793,7 +6787,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065962978}
-  m_LocalRotation: {x: 0.062452137, y: 0.014179082, z: -0.0008873358, w: 0.99794686}
+  m_LocalRotation: {x: 0.062452137, y: 0.014179077, z: -0.0008873355, w: 0.99794686}
   m_LocalPosition: {x: 0, y: 0, z: 0.0000038146973}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -22246,7 +22240,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1f4030caca7a0f746891ab6369ae9327, type: 2}
   timeBetweenAttacks: 0.5
   canAttack: 0
-  weaponCol: {fileID: 203360794}
   weapon: {fileID: 203360797}
 --- !u!114 &4263109986797621707
 MonoBehaviour:
@@ -23169,7 +23162,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   bossCollider: {fileID: 5597716880904315681}
-  combo: []
 --- !u!65 &4958223257855948725
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23252,7 +23244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &5018879067651753129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24104,7 +24096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &5597716880904315678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24889,7 +24881,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 61b1b70754cab3e47a97adf6262f4d7f, type: 2}
   timeBetweenAttacks: 0.5
   canAttack: 0
-  weaponCol: {fileID: 0}
   weapon: {fileID: 0}
 --- !u!114 &6185489684467484739
 MonoBehaviour:
