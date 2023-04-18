@@ -25,7 +25,6 @@ public class BossEnemy : MonoBehaviour
     public bool alreadyAttacked;
     AttackBehaviour atLength;
     public float length;
-    public GameObject slashEffect;
 
     [Header("Fire Attack")]
     public float attackRange;
@@ -44,7 +43,6 @@ public class BossEnemy : MonoBehaviour
     public bool playerInAttackRange2;
 
     [Header("Dash Attack")]
-    //public AnimationCurve HeightCurve;
     public float dashSpeed;
     public Transform playerGroundCheck;
     public float timeBetweenAttack3;
@@ -58,7 +56,6 @@ public class BossEnemy : MonoBehaviour
     Quaternion rotGoal;
     Vector3 lookDirection;
     Vector3 direction;
-    //AIManager aimanager;
     Rigidbody rb;
     private void Awake()
     {
@@ -66,7 +63,6 @@ public class BossEnemy : MonoBehaviour
         atLength = animator.GetBehaviour<AttackBehaviour>();
         rb = GetComponent<Rigidbody>();
         keepTiming = true;
-        slashEffect.SetActive(false);
         canRotate = true;
     }
     private void Update()
@@ -139,7 +135,6 @@ public class BossEnemy : MonoBehaviour
     }
     IEnumerator attackAnim()
     {
-        slashEffect.SetActive(true);
         for (int i = 0; i < 3; i++)
         {
             if (playerInAttackRange && !playerInAttackRange2 && playerInAttackRange3)
@@ -158,7 +153,6 @@ public class BossEnemy : MonoBehaviour
             }
         }
         animator.ResetTrigger("Impact");
-        slashEffect.SetActive(false);
         Invoke(nameof(Resetenemy2), timeBetweenAttack);
     }
 
@@ -174,7 +168,6 @@ public class BossEnemy : MonoBehaviour
     IEnumerator attackAnim2()
     {
         coolDownTime = Random.Range(2f, 5f);
-        slashEffect.SetActive(true);
         animator.SetBool("Attack2", true);
         alreadyAttacked = true;
         animator.SetBool("Hit1", true);
@@ -228,14 +221,13 @@ public class BossEnemy : MonoBehaviour
         animator.SetBool("Attack3", true);
         lastPosition = playerGroundCheck.position;
         yield return new WaitForSeconds(0.13f);
-        slashEffect.SetActive(true);
+        //slashEffect.SetActive(true);
         for (float time = 0; time < 1; time += Time.deltaTime * dashSpeed)
         {
             if (!playerInAttackRange2)
             {
                 canRotate = false;
-                transform.position = Vector3.Lerp(startingPos, lastPosition, time);// + Vector3.up * HeightCurve.Evaluate(time);
-                //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(playerLock - transform.position), time);
+                transform.position = Vector3.Lerp(startingPos, lastPosition, time);
             }
             yield return null;
         }
@@ -244,7 +236,6 @@ public class BossEnemy : MonoBehaviour
         animator.ResetTrigger("Impact");
         canRotate = true;
         animator.SetBool("BossLanded", false);
-        //slashEffect.SetActive(false);
         agent.enabled = true;
 
         if(NavMesh.SamplePosition(playerGroundCheck.transform.position, out NavMeshHit hit, 1f, agent.areaMask) && !playerInAttackRange2)
@@ -259,7 +250,6 @@ public class BossEnemy : MonoBehaviour
     private void Resetenemy()
     {
         alreadyAttacked = false;
-        slashEffect.SetActive(false);
     }
     private void Resetenemy2()
     {
