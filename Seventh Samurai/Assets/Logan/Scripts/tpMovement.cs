@@ -93,7 +93,7 @@ public class tpMovement : MonoBehaviour
 
     }
 
-    IEnumerator Dash()
+    public IEnumerator Dash()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");

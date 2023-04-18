@@ -37,15 +37,23 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Time.time - lastComboEnd > 1f && comboCounter <= combo.Count)
         {
-            pMove.enabled = false;
+            pMove.speed = 0;
             CancelInvoke("EndCombo");
 
             if(Time.time - lastClickedTime >= timeBetweenAttacks)
             {
+                if (Input.GetKeyDown("e") && pMove.canDash == true && pMove.canMove == true)
+                {
+                    pMove.enabled = true;
+                    pMove.canDash = false;
+                    pMove.dashTrue = true;
+                    pMove.gravity = 0;
+                    pMove.animator.SetBool("Dash", true);
+                    pMove.StartCoroutine(pMove.Dash());
+                }
                 anim.runtimeAnimatorController = combo[comboCounter].animatorOV;
                 anim.Play("AttackState", 0, 0);
                 weapon.damage = combo[comboCounter].damage;
-                
                 comboCounter++;
                 lastClickedTime = Time.time;
 
@@ -60,10 +68,10 @@ public class PlayerCombat : MonoBehaviour
     void ExitAttack()
     {
         
-        if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.3f && anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
-            Invoke("EndCombo", 1);
-            pMove.enabled = true;
+            Invoke("EndCombo", 0.3f);
+            //pMove.speed = 9;
         }
     }
 
@@ -71,5 +79,6 @@ public class PlayerCombat : MonoBehaviour
     {
         comboCounter = 0;
         lastComboEnd = Time.time;
+        pMove.speed = 9;
     }
 }
