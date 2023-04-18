@@ -55,6 +55,7 @@ public class tpMovement : MonoBehaviour
         }
         if(Input.GetKeyDown("e") && canDash == true && canMove == true)
         {
+            PC.enabled = false;
             canDash = false;
             dashTrue = true;
             gravity = 0;
@@ -113,6 +114,7 @@ public class tpMovement : MonoBehaviour
         gravity = -32f;
         animator.SetBool("Dash", false);
         dashTrue = false;
+        PC.enabled = true;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }

@@ -6,18 +6,19 @@ public class EnemyWeapon : MonoBehaviour
 {
     public float damage;
 
-    //public CapsuleCollider playerCollider;
-
-    public Animator anim;
-
-    public tpMovement move;
-    public PlayerCombat pc;
-
+    public BoxCollider playerCollider;
+    public GameObject player;
+    Animator anim;
+    tpMovement move;
+    PlayerCombat pc;
     public GameObject cam;
-    //int comboCounter;
-    //public List<PlayerAttackSO> combo;
+
+    [SerializeField] private Material mat;
     private void Start()
     {
+        anim = player.GetComponent<Animator>();
+        move = player.GetComponent<tpMovement>();
+        pc = player.GetComponent<PlayerCombat>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,8 +28,11 @@ public class EnemyWeapon : MonoBehaviour
         {
             playerHealth.currentHealth -= damage;
             anim.SetTrigger("Impact");
+
             if (playerHealth.currentHealth <= 0)
             {
+                mat.color = Color.red;
+                mat.SetColor("_EmissionColor", Color.red);
                 cam.SetActive(true);
                 move.enabled = false;
                 pc.enabled = false;

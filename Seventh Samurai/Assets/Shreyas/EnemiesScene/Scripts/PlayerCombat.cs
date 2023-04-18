@@ -15,6 +15,8 @@ public class PlayerCombat : MonoBehaviour
     public bool canAttack;
     Animator anim;
     public Weapon weapon;
+
+    [SerializeField] private Material mat;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,5 +82,18 @@ public class PlayerCombat : MonoBehaviour
         comboCounter = 0;
         lastComboEnd = Time.time;
         pMove.speed = 9;
+    }
+
+
+    void changeColorRed()
+    {
+        mat.color = Color.red;
+        mat.SetColor("_EmissionColor", Color.red);
+    }
+
+    void changeColorCyan()
+    {
+        mat.color = Color.cyan;
+        mat.SetColor("_EmissionColor", Color.cyan);
     }
 }

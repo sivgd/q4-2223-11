@@ -171,17 +171,17 @@ public class BossEnemy : MonoBehaviour
         animator.SetBool("Attack2", true);
         alreadyAttacked = true;
         animator.SetBool("Hit1", true);
-        yield return new WaitForSeconds(1.667f);
+        yield return new WaitForSeconds(1f);
         animator.SetBool("Hit1", false);
         if (playerInAttackRange2 == true)
         {
             animator.SetBool("Hit2", true);
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1f);
             animator.SetBool("Hit2", false);
             if (playerInAttackRange2 == true)
             {
                 animator.SetBool("Hit3", true);
-                yield return new WaitForSeconds(2.433f);
+                yield return new WaitForSeconds(1f);
                 animator.SetBool("Hit3", false);
             }
             else
