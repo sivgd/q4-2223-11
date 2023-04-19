@@ -17,6 +17,7 @@ public class BossEnemy : MonoBehaviour
     public float walkPointRange;
     bool canRotate;
     public CapsuleCollider col;
+    public EnemyWeapon weapon;
 
     [Header("Attack Stuff")]
     float timeDuringAttack;
@@ -168,20 +169,23 @@ public class BossEnemy : MonoBehaviour
     IEnumerator attackAnim2()
     {
         coolDownTime = Random.Range(2f, 5f);
+        weapon.damage = 2;
         animator.SetBool("Attack2", true);
         alreadyAttacked = true;
         animator.SetBool("Hit1", true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.75f);
         animator.SetBool("Hit1", false);
         if (playerInAttackRange2 == true)
         {
+            weapon.damage = 5;
             animator.SetBool("Hit2", true);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             animator.SetBool("Hit2", false);
             if (playerInAttackRange2 == true)
             {
+                weapon.damage = 8;
                 animator.SetBool("Hit3", true);
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.5f);
                 animator.SetBool("Hit3", false);
             }
             else

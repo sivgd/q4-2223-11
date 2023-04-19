@@ -16,10 +16,18 @@ public class PlayerCombat : MonoBehaviour
     Animator anim;
     public Weapon weapon;
 
+    public GameObject playerTrail1;
+    public GameObject playerTrail2;
+
     [SerializeField] private Material mat;
+    [SerializeField] private Material mat2;
     // Start is called before the first frame update
     void Start()
     {
+        mat.color = Color.cyan;
+        mat.SetColor("_EmissionColor", Color.cyan);
+        mat2.color = new Color(0, 61, 191);
+        mat2.SetColor("_EmissionColor", new Color(0, 61, 191));
         canAttack = true;
         anim = GetComponent<Animator>();
         pMove = GetComponent<tpMovement>();
@@ -30,6 +38,8 @@ public class PlayerCombat : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && canAttack == true && pMove.isGrounded == true)
         {
+            mat.color = Color.cyan;
+            mat.SetColor("_EmissionColor", Color.cyan);
             Attack();
         }
         ExitAttack();
@@ -87,13 +97,23 @@ public class PlayerCombat : MonoBehaviour
 
     void changeColorRed()
     {
+        playerTrail1.SetActive(false);
+        playerTrail2.SetActive(true);
         mat.color = Color.red;
         mat.SetColor("_EmissionColor", Color.red);
+
+        mat2.color = Color.red;
+        mat2.SetColor("_EmissionColor", Color.red);
     }
 
     void changeColorCyan()
     {
+        playerTrail1.SetActive(true);
+        playerTrail2.SetActive(false);
         mat.color = Color.cyan;
         mat.SetColor("_EmissionColor", Color.cyan);
+
+        mat2.color = new Color(0, 61, 191);
+        mat2.SetColor("_EmissionColor", new Color(0, 61, 191));
     }
 }
