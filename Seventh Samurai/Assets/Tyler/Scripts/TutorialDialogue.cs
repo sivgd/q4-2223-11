@@ -17,8 +17,8 @@ public class TutorialDialogue : MonoBehaviour
     public float textSpeed;
     public int index;
     public GameObject player;
-    public Animator door1;
-    public Animator door2;
+    //public Animator door1;
+    //public Animator door2;
 
     public tpMovement moveScript;
     
@@ -90,8 +90,8 @@ public class TutorialDialogue : MonoBehaviour
         {
             gameObject.SetActive(false);
             moveScript.canMove = true;
-            door1.SetTrigger("Open1");
-            door2.SetTrigger("Open2");
+            //door1.SetTrigger("Open1");
+            //door2.SetTrigger("Open2");
             // blackScreen.Play("BlackScreenTransition(Negitive)");
         }
     }
