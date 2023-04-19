@@ -8,6 +8,7 @@ public class PlayerCombat : MonoBehaviour
     float lastClickedTime;
     float lastComboEnd;
     int comboCounter;
+    public GameObject cam;
 
     private tpMovement pMove;
 
@@ -19,8 +20,8 @@ public class PlayerCombat : MonoBehaviour
     public GameObject playerTrail1;
     public GameObject playerTrail2;
 
-    [SerializeField] private Material mat;
-    [SerializeField] private Material mat2;
+    public Material mat;
+    public Material mat2;
     // Start is called before the first frame update
     void Start()
     {
@@ -99,11 +100,11 @@ public class PlayerCombat : MonoBehaviour
     {
         playerTrail1.SetActive(false);
         playerTrail2.SetActive(true);
-        mat.color = Color.red;
-        mat.SetColor("_EmissionColor", Color.red);
+        mat.color = Color.gray;
+        mat.SetColor("_EmissionColor", Color.gray);
 
-        mat2.color = Color.red;
-        mat2.SetColor("_EmissionColor", Color.red);
+        mat2.color = Color.gray;
+        mat2.SetColor("_EmissionColor", Color.gray);
     }
 
     void changeColorCyan()

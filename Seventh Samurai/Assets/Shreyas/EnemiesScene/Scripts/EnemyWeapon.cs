@@ -32,17 +32,22 @@ public class EnemyWeapon : MonoBehaviour
             anim.SetTrigger("Impact");
             if (playerHealth.currentHealth <= 0)
             {
-                trail.SetActive(false);
-                mat.color = Color.red;
-                mat.SetColor("_EmissionColor", Color.red);
-                mat2.color = Color.red;
-                mat2.SetColor("_EmissionColor", Color.red);
-                cam.SetActive(true);
-                move.enabled = false;
-                pc.enabled = false;
-                move.controller.enabled = false;
-                anim.SetBool("Death", true);
+                Death();
             }
         }
+    }
+
+    public void Death()
+    {
+        trail.SetActive(false);
+        mat.color = Color.gray;
+        mat.SetColor("_EmissionColor", Color.gray);
+        mat2.color = Color.gray;
+        mat2.SetColor("_EmissionColor", Color.gray);
+        cam.SetActive(true);
+        move.enabled = false;
+        pc.enabled = false;
+        move.controller.enabled = false;
+        anim.SetBool("Death", true);
     }
 }
