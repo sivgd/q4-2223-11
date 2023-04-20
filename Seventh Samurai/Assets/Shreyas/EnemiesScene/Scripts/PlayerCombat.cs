@@ -79,7 +79,7 @@ public class PlayerCombat : MonoBehaviour
         
         if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.2f && anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
-            Invoke("EndCombo", 1f);
+            Invoke("EndCombo", 0.35f);
             pMove.speed = 0;
         }
     }

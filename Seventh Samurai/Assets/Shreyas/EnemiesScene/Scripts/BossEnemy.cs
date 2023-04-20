@@ -59,6 +59,7 @@ public class BossEnemy : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator.ResetTrigger("Impact");
         //atLength = animator.GetBehaviour<AttackBehaviour>();
         rb = GetComponent<Rigidbody>();
         keepTiming = true;
@@ -219,9 +220,11 @@ public class BossEnemy : MonoBehaviour
         alreadyAttacked = true;
         agent.enabled = false;
         Vector3 startingPos = transform.position;
-        animator.SetBool("Attack3", true);
-        lastPosition = playerGroundCheck.position;
-        yield return new WaitForSeconds(0.13f);
+        //animator.SetBool("Attack3", true);
+        float dashGo = Random.Range(2, 3);
+        yield return new WaitForSeconds(dashGo);
+        lastPosition = new Vector3(playerGroundCheck.position.x, 0, playerGroundCheck.position.z);
+        animator.SetBool("DashTrue", true);
         //slashEffect.SetActive(true);
         for (float time = 0; time < 1; time += Time.deltaTime * dashSpeed)
         {
@@ -232,11 +235,12 @@ public class BossEnemy : MonoBehaviour
             }
             yield return null;
         }
-        animator.SetBool("BossLanded", true);
+        animator.SetBool("DashTrue", false);
+        animator.SetBool("DashEnd", true);
         yield return new WaitForSeconds(2f);
         animator.ResetTrigger("Impact");
         canRotate = true;
-        animator.SetBool("BossLanded", false);
+        animator.SetBool("DashEnd", false);
         agent.enabled = true;
 
         if(NavMesh.SamplePosition(playerGroundCheck.transform.position, out NavMeshHit hit, 1f, agent.areaMask) && !playerInAttackRange2)
