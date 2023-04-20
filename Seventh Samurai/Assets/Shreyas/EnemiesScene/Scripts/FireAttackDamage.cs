@@ -33,14 +33,17 @@ public class FireAttackDamage : MonoBehaviour
         if (playerHealth != null)
         {
             playerHealth.currentHealth -= damage;
-            anim.SetTrigger("Impact");
+            move.speed = 2;
+            move.animator.speed = 0.5f;
+            pc.enabled = false;
+            pc.mat.color = Color.gray;
+            pc.mat.SetColor("_EmissionColor", Color.gray);
+            pc.playerTrail1.SetActive(false);
             if (playerHealth.currentHealth <= 0)
             {
                 pc.playerTrail1.SetActive(false);
                 pc.mat.color = Color.gray;
                 pc.mat.SetColor("_EmissionColor", Color.gray);
-                pc.mat.color = Color.gray;
-                pc.mat2.SetColor("_EmissionColor", Color.gray);
                 pc.cam.SetActive(true);
                 move.enabled = false;
                 pc.enabled = false;
@@ -58,14 +61,19 @@ public class FireAttackDamage : MonoBehaviour
         var playerHealth = other.gameObject.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
-            anim.SetTrigger("Impact");
+            playerHealth.currentHealth -= 0.1f;
+            move.speed = 2;
+            move.animator.speed = 0.5f;
+            pc.enabled = false;
+            pc.mat.color = Color.gray;
+            pc.mat.SetColor("_EmissionColor", Color.gray);
+            pc.playerTrail1.SetActive(false);
+            //anim.SetTrigger("Impact");
             if (playerHealth.currentHealth <= 0)
             {
                 pc.playerTrail1.SetActive(false);
                 pc.mat.color = Color.gray;
                 pc.mat.SetColor("_EmissionColor", Color.gray);
-                pc.mat.color = Color.gray;
-                pc.mat2.SetColor("_EmissionColor", Color.gray);
                 pc.cam.SetActive(true);
                 move.enabled = false;
                 pc.enabled = false;
@@ -73,5 +81,24 @@ public class FireAttackDamage : MonoBehaviour
                 anim.SetBool("Death", true);
             }
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        var move = other.gameObject.GetComponent<tpMovement>();
+        var pc = other.gameObject.GetComponent<PlayerCombat>();
+        move.speed = 9;
+        move.animator.speed = 1f;
+        pc.enabled = true;
+        pc.mat.color = Color.cyan;
+        pc.mat.SetColor("_EmissionColor", Color.cyan);
+        pc.playerTrail1.SetActive(true);
+    }
+
+    public void setSpeed()
+    {
+        var move = FindObjectOfType<tpMovement>();
+        move.speed = 9;
+        move.animator.speed = 1f;
     }
 }

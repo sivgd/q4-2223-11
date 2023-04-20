@@ -18,14 +18,16 @@ public class BossEnemy : MonoBehaviour
     bool canRotate;
     public CapsuleCollider col;
     public EnemyWeapon weapon;
+    public Material mat;
+    public GameObject Trail;
 
     [Header("Attack Stuff")]
     float timeDuringAttack;
     bool keepTiming;
     [HideInInspector]
     public bool alreadyAttacked;
-    AttackBehaviour atLength;
-    public float length;
+    //AttackBehaviour atLength;
+    //public float length;
 
     [Header("Fire Attack")]
     public float attackRange;
@@ -37,10 +39,6 @@ public class BossEnemy : MonoBehaviour
     [Header("Basic Attack")]
     public float attackRange2;
     public float coolDownTime = 2f;
-    bool hit1;
-    bool hit2;
-    bool hit3;
-    bool inAttackRange;
     public bool playerInAttackRange2;
 
     [Header("Dash Attack")]
@@ -61,7 +59,7 @@ public class BossEnemy : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        atLength = animator.GetBehaviour<AttackBehaviour>();
+        //atLength = animator.GetBehaviour<AttackBehaviour>();
         rb = GetComponent<Rigidbody>();
         keepTiming = true;
         canRotate = true;
@@ -71,7 +69,6 @@ public class BossEnemy : MonoBehaviour
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         playerInAttackRange2 = Physics.CheckSphere(transform.position, attackRange2, whatIsPlayer);
         playerInAttackRange3 = Physics.CheckSphere(transform.position, attackRange3, whatIsPlayer);
-
         if (keepTiming)
         {
             timeBetweenAttack -= Time.deltaTime;
@@ -105,8 +102,8 @@ public class BossEnemy : MonoBehaviour
             keepTiming = false;
         }
 
-        length = animator.GetCurrentAnimatorStateInfo(0).length;
-        timeDuringAttack = length + timeBetweenAttack;
+        //length = animator.GetCurrentAnimatorStateInfo(0).length;
+        //timeDuringAttack = length + timeBetweenAttack;
 
         if(canRotate == true)
         {
@@ -160,7 +157,7 @@ public class BossEnemy : MonoBehaviour
     //Combo Attack
     private void Attack2()
     {
-        if(attack3 == false)
+        if (attack3 == false)
         {
             agent.SetDestination(transform.position);
         }
@@ -206,7 +203,7 @@ public class BossEnemy : MonoBehaviour
         Invoke(nameof(Resetenemy), coolDownTime);
     }
 
-    //Jump Attack
+    //Dash Attack
     private void Attack3()
     {
         attack3 = true;
@@ -283,5 +280,19 @@ public class BossEnemy : MonoBehaviour
 
     }
 
+    void ChangeColor()
+    {
+        Trail.SetActive(false);
+        mat.color = Color.gray;
+        mat.SetColor("_EmissionColor", Color.gray);
+    }
 
+    void ResetColor()
+    {
+        Trail.SetActive(true);
+        Color orange = new Color(0.7490196f, 0.2823529f, 0.01176471f);
+        Color orangeGlow = new Color(1.059274f, 0.06100529f, 0f);
+        mat.color = orange;
+        mat.SetColor("_EmissionColor", orangeGlow);
+    }
 }

@@ -62,7 +62,10 @@ public class tpMovement : MonoBehaviour
             animator.SetBool("Dash", true);
             StartCoroutine(Dash());
         }
-
+        if(dashTrue == true)
+        {
+            PC.enabled = false;
+        }
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
@@ -114,6 +117,7 @@ public class tpMovement : MonoBehaviour
         gravity = -32f;
         animator.SetBool("Dash", false);
         dashTrue = false;
+        yield return new WaitForSeconds(0.1f);
         PC.enabled = true;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;

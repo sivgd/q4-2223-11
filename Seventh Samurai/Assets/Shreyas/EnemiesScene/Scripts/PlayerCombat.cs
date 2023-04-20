@@ -15,20 +15,17 @@ public class PlayerCombat : MonoBehaviour
     public float timeBetweenAttacks = 0.9f;
     public bool canAttack;
     Animator anim;
+    public Animator BossAnimator;
     public Weapon weapon;
 
     public GameObject playerTrail1;
-    public GameObject playerTrail2;
 
     public Material mat;
-    public Material mat2;
     // Start is called before the first frame update
     void Start()
     {
         mat.color = Color.cyan;
         mat.SetColor("_EmissionColor", Color.cyan);
-        mat2.color = new Color(0, 61, 191);
-        mat2.SetColor("_EmissionColor", new Color(0, 61, 191));
         canAttack = true;
         anim = GetComponent<Animator>();
         pMove = GetComponent<tpMovement>();
@@ -48,7 +45,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack()
     {
-        if (Time.time - lastComboEnd > 1f && comboCounter <= combo.Count)
+        if (Time.time - lastComboEnd > 0.01f && comboCounter <= combo.Count)
         {
             pMove.speed = 0;
             CancelInvoke("EndCombo");
@@ -69,8 +66,7 @@ public class PlayerCombat : MonoBehaviour
                 weapon.damage = combo[comboCounter].damage;
                 comboCounter++;
                 lastClickedTime = Time.time;
-
-                if(comboCounter + 1 > combo.Count)
+                if (comboCounter + 1 > combo.Count)
                 {
                     comboCounter = 0;
                 }
@@ -81,10 +77,10 @@ public class PlayerCombat : MonoBehaviour
     void ExitAttack()
     {
         
-        if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.3f && anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.2f && anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
-            Invoke("EndCombo", 0.3f);
-            //pMove.speed = 9;
+            Invoke("EndCombo", 1f);
+            pMove.speed = 0;
         }
     }
 
@@ -96,25 +92,17 @@ public class PlayerCombat : MonoBehaviour
     }
 
 
-    void changeColorRed()
+    void changeColor()
     {
         playerTrail1.SetActive(false);
-        playerTrail2.SetActive(true);
         mat.color = Color.gray;
         mat.SetColor("_EmissionColor", Color.gray);
-
-        mat2.color = Color.gray;
-        mat2.SetColor("_EmissionColor", Color.gray);
     }
 
-    void changeColorCyan()
+    void ResetColor()
     {
         playerTrail1.SetActive(true);
-        playerTrail2.SetActive(false);
         mat.color = Color.cyan;
         mat.SetColor("_EmissionColor", Color.cyan);
-
-        mat2.color = new Color(0, 61, 191);
-        mat2.SetColor("_EmissionColor", new Color(0, 61, 191));
     }
 }

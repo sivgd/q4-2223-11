@@ -15,7 +15,6 @@ public class EnemyWeapon : MonoBehaviour
     public GameObject trail;
 
     [SerializeField] private Material mat;
-    [SerializeField] private Material mat2;
     private void Start()
     {
         anim = player.GetComponent<Animator>();
@@ -42,8 +41,6 @@ public class EnemyWeapon : MonoBehaviour
         trail.SetActive(false);
         mat.color = Color.gray;
         mat.SetColor("_EmissionColor", Color.gray);
-        mat2.color = Color.gray;
-        mat2.SetColor("_EmissionColor", Color.gray);
         cam.SetActive(true);
         move.enabled = false;
         pc.enabled = false;
