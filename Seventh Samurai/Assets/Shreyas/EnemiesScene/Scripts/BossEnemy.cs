@@ -223,6 +223,7 @@ public class BossEnemy : MonoBehaviour
         //animator.SetBool("Attack3", true);
         float dashGo = Random.Range(2, 3);
         yield return new WaitForSeconds(dashGo);
+        //yield return new WaitForSeconds(0.3f);
         lastPosition = new Vector3(playerGroundCheck.position.x, 0, playerGroundCheck.position.z);
         animator.SetBool("DashTrue", true);
         //slashEffect.SetActive(true);
@@ -290,7 +291,6 @@ public class BossEnemy : MonoBehaviour
         mat.color = Color.gray;
         mat.SetColor("_EmissionColor", Color.gray);
     }
-
     void ResetColor()
     {
         Trail.SetActive(true);
