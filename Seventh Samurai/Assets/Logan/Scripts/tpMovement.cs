@@ -117,6 +117,7 @@ public class tpMovement : MonoBehaviour
         gravity = -32f;
         animator.SetBool("Dash", false);
         dashTrue = false;
+        //controller.enabled = true;
         yield return new WaitForSeconds(0.1f);
         PC.enabled = true;
         yield return new WaitForSeconds(dashCooldown);
