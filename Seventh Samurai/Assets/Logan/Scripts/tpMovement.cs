@@ -35,6 +35,9 @@ public class tpMovement : MonoBehaviour
     Vector3 velocity;
     public bool canMove;
 
+    public AudioSource footsteps;
+
+
     private void Start()
     {
         canMove = true;
@@ -64,6 +67,7 @@ public class tpMovement : MonoBehaviour
         }
         if(dashTrue == true)
         {
+            footsteps.enabled = false;
             PC.enabled = false;
         }
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -86,6 +90,14 @@ public class tpMovement : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             animator.SetBool("Run", true);
+            if (isGrounded == true)
+            {
+                footsteps.enabled = true;
+            }
+            else
+            {
+                footsteps.enabled = false;
+            }
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
@@ -93,6 +105,7 @@ public class tpMovement : MonoBehaviour
         else
         {
             animator.SetBool("Run", false);
+            footsteps.enabled = false;
         }
 
     }
@@ -116,6 +129,7 @@ public class tpMovement : MonoBehaviour
         }
         gravity = -32f;
         animator.SetBool("Dash", false);
+        
         dashTrue = false;
         //controller.enabled = true;
         yield return new WaitForSeconds(0.1f);

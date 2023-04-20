@@ -36487,6 +36487,7 @@ MonoBehaviour:
   canDash: 0
   dashTrue: 0
   canMove: 1
+  footsteps: {fileID: 1224721852}
 --- !u!95 &1125807307
 Animator:
   serializedVersion: 3
@@ -42081,14 +42082,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -3202630528145531695, guid: e09e0c11661c67747961e9ddbcffcf94, type: 2}
   m_audioClip: {fileID: 8300000, guid: aed6c87179379ae43bc04b510f7f5a6b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
+  Priority: 56
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 10
   Pan2D: 0
