@@ -108,10 +108,17 @@ public class BossEnemy : MonoBehaviour
             animator.SetFloat("Move", 0);
             agent.speed = 0;
             BasicAttack();
-            keepTiming = false;
+            if(timeBetweenFireAttack >= 0)
+            {
+                keepTiming = true;
+            }
+            else
+            {
+                keepTiming = false;
+            }
         }
 
-        if (playerInFireAttackRange && !playerInBasicAttackRange  && timeBetweenFireAttack <= 0)
+        if (playerInFireAttackRange && !playerInBasicAttackRange && timeBetweenFireAttack <= 0)
         {
             animator.SetFloat("Move", 0);
             agent.speed = 0;
@@ -151,6 +158,7 @@ public class BossEnemy : MonoBehaviour
         col.enabled = false;
         animator.ResetTrigger("Impact");
         animator.SetBool("ReverseDash", true);
+        yield return new WaitForSeconds(0.4f);
         rb.isKinematic = false;
         rb.AddForce(-transform.forward * reverseDashForce, ForceMode.Impulse);
         yield return new WaitForSeconds(reverseDashTime);
@@ -228,7 +236,7 @@ public class BossEnemy : MonoBehaviour
                 alreadyAttacked = true;
                 yield return new WaitForSeconds(1f);
                 Instantiate(fire, firePos.transform.position, firePos.transform.rotation);
-                yield return new WaitForSeconds(1.2f);
+                yield return new WaitForSeconds(0.5f);
                 animator.SetBool("Attack", false);
                 yield return new WaitForSeconds(0.5f);
             }
@@ -243,9 +251,9 @@ public class BossEnemy : MonoBehaviour
 
     private void Resetenemy2()
     {
-        float timeAdd = Random.Range(10, 15);
+        float timeAdd = Random.Range(2, 3);
         alreadyAttacked = false;
-        timeBetweenFireAttack += timeAdd;
+        timeBetweenFireAttack += 10;
         keepTiming = true;
     }
 
@@ -279,7 +287,7 @@ public class BossEnemy : MonoBehaviour
         }
         animator.SetBool("DashTrue", false);
         animator.SetBool("DashEnd", true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         animator.ResetTrigger("Impact");
         canRotate = true;
         animator.SetBool("DashEnd", false);
