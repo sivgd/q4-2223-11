@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Dialogue : MonoBehaviour
 {
@@ -83,6 +84,14 @@ public class Dialogue : MonoBehaviour
         {
             gameObject.SetActive(false); 
             blackScreen.Play("BlackScreenTransition(Negitive)");
+            Invoke("SceneSwitch", 3);
         }
     }
+
+    void SceneSwitch()
+    {
+        SceneManager.LoadScene("Level");
+    }
+
+
 }
