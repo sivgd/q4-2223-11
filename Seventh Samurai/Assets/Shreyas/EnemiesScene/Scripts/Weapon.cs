@@ -14,13 +14,13 @@ public class Weapon : MonoBehaviour
         if(BE != null)
         {
             BE.currentHealth -= damage;
-            anim.SetTrigger("Impact");
+            BE.animator.SetTrigger("Impact");
             numberOfHits += 1;
             if (BE.currentHealth <= 0)
             {
                 BE.enabled = false;
                 BE.col.enabled = false;
-                anim.SetBool("Death", true);
+                BE.animator.SetBool("Death", true);
             }
         }
     }

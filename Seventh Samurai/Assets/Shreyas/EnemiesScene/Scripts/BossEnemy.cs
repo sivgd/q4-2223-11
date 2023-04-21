@@ -22,9 +22,8 @@ public class BossEnemy : MonoBehaviour
     public GameObject fire;
     public Transform firePos;
     public LayerMask whatIsGround, whatIsPlayer;
-    [HideInInspector]
-    public CapsuleCollider col;
-    Animator animator;
+    [HideInInspector] public CapsuleCollider col;
+    [HideInInspector] public Animator animator;
     EnemyWeapon weapon;
     bool canRotate;
 
