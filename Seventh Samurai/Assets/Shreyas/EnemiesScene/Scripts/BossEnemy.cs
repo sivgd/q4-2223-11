@@ -7,140 +7,227 @@ public class BossEnemy : MonoBehaviour
 {
     [Header("Enemy Move")]
     NavMeshAgent agent;
-    public Transform player;
-    public LayerMask whatIsGround, whatIsPlayer;
-    public Animator animator;
     Animation anim;
+    [HideInInspector]
     public Vector3 walkPoint;
     [HideInInspector]
     public bool walkPointSet;
+    [HideInInspector]
     public float walkPointRange;
-    bool canRotate;
-    public CapsuleCollider col;
-    public EnemyWeapon weapon;
+
+    [Header("Necessary Items")]
+    public Transform player;
     public Material mat;
     public GameObject Trail;
+    public GameObject fire;
+    public Transform firePos;
+    public LayerMask whatIsGround, whatIsPlayer;
+    [HideInInspector]
+    public CapsuleCollider col;
+    Animator animator;
+    EnemyWeapon weapon;
+    bool canRotate;
 
     [Header("Attack Stuff")]
     float timeDuringAttack;
     bool keepTiming;
     [HideInInspector]
     public bool alreadyAttacked;
-    //AttackBehaviour atLength;
-    //public float length;
-
-    [Header("Fire Attack")]
-    public float attackRange;
-    public float timeBetweenAttack;
-    public bool playerInAttackRange;
-    public GameObject fire;
-    public Transform firePos;
 
     [Header("Basic Attack")]
-    public float attackRange2;
+    public int damage1;
+    public int damage2;
+    public int damage3;
+    public float basicAttackRange;
     public float coolDownTime = 2f;
-    public bool playerInAttackRange2;
+    [HideInInspector]
+    public bool playerInBasicAttackRange;
+
+    [Header("Fire Attack")]
+    public float fireAttackRange;
+    public float timeBetweenFireAttack;
+    [HideInInspector]
+    public bool playerInFireAttackRange;
 
     [Header("Dash Attack")]
     public float dashSpeed;
-    public Transform playerGroundCheck;
-    public float timeBetweenAttack3;
-    public float attackRange3;
-    public bool playerInAttackRange3;
+    public float timeBetweenDashAttack;
     bool attack3 = false;
     Vector3 lastPosition;
 
+    [Header("Reverse Dash")]
+    public float reverseDashForce;
+    public float reverseDashTime;
+    public int numberOfHitsToActivate;
+    Weapon playerWeapon;
+
+    [Header("Health")]
+    public float maxHealth;
+    public float currentHealth;
+
     [Header("Look")]
-    public float turnSpeed;
+    float turnSpeed = 0.1f;
     Quaternion rotGoal;
     Vector3 lookDirection;
     Vector3 direction;
     Rigidbody rb;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        animator.ResetTrigger("Impact");
-        //atLength = animator.GetBehaviour<AttackBehaviour>();
         rb = GetComponent<Rigidbody>();
+        col = gameObject.GetComponent<CapsuleCollider>();
+        animator = GetComponent<Animator>();
+        weapon = FindObjectOfType<EnemyWeapon>();
+        playerWeapon = FindObjectOfType<Weapon>();
         keepTiming = true;
-        canRotate = true;
+        canRotate = true; 
+        ResetColor();
+
+        currentHealth = maxHealth;
     }
     private void Update()
     {
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-        playerInAttackRange2 = Physics.CheckSphere(transform.position, attackRange2, whatIsPlayer);
-        playerInAttackRange3 = Physics.CheckSphere(transform.position, attackRange3, whatIsPlayer);
+        playerInBasicAttackRange = Physics.CheckSphere(transform.position, basicAttackRange, whatIsPlayer);
+        playerInFireAttackRange = Physics.CheckSphere(transform.position, fireAttackRange, whatIsPlayer);
+
         if (keepTiming)
         {
-            timeBetweenAttack -= Time.deltaTime;
+            timeBetweenFireAttack -= Time.deltaTime;
         }
 
-        if (!playerInAttackRange2 && playerInAttackRange3 && !alreadyAttacked)
+        if (!playerInBasicAttackRange && playerInFireAttackRange && !alreadyAttacked)
         {
-            animator.SetFloat("Move", 0);
+            animator.SetFloat("Move", 1);
+            agent.speed = 2;
             Chase();
             keepTiming = true;
         }
 
-        if(playerInAttackRange && !playerInAttackRange2 && playerInAttackRange3 && timeBetweenAttack <= 0)
+        if (playerInFireAttackRange && playerInBasicAttackRange)
         {
             animator.SetFloat("Move", 0);
-            Attack();
+            agent.speed = 0;
+            BasicAttack();
             keepTiming = false;
         }
 
-        if (playerInAttackRange && playerInAttackRange2 && playerInAttackRange3)
+        if (playerInFireAttackRange && !playerInBasicAttackRange  && timeBetweenFireAttack <= 0)
         {
             animator.SetFloat("Move", 0);
-            Attack2();
-            keepTiming = false;
-        }
-        
-        if(!playerInAttackRange && !playerInAttackRange2 && playerInAttackRange3 && !alreadyAttacked)
-        {
-            animator.SetFloat("Move", 0);
-            Attack3();
+            agent.speed = 0;
+            FireAttack();
             keepTiming = false;
         }
 
-        //length = animator.GetCurrentAnimatorStateInfo(0).length;
-        //timeDuringAttack = length + timeBetweenAttack;
+        if(!playerInFireAttackRange && !playerInBasicAttackRange && !alreadyAttacked)
+        {
+            animator.SetFloat("Move", 0);
+            agent.speed = 0;
+            DashAttack();
+            keepTiming = false;
+        }
+        if(playerWeapon.numberOfHits >= numberOfHitsToActivate)
+        {
+            ReverseDash();
+        }
 
         if(canRotate == true)
         {
-            lookDirection = new Vector3(playerGroundCheck.position.x, transform.position.y, playerGroundCheck.position.z);
+            lookDirection = new Vector3(player.position.x, transform.position.y, player.position.z);
             direction = (lookDirection - transform.position).normalized;
             rotGoal = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
         }
     }
+
+    //Reverse Dash
+    void ReverseDash()
+    {
+        animator.SetBool("Attack2", false);
+        StartCoroutine(reverseDashAnim());
+    }
+    IEnumerator reverseDashAnim()
+    {
+        col.enabled = false;
+        animator.ResetTrigger("Impact");
+        animator.SetBool("ReverseDash", true);
+        rb.isKinematic = false;
+        rb.AddForce(-transform.forward * reverseDashForce, ForceMode.Impulse);
+        yield return new WaitForSeconds(reverseDashTime);
+        playerWeapon.numberOfHits = 0;
+        animator.SetBool("ReverseDash", false);
+        rb.isKinematic = true;
+        col.enabled = true;
+    }
+
+    //Chase
     private void Chase()
     {
         animator.SetFloat("Move", 1);
         agent.SetDestination(player.position);
     }
-    //Fire Attack
-    private void Attack()
+
+    //Combo Attack
+    private void BasicAttack()
     {
-        if(attack3 == false)
+        if (!alreadyAttacked)
+        {
+            StartCoroutine(basicAttackAnim());
+        }
+    }
+
+    IEnumerator basicAttackAnim()
+    {
+        col.enabled = false;
+        animator.ResetTrigger("Impact");
+        coolDownTime = Random.Range(2f, 5f);
+        animator.SetBool("Attack2", true);
+        alreadyAttacked = true;
+        //Hit1
+        weapon.damage = damage1;
+        animator.SetBool("Hit1", true);
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("Hit1", false);
+        //Hit2
+        weapon.damage = damage2;
+        animator.SetBool("Hit2", true);
+        yield return new WaitForSeconds(0.5f);
+        animator.SetBool("Hit2", false);
+        //Hit3
+        weapon.damage = damage3;
+        animator.SetBool("Hit3", true);
+        yield return new WaitForSeconds(0.5f);
+        animator.SetBool("Hit3", false);
+        //Reset
+        col.enabled = true;
+        animator.ResetTrigger("Impact");
+        animator.SetBool("Attack2", false);
+        Invoke(nameof(Resetenemy), coolDownTime);
+    }
+
+    //Fire Attack
+    private void FireAttack()
+    {
+        if (attack3 == false)
         {
             agent.SetDestination(transform.position);
         }
         if (!alreadyAttacked)
         {
-            animator.SetBool("Attack2", false);
-            StartCoroutine(attackAnim());
+            StartCoroutine(fireAttackAnim());
         }
     }
-    IEnumerator attackAnim()
+
+    IEnumerator fireAttackAnim()
     {
         for (int i = 0; i < 3; i++)
         {
-            if (playerInAttackRange && !playerInAttackRange2 && playerInAttackRange3)
+            if (playerInFireAttackRange && !playerInBasicAttackRange)
             {
                 animator.SetBool("Attack", true);
                 alreadyAttacked = true;
-                yield return new WaitForSeconds(1.4f);
+                yield return new WaitForSeconds(1f);
                 Instantiate(fire, firePos.transform.position, firePos.transform.rotation);
                 yield return new WaitForSeconds(1.2f);
                 animator.SetBool("Attack", false);
@@ -152,84 +239,39 @@ public class BossEnemy : MonoBehaviour
             }
         }
         animator.ResetTrigger("Impact");
-        Invoke(nameof(Resetenemy2), timeBetweenAttack);
+        Invoke(nameof(Resetenemy2), timeBetweenFireAttack);
     }
 
-    //Combo Attack
-    private void Attack2()
+    private void Resetenemy2()
     {
-        if (attack3 == false)
-        {
-            agent.SetDestination(transform.position);
-        }
-        StartCoroutine(waitBeforeAttack());
-    }
-    IEnumerator attackAnim2()
-    {
-        coolDownTime = Random.Range(2f, 5f);
-        weapon.damage = 2;
-        animator.SetBool("Attack2", true);
-        alreadyAttacked = true;
-        animator.SetBool("Hit1", true);
-        yield return new WaitForSeconds(0.75f);
-        animator.SetBool("Hit1", false);
-        if (playerInAttackRange2 == true)
-        {
-            weapon.damage = 5;
-            animator.SetBool("Hit2", true);
-            yield return new WaitForSeconds(0.5f);
-            animator.SetBool("Hit2", false);
-            if (playerInAttackRange2 == true)
-            {
-                weapon.damage = 8;
-                animator.SetBool("Hit3", true);
-                yield return new WaitForSeconds(0.5f);
-                animator.SetBool("Hit3", false);
-            }
-            else
-            {
-                animator.ResetTrigger("Impact");
-                animator.SetBool("Attack2", false);
-                Invoke(nameof(Resetenemy), coolDownTime);
-            }
-        }
-        else
-        {
-            animator.ResetTrigger("Impact");
-            animator.SetBool("Attack2", false);
-            Invoke(nameof(Resetenemy), coolDownTime);
-        }
-        animator.ResetTrigger("Impact");
-        animator.SetBool("Attack2", false);
-        Invoke(nameof(Resetenemy), coolDownTime);
+        float timeAdd = Random.Range(10, 15);
+        alreadyAttacked = false;
+        timeBetweenFireAttack += timeAdd;
+        keepTiming = true;
     }
 
     //Dash Attack
-    private void Attack3()
+    private void DashAttack()
     {
         attack3 = true;
         if (!alreadyAttacked)
         {
-            animator.SetBool("Attack2", false);
-            StartCoroutine(attackAnim3());
+            StartCoroutine(dashAttackAnim());
         }
     }
-    IEnumerator attackAnim3()
+
+    IEnumerator dashAttackAnim()
     {
         animator.SetBool("Attack3", true);
         alreadyAttacked = true;
-        agent.enabled = false;
         Vector3 startingPos = transform.position;
-        //animator.SetBool("Attack3", true);
         float dashGo = Random.Range(2, 3);
         yield return new WaitForSeconds(dashGo);
-        //yield return new WaitForSeconds(0.3f);
-        lastPosition = new Vector3(playerGroundCheck.position.x, 0, playerGroundCheck.position.z);
+        lastPosition = new Vector3(player.position.x, 0, player.position.z);
         animator.SetBool("DashTrue", true);
-        //slashEffect.SetActive(true);
         for (float time = 0; time < 1; time += Time.deltaTime * dashSpeed)
         {
-            if (!playerInAttackRange2)
+            if (!playerInBasicAttackRange)
             {
                 canRotate = false;
                 transform.position = Vector3.Lerp(startingPos, lastPosition, time);
@@ -242,46 +284,28 @@ public class BossEnemy : MonoBehaviour
         animator.ResetTrigger("Impact");
         canRotate = true;
         animator.SetBool("DashEnd", false);
-        agent.enabled = true;
 
-        if(NavMesh.SamplePosition(playerGroundCheck.transform.position, out NavMeshHit hit, 1f, agent.areaMask) && !playerInAttackRange2)
+        if(NavMesh.SamplePosition(player.transform.position, out NavMeshHit hit, 1f, agent.areaMask) && !playerInBasicAttackRange)
         {
             agent.Warp(transform.position);
         }
         animator.SetBool("Attack3", false);
         attack3 = false;
-        Invoke(nameof(Resetenemy), timeBetweenAttack3);
+        Invoke(nameof(Resetenemy), timeBetweenDashAttack);
 
     }
+
     private void Resetenemy()
     {
         alreadyAttacked = false;
     }
-    private void Resetenemy2()
-    {
-        float timeAdd = Random.Range(10, 15);
-        alreadyAttacked = false;
-        timeBetweenAttack += timeAdd;
-        keepTiming = true;
-    }
 
-    IEnumerator waitBeforeAttack()
-    {
-        yield return new WaitForSeconds(0.1f);
-        if (!alreadyAttacked)
-        {
-            animator.SetBool("Attack3", false);
-            StartCoroutine(attackAnim2());
-        }
-    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, fireAttackRange);
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange2);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, attackRange3);
+        Gizmos.DrawWireSphere(transform.position, basicAttackRange);
 
     }
 
@@ -291,6 +315,7 @@ public class BossEnemy : MonoBehaviour
         mat.color = Color.gray;
         mat.SetColor("_EmissionColor", Color.gray);
     }
+
     void ResetColor()
     {
         Trail.SetActive(true);

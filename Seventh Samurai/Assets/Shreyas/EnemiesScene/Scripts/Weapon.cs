@@ -5,20 +5,18 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public float damage;
-    private void Start()
-    {
-    }
+    public int numberOfHits;
 
     private void OnTriggerEnter(Collider other)
     {
-        var anim = other.gameObject.GetComponent<Animator>();
+        var anim = FindObjectOfType<Animator>();
         var BE = other.gameObject.GetComponent<BossEnemy>();
-        var bossHealth = other.gameObject.GetComponent<BossHealth>();
-        if(bossHealth != null)
+        if(BE != null)
         {
-            bossHealth.currentHealth -= damage;
+            BE.currentHealth -= damage;
             anim.SetTrigger("Impact");
-            if (bossHealth.currentHealth <= 0)
+            numberOfHits += 1;
+            if (BE.currentHealth <= 0)
             {
                 BE.enabled = false;
                 BE.col.enabled = false;

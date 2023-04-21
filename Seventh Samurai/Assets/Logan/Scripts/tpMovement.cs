@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class tpMovement : MonoBehaviour
 {
-    [Header("Cam Stuff")]
-    public CharacterController controller;
+    [Header("DragOnStuff")]
     public Transform cam;
+    public Transform groundCheck;
+    public AudioSource footsteps;
+    public LayerMask groundMask;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public CharacterController controller;
 
     [Header("Needed Values")]
     public float speed = 6f;
@@ -15,35 +19,31 @@ public class tpMovement : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
-    [Header("Grounding Stuff")]
-    public Transform groundCheck;
+    [Header("Grounding")]
     public float groundDistance = 0.4f;
-    public LayerMask groundMask;
-    public bool isGrounded;
+    [HideInInspector] public bool isGrounded;
 
-    [Header("Animation Stuff")]
-    public Animator animator;
+    [Header("Animation")]
     public float aniTransSpeed = 0.01f;
 
-    [Header("Dash Stuff")]
+    [Header("Dash")]
     public float dashSpeed;
     public float dashTime;
     public float dashCooldown;
-    public bool canDash;
-    public bool dashTrue;
     PlayerCombat PC;
     Vector3 velocity;
-    public bool canMove;
-
-    public AudioSource footsteps;
-
+    [HideInInspector] public bool canMove;
+    [HideInInspector] public bool canDash;
+    [HideInInspector] public bool dashTrue;
 
     private void Start()
     {
+        PC = GetComponent<PlayerCombat>();
+        controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
         canMove = true;
         canDash = true;
         dashTrue = false;
-        PC = GetComponent<PlayerCombat>();
     }
 
     // Update is called once per frame

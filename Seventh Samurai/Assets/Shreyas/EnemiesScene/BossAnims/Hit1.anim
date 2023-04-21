@@ -6143,15 +6143,6 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 0.8333333
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.9166667
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -6160,7 +6151,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.9583333
+        time: 0.9166667
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -6171,9 +6162,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_IsActive
+    attribute: m_Enabled
     path: WeaponCol
-    classID: 1
+    classID: 65
     script: {fileID: 0}
   m_PPtrCurves: []
   m_SampleRate: 24
@@ -6395,9 +6386,9 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 1525994864
-      attribute: 2086281974
+      attribute: 3305885265
       script: {fileID: 0}
-      typeID: 1
+      typeID: 65
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
@@ -28572,15 +28563,6 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 0.8333333
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.9166667
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -28589,7 +28571,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.9583333
+        time: 0.9166667
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -28600,9 +28582,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_IsActive
+    attribute: m_Enabled
     path: WeaponCol
-    classID: 1
+    classID: 65
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:

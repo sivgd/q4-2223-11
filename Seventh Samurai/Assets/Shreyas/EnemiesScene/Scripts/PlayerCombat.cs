@@ -5,30 +5,35 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public List<PlayerAttackSO> combo;
+    [Header("Necessary Items")]
+    public float timeBetweenAttacks;
+    public GameObject playerTrail;
+    public GameObject cam;
+    public Animator BossAnimator;
+    public Material mat;
+
+    [Header("Health")]
+    public float maxHealth;
+    public float currentHealth;
+
+    [HideInInspector] public bool canAttack;
+    [HideInInspector] public tpMovement pMove;
     float lastClickedTime;
     float lastComboEnd;
     int comboCounter;
-    public GameObject cam;
-
-    private tpMovement pMove;
-
-    public float timeBetweenAttacks = 0.9f;
-    public bool canAttack;
+    Weapon weapon;
     Animator anim;
-    public Animator BossAnimator;
-    public Weapon weapon;
-
-    public GameObject playerTrail1;
-
-    public Material mat;
     // Start is called before the first frame update
     void Start()
     {
-        mat.color = Color.cyan;
-        mat.SetColor("_EmissionColor", Color.cyan);
-        canAttack = true;
         anim = GetComponent<Animator>();
         pMove = GetComponent<tpMovement>();
+        weapon = FindObjectOfType<Weapon>();
+        canAttack = true;
+
+        mat.color = Color.cyan;
+        mat.SetColor("_EmissionColor", Color.cyan);
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -94,14 +99,14 @@ public class PlayerCombat : MonoBehaviour
 
     void changeColor()
     {
-        playerTrail1.SetActive(false);
+        playerTrail.SetActive(false);
         mat.color = Color.gray;
         mat.SetColor("_EmissionColor", Color.gray);
     }
 
     void ResetColor()
     {
-        playerTrail1.SetActive(true);
+        playerTrail.SetActive(true);
         mat.color = Color.cyan;
         mat.SetColor("_EmissionColor", Color.cyan);
     }
