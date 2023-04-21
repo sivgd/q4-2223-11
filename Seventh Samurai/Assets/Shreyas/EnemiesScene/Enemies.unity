@@ -625,7 +625,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309486018}
-  m_LocalRotation: {x: 0.06878052, y: 0.012366243, z: -0.0008526415, w: 0.99755484}
+  m_LocalRotation: {x: 0.06878031, y: 0.012611639, z: -0.00086956134, w: 0.99755174}
   m_LocalPosition: {x: 5.155, y: 2.380393, z: -3.550969}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5944,7 +5944,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529240948}
-  m_LocalRotation: {x: 0.08215125, y: 0.011672941, z: -0.00096226553, w: 0.99655104}
+  m_LocalRotation: {x: 0.08215085, y: 0.0120815225, z: -0.000995947, w: 0.9965462}
   m_LocalPosition: {x: 0, y: 0, z: 0.0000019073486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -24973,13 +24973,13 @@ MonoBehaviour:
   damage2: 5
   damage3: 8
   basicAttackRange: 2
-  coolDownTime: 2
+  coolDownTime: 5
   playerInBasicAttackRange: 0
   fireAttackRange: 30.56
-  timeBetweenFireAttack: 3
+  timeBetweenFireAttack: 10
   playerInFireAttackRange: 0
   dashSpeed: 5
-  timeBetweenDashAttack: 0
+  timeBetweenDashAttack: 3
   reverseDashForce: 4
   reverseDashTime: 1
   numberOfHitsToActivate: 5
