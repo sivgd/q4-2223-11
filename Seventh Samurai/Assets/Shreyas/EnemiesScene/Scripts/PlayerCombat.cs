@@ -30,9 +30,8 @@ public class PlayerCombat : MonoBehaviour
         pMove = GetComponent<tpMovement>();
         weapon = FindObjectOfType<Weapon>();
         canAttack = true;
+        ResetColor();
 
-        mat.color = Color.cyan;
-        mat.SetColor("_EmissionColor", Color.cyan);
         currentHealth = maxHealth;
     }
 
@@ -100,14 +99,12 @@ public class PlayerCombat : MonoBehaviour
     void changeColor()
     {
         playerTrail.SetActive(false);
-        mat.color = Color.gray;
-        mat.SetColor("_EmissionColor", Color.gray);
+        mat.DisableKeyword("_EMISSION");
     }
 
     void ResetColor()
     {
         playerTrail.SetActive(true);
-        mat.color = Color.cyan;
-        mat.SetColor("_EmissionColor", Color.cyan);
+        mat.EnableKeyword("_EMISSION");
     }
 }

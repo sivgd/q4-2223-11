@@ -319,16 +319,12 @@ public class BossEnemy : MonoBehaviour
     void ChangeColor()
     {
         Trail.SetActive(false);
-        mat.color = Color.gray;
-        mat.SetColor("_EmissionColor", Color.gray);
+        mat.DisableKeyword("_EMISSION");
     }
 
     void ResetColor()
     {
         Trail.SetActive(true);
-        Color orange = new Color(0.7490196f, 0.2823529f, 0.01176471f);
-        Color orangeGlow = new Color(1.059274f, 0.06100529f, 0f);
-        mat.color = orange;
-        mat.SetColor("_EmissionColor", orangeGlow);
+        mat.EnableKeyword("_EMISSION");
     }
 }
