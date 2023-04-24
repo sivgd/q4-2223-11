@@ -31,12 +31,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Blade.004
-    second: {fileID: 2100000, guid: ddfaba609a7cf3a4a8c437ea14e0732b, type: 2}
+    second: {fileID: 2100000, guid: 1b2231d329588af42a50bbafcb01bc1a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Gold Metal.002
-    second: {fileID: 2100000, guid: e9ee4531ddee93a4997726596a794c8c, type: 2}
+    second: {fileID: 2100000, guid: 1b2231d329588af42a50bbafcb01bc1a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -76,12 +76,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Sheat Rope.002
-    second: {fileID: 2100000, guid: e9ee4531ddee93a4997726596a794c8c, type: 2}
+    second: {fileID: 2100000, guid: 1b2231d329588af42a50bbafcb01bc1a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Skeletch
-    second: {fileID: 2100000, guid: ddfaba609a7cf3a4a8c437ea14e0732b, type: 2}
+    second: {fileID: 2100000, guid: 1b2231d329588af42a50bbafcb01bc1a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -91,7 +91,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Visor
-    second: {fileID: 2100000, guid: ddfaba609a7cf3a4a8c437ea14e0732b, type: 2}
+    second: {fileID: 2100000, guid: 1b2231d329588af42a50bbafcb01bc1a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
