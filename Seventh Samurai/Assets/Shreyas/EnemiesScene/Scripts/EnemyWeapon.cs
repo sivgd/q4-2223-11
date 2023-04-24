@@ -13,7 +13,6 @@ public class EnemyWeapon : MonoBehaviour
         var move = other.gameObject.GetComponent<tpMovement>();
         if (pc != null)
         {
-            move.animator.speed = 1;
             pc.currentHealth -= damage;
             anim.SetTrigger("Impact");
         }
