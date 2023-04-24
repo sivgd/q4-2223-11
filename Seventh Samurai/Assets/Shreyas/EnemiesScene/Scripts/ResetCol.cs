@@ -15,8 +15,7 @@ public class ResetCol : MonoBehaviour
             move.speed = 9;
             move.animator.speed = 1f;
             pc.enabled = true;
-            pc.mat.color = Color.cyan;
-            pc.mat.SetColor("_EmissionColor", Color.cyan);
+            pc.mat.EnableKeyword("_EMISSION");
             pc.playerTrail.SetActive(true);
         }
     }

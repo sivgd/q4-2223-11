@@ -26,8 +26,8 @@ public class PlayerCombat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
-        pMove = GetComponent<tpMovement>();
+        anim = gameObject.GetComponent<Animator>();
+        pMove = gameObject.GetComponent<tpMovement>();
         weapon = FindObjectOfType<Weapon>();
         canAttack = true;
         ResetColor();
@@ -43,6 +43,19 @@ public class PlayerCombat : MonoBehaviour
             mat.color = Color.cyan;
             mat.SetColor("_EmissionColor", Color.cyan);
             Attack();
+        }
+
+        if (currentHealth <= 0)
+        {
+            canAttack = false;
+            playerTrail.SetActive(false);
+            mat.DisableKeyword("_EMISSION");
+            cam.SetActive(true);
+            enabled = false;
+            pMove.enabled = false;
+            pMove.controller.enabled = false;
+            pMove.animator.speed = 0.5f;
+            anim.SetBool("Death", true);
         }
         ExitAttack();
     }

@@ -6,7 +6,6 @@ public class FireSlowDown : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        var anim = other.gameObject.GetComponent<Animator>();
         var move = other.gameObject.GetComponent<tpMovement>();
         var pc = other.gameObject.GetComponent<PlayerCombat>();
 
@@ -15,14 +14,12 @@ public class FireSlowDown : MonoBehaviour
             move.speed = 2;
             move.animator.speed = 0.5f;
             pc.enabled = false;
-            pc.mat.color = Color.gray;
-            pc.mat.SetColor("_EmissionColor", Color.gray);
+            pc.mat.DisableKeyword("_EMISSION");
             pc.playerTrail.SetActive(false);
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        var anim = other.gameObject.GetComponent<Animator>();
         var move = other.gameObject.GetComponent<tpMovement>();
         var pc = other.gameObject.GetComponent<PlayerCombat>();
         if (pc != null)
@@ -30,8 +27,7 @@ public class FireSlowDown : MonoBehaviour
             move.speed = 2;
             move.animator.speed = 0.5f;
             pc.enabled = false;
-            pc.mat.color = Color.gray;
-            pc.mat.SetColor("_EmissionColor", Color.gray);
+            pc.mat.DisableKeyword("_EMISSION");
             pc.playerTrail.SetActive(false);
         }
     }
@@ -44,8 +40,7 @@ public class FireSlowDown : MonoBehaviour
             move.speed = 9;
             move.animator.speed = 1f;
             pc.enabled = true;
-            pc.mat.color = Color.cyan;
-            pc.mat.SetColor("_EmissionColor", Color.cyan);
+            pc.mat.EnableKeyword("_EMISSION");
             pc.playerTrail.SetActive(true);
         }
     }

@@ -9,23 +9,13 @@ public class EnemyWeapon : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var anim = other.gameObject.GetComponent<Animator>();
-        var move = other.gameObject.GetComponent<tpMovement>();
         var pc = other.gameObject.GetComponent<PlayerCombat>();
+        var move = other.gameObject.GetComponent<tpMovement>();
         if (pc != null)
         {
+            move.animator.speed = 1;
             pc.currentHealth -= damage;
             anim.SetTrigger("Impact");
-            if (pc.currentHealth <= 0)
-            {
-                pc.playerTrail.SetActive(false);
-                pc.mat.color = Color.gray;
-                pc.mat.SetColor("_EmissionColor", Color.gray);
-                pc.cam.SetActive(true);
-                pc.enabled = false;
-                move.enabled = false;
-                move.controller.enabled = false;
-                anim.SetBool("Death", true);
-            }
         }
     }
 }

@@ -57,6 +57,7 @@ public class BossEnemy : MonoBehaviour
     [Header("Reverse Dash")]
     public float reverseDashForce;
     public float reverseDashTime;
+    bool reverseDashTrue;
     public int numberOfHitsToActivate;
     Weapon playerWeapon;
 
@@ -80,7 +81,8 @@ public class BossEnemy : MonoBehaviour
         weapon = FindObjectOfType<EnemyWeapon>();
         playerWeapon = FindObjectOfType<Weapon>();
         keepTiming = true;
-        canRotate = true; 
+        canRotate = true;
+        reverseDashTrue = false;
         ResetColor();
 
         currentHealth = maxHealth;
@@ -89,10 +91,15 @@ public class BossEnemy : MonoBehaviour
     {
         playerInBasicAttackRange = Physics.CheckSphere(transform.position, basicAttackRange, whatIsPlayer);
         playerInFireAttackRange = Physics.CheckSphere(transform.position, fireAttackRange, whatIsPlayer);
-
         if (keepTiming)
         {
             timeBetweenFireAttack -= Time.deltaTime;
+            timeBetweenDashAttack -= Time.deltaTime;
+        }
+
+        if (timeBetweenFireAttack <= 0 || timeBetweenDashAttack <= 0)
+        {
+            keepTiming = false;
         }
 
         if (!playerInBasicAttackRange && playerInFireAttackRange && !alreadyAttacked)
@@ -108,25 +115,26 @@ public class BossEnemy : MonoBehaviour
             animator.SetFloat("Move", 0);
             agent.speed = 0;
             BasicAttack();
-            if(timeBetweenFireAttack >= 0)
-            {
-                keepTiming = true;
-            }
-            else
+            keepTiming = true;
+            if (timeBetweenFireAttack <= 0 || timeBetweenDashAttack <= 0)
             {
                 keepTiming = false;
             }
+            else
+            {
+                keepTiming = true;
+            }
         }
 
-        if (playerInFireAttackRange && !playerInBasicAttackRange && timeBetweenFireAttack <= 0)
+        if (playerInFireAttackRange && !playerInBasicAttackRange && timeBetweenFireAttack <= 0 && !reverseDashTrue)
         {
             animator.SetFloat("Move", 0);
             agent.speed = 0;
             FireAttack();
             keepTiming = false;
         }
-
-        if(!playerInFireAttackRange && !playerInBasicAttackRange && !alreadyAttacked)
+        //!playerInFireAttackRange &&
+        if (!playerInBasicAttackRange && !alreadyAttacked && timeBetweenDashAttack <= 0 && !reverseDashTrue)
         {
             animator.SetFloat("Move", 0);
             agent.speed = 0;
@@ -156,16 +164,21 @@ public class BossEnemy : MonoBehaviour
     IEnumerator reverseDashAnim()
     {
         col.enabled = false;
+        reverseDashTrue = true;
         animator.ResetTrigger("Impact");
-        animator.SetBool("ReverseDash", true);
-        yield return new WaitForSeconds(0.4f);
+        animator.SetBool("ReverseJump", true);
+        yield return new WaitForSeconds(0.5f);
         rb.isKinematic = false;
         rb.AddForce(-transform.forward * reverseDashForce, ForceMode.Impulse);
         yield return new WaitForSeconds(reverseDashTime);
         playerWeapon.numberOfHits = 0;
-        animator.SetBool("ReverseDash", false);
         rb.isKinematic = true;
         col.enabled = true;
+        animator.SetBool("ReverseJumpLanded", true);
+        yield return new WaitForSeconds(1.6f);
+        reverseDashTrue = false;
+        animator.SetBool("ReverseJumpLanded", false);
+        animator.SetBool("ReverseJump", false);
     }
 
     //Chase
@@ -188,7 +201,6 @@ public class BossEnemy : MonoBehaviour
     {
         col.enabled = false;
         animator.ResetTrigger("Impact");
-        coolDownTime = Random.Range(2f, 5f);
         animator.SetBool("Attack2", true);
         alreadyAttacked = true;
         //Hit1
@@ -210,9 +222,12 @@ public class BossEnemy : MonoBehaviour
         col.enabled = true;
         animator.ResetTrigger("Impact");
         animator.SetBool("Attack2", false);
-        Invoke(nameof(Resetenemy), coolDownTime);
+        Invoke(nameof(ResetBasicAttack), coolDownTime);
     }
-
+    private void ResetBasicAttack()
+    {
+        alreadyAttacked = false;
+    }
     //Fire Attack
     private void FireAttack()
     {
@@ -246,12 +261,11 @@ public class BossEnemy : MonoBehaviour
             }
         }
         animator.ResetTrigger("Impact");
-        Invoke(nameof(Resetenemy2), timeBetweenFireAttack);
+        Invoke(nameof(FireAttackReset), timeBetweenFireAttack);
     }
 
-    private void Resetenemy2()
+    private void FireAttackReset()
     {
-        float timeAdd = Random.Range(2, 3);
         alreadyAttacked = false;
         timeBetweenFireAttack += 10;
         keepTiming = true;
@@ -275,6 +289,7 @@ public class BossEnemy : MonoBehaviour
         float dashGo = Random.Range(2, 3);
         yield return new WaitForSeconds(dashGo);
         lastPosition = new Vector3(player.position.x, 0, player.position.z);
+        yield return new WaitForSeconds(0.1f);
         animator.SetBool("DashTrue", true);
         for (float time = 0; time < 1; time += Time.deltaTime * dashSpeed)
         {
@@ -298,13 +313,14 @@ public class BossEnemy : MonoBehaviour
         }
         animator.SetBool("Attack3", false);
         attack3 = false;
-        Invoke(nameof(Resetenemy), timeBetweenDashAttack);
+        Invoke(nameof(DashAttackReset), timeBetweenDashAttack);
 
     }
-
-    private void Resetenemy()
+    private void DashAttackReset()
     {
         alreadyAttacked = false;
+        timeBetweenDashAttack += 10;
+        keepTiming = true;
     }
 
     private void OnDrawGizmosSelected()
