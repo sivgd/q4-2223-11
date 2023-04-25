@@ -14,6 +14,7 @@ public class PlayerCombat : MonoBehaviour
     [Header("Health")]
     public float maxHealth;
     public float currentHealth;
+    
 
     [HideInInspector] public bool canAttack;
     [HideInInspector] public tpMovement pMove;
