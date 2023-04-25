@@ -13,7 +13,7 @@ public class ResetCol : MonoBehaviour
         if (pc != null)
         {
             move.speed = 9;
-            move.animator.speed = 1f;
+            move.animator.SetFloat("Speed", 1f);
             pc.enabled = true;
             pc.mat.EnableKeyword("_EMISSION");
             pc.playerTrail.SetActive(true);

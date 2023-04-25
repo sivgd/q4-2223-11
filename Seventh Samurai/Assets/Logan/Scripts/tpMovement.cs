@@ -44,6 +44,7 @@ public class tpMovement : MonoBehaviour
         canMove = true;
         canDash = true;
         dashTrue = false;
+        animator.SetFloat("Speed", 1f);
     }
 
     // Update is called once per frame

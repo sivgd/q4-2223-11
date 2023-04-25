@@ -12,7 +12,7 @@ public class FireSlowDown : MonoBehaviour
         if (pc != null)
         {
             move.speed = 2;
-            move.animator.speed = 0.5f;
+            move.animator.SetFloat("Speed", 0.5f);
             pc.enabled = false;
             pc.mat.DisableKeyword("_EMISSION");
             pc.playerTrail.SetActive(false);
@@ -25,7 +25,7 @@ public class FireSlowDown : MonoBehaviour
         if (pc != null)
         {
             move.speed = 2;
-            move.animator.speed = 0.5f;
+            move.animator.SetFloat("Speed", 0.5f);
             pc.enabled = false;
             pc.mat.DisableKeyword("_EMISSION");
             pc.playerTrail.SetActive(false);
@@ -38,7 +38,7 @@ public class FireSlowDown : MonoBehaviour
         if (pc != null)
         {
             move.speed = 9;
-            move.animator.speed = 1f;
+            move.animator.SetFloat("Speed", 1f);
             pc.enabled = true;
             pc.mat.EnableKeyword("_EMISSION");
             pc.playerTrail.SetActive(true);
