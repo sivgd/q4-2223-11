@@ -7,13 +7,13 @@ using UnityEngine.AI;
 [DefaultExecutionOrder(1)]
 public class CloseRangeUnit : MonoBehaviour
 {
-    [HideInInspector] public NavMeshAgent agent;
-    [HideInInspector] public MeleeGruntEnemy MG;
+    public NavMeshAgent agent;
+    public MeleeGruntEnemy MG;
 
     private void Awake()
     {
-        agent = gameObject.GetComponent<NavMeshAgent>();
-        MG = gameObject.GetComponent<MeleeGruntEnemy>();
+        agent = GetComponent<NavMeshAgent>();
+        MG = GetComponent<MeleeGruntEnemy>();
         AIManager.Instance.CUnits.Add(this);
     }
     void Update()
