@@ -6,7 +6,6 @@ public class ResetCol : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        var anim = other.gameObject.GetComponent<Animator>();
         var move = other.gameObject.GetComponent<tpMovement>();
         var pc = other.gameObject.GetComponent<PlayerCombat>();
 

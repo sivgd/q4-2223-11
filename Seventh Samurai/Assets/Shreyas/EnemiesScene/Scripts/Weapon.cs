@@ -9,8 +9,8 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var anim = FindObjectOfType<Animator>();
         var BE = other.gameObject.GetComponent<BossEnemy>();
+        var gruntEnemy = other.gameObject.GetComponent<MeleeGruntEnemy>();
         if(BE != null)
         {
             BE.currentHealth -= damage;
@@ -21,6 +21,18 @@ public class Weapon : MonoBehaviour
                 BE.enabled = false;
                 BE.col.enabled = false;
                 BE.animator.SetBool("Death", true);
+            }
+        }
+        if(gruntEnemy != null)
+        {
+            gruntEnemy.currentHealth -= damage;
+            gruntEnemy.animator.SetTrigger("Impact");
+            if (gruntEnemy.currentHealth <= 0)
+            {
+                gruntEnemy.enabled = false;
+                gruntEnemy.agent.speed = 0;
+                gruntEnemy.gruntCol.enabled = false;
+                gruntEnemy.animator.SetBool("Death", true);
             }
         }
     }

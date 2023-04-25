@@ -132,7 +132,6 @@ public class tpMovement : MonoBehaviour
         animator.SetBool("Dash", false);
         
         dashTrue = false;
-        //controller.enabled = true;
         yield return new WaitForSeconds(0.1f);
         PC.enabled = true;
         yield return new WaitForSeconds(dashCooldown);

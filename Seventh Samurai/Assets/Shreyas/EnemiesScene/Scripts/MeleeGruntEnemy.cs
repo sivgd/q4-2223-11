@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class MeleeGruntEnemy : MonoBehaviour
 {
     [Header("EnemyMove")]
-    NavMeshAgent agent;
+    [HideInInspector] public NavMeshAgent agent;
     public Transform player;
     public Animator animator;
     public LayerMask whatIsGround, whatIsPlayer;
@@ -14,6 +14,7 @@ public class MeleeGruntEnemy : MonoBehaviour
     [HideInInspector] public bool walkPointSet;
     [HideInInspector] public float walkPointRange;
     [HideInInspector] public bool alreadyAttacked;
+    [HideInInspector] public bool DeathTrue;
     [HideInInspector] public CapsuleCollider gruntCol;
 
     [Header("Attack")]
@@ -33,6 +34,7 @@ public class MeleeGruntEnemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         gruntCol = gameObject.GetComponent<CapsuleCollider>();
         currentHealth = maxHealth;
+        DeathTrue = false;
     }
 
     private void Update()
@@ -83,7 +85,6 @@ public class MeleeGruntEnemy : MonoBehaviour
     {
         alreadyAttacked = false;
     }
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

@@ -9,7 +9,6 @@ public class PlayerCombat : MonoBehaviour
     public float timeBetweenAttacks;
     public GameObject playerTrail;
     public GameObject cam;
-    public Animator BossAnimator;
     public Material mat;
 
     [Header("Health")]
