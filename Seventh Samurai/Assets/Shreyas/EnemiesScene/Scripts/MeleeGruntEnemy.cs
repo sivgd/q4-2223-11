@@ -9,30 +9,33 @@ public class MeleeGruntEnemy : MonoBehaviour
     [HideInInspector] public NavMeshAgent agent;
     public Transform player;
     public Animator animator;
-    public LayerMask whatIsGround, whatIsPlayer;
+    public LayerMask whatIsGround, whatIsPlayer, whatIsEnemy;
     [HideInInspector] public Vector3 walkPoint;
     [HideInInspector] public bool walkPointSet;
     [HideInInspector] public float walkPointRange;
     [HideInInspector] public bool alreadyAttacked;
     [HideInInspector] public bool DeathTrue;
     [HideInInspector] public CapsuleCollider gruntCol;
+    DetectEnemy detect;
 
     [Header("Attack")]
     public float timeBetweenAttack;
     public float AttackRange;
     [HideInInspector] public bool playerInAttackRange;
 
+
     [Header("Health")]
     public float maxHealth;
     public float currentHealth;
 
-    [HideInInspector] public float turnSpeed;
+    public float turnSpeed;
     Quaternion rotGoal;
     Vector3 direction;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         gruntCol = gameObject.GetComponent<CapsuleCollider>();
+        detect = gameObject.GetComponentInChildren<DetectEnemy>();
         currentHealth = maxHealth;
         DeathTrue = false;
     }
@@ -41,12 +44,18 @@ public class MeleeGruntEnemy : MonoBehaviour
     {
         playerInAttackRange = Physics.CheckSphere(transform.position, AttackRange, whatIsPlayer);
 
-        if (!playerInAttackRange)
+
+        if (!playerInAttackRange && detect.enemyDetectTrue == false)
         {
             animator.SetFloat("Move", 1);
+            agent.speed = 4;
             Chase();
         }
-
+        else if(detect.enemyDetectTrue == true)
+        {
+            animator.SetFloat("Move", 0);
+            agent.speed = 0;
+        }
         if (playerInAttackRange)
         {
             animator.SetFloat("Move", 0);
@@ -64,14 +73,13 @@ public class MeleeGruntEnemy : MonoBehaviour
     {
         agent.SetDestination(transform.position);
 
-        direction = (player.position - transform.position).normalized;
-        rotGoal = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
-
         if (!alreadyAttacked)
         {
             StartCoroutine(attackAnim());
         }
+        direction = (player.position - transform.position).normalized;
+        rotGoal = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
     }
     IEnumerator attackAnim()
     {

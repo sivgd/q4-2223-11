@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     {
         var BE = other.gameObject.GetComponent<BossEnemy>();
         var gruntEnemy = other.gameObject.GetComponent<MeleeGruntEnemy>();
+        var rangedEnemy = other.gameObject.GetComponent<RangedEnemy>();
         if(BE != null)
         {
             BE.currentHealth -= damage;
@@ -33,6 +34,20 @@ public class Weapon : MonoBehaviour
                 gruntEnemy.agent.speed = 0;
                 gruntEnemy.gruntCol.enabled = false;
                 gruntEnemy.animator.SetBool("Death", true);
+            }
+        }
+        if (rangedEnemy != null)
+        {
+            rangedEnemy.currentHealth -= damage;
+            rangedEnemy.gruntAnimator.SetTrigger("Impact");
+            rangedEnemy.bowAnimator.SetTrigger("Impact");
+            if (rangedEnemy.currentHealth <= 0)
+            {
+                rangedEnemy.enabled = false;
+                rangedEnemy.agent.speed = 0;
+                rangedEnemy.rangeCol.enabled = false;
+                rangedEnemy.gruntAnimator.SetBool("Death", true);
+                rangedEnemy.bowAnimator.SetBool("Death", true);
             }
         }
     }
