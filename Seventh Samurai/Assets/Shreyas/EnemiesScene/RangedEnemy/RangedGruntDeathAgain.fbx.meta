@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: a391fbf827b724a93b959e03b9c0fbc4
+guid: f279fd2acb29cae4bacc12452efe1a77
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable:
   - first:
-      74: 4264612480362930771
-    second: Armature.002|Armature.001Action.001
+      74: 2264077025236624520
+    second: Armature.001|Armature.001Action
   - first:
-      74: -6330207154204098069
+      74: 6093225430303232669
+    second: Armature|ArmatureAction.002
+  - first:
+      74: -5766384297242255256
     second: BowDeath
   - first:
-      74: -4892983548465906659
+      74: 4348485665485846014
     second: Death
   externalObjects: {}
   materials:
@@ -41,37 +44,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature.002|Armature.001Action.001
-      takeName: Armature.002|Armature.001Action.001
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 1
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
       name: BowDeath
-      takeName: Armature.002|Armature.001Action.002
+      takeName: Armature.001|Armature.001Action
       internalID: 0
       firstFrame: 0
       lastFrame: 30
@@ -100,7 +74,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Death
-      takeName: Armature.003|ArmatureAction.001
+      takeName: Armature|ArmatureAction.002
       internalID: 0
       firstFrame: 0
       lastFrame: 30
@@ -186,11 +160,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: f78574ed11f0046d1884a77731eda52b, type: 3}
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 2
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
