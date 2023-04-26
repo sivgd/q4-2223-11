@@ -10,7 +10,7 @@ public class EnemyWeapon : MonoBehaviour
 
     public void Start()
     {
-        playerHealthMask = GameObject.Find("playerHealthMask");
+        playerHealthMask = GameObject.Find("Mask");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -20,7 +20,7 @@ public class EnemyWeapon : MonoBehaviour
         //var move = other.gameObject.GetComponent<tpMovement>();
         if (pc != null)
         {
-            playerHealthMask.GetComponent<healthMask>().moveMask(pc.currentHealth, pc.maxHealth);
+            playerHealthMask.GetComponent<healthMask>().moveMask(pc.maxHealth, -damage);
             pc.currentHealth -= damage;
             anim.SetTrigger("Impact");
         }

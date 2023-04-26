@@ -5,15 +5,20 @@ using UnityEngine;
 public class FireAttackDamage : MonoBehaviour
 {
     public float damage;
+    
+    public GameObject playerHealthMask;
 
+    public void Start()
+    {
+        playerHealthMask = GameObject.Find("Mask");
+    }
     private void OnTriggerEnter(Collider other)
     {
-        var anim = other.gameObject.GetComponent<Animator>();
-        var move = other.gameObject.GetComponent<tpMovement>();
         var pc = other.gameObject.GetComponent<PlayerCombat>();
 
         if (pc != null)
         {
+            playerHealthMask.GetComponent<healthMask>().moveMask(pc.maxHealth, damage);
             pc.currentHealth -= damage;
         }
     }
