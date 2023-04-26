@@ -14,7 +14,13 @@ public class PlayerCombat : MonoBehaviour
     [Header("Health")]
     public float maxHealth;
     public float currentHealth;
-    
+
+    public float healthRegenCD;
+    public float healthRegenRate;
+    //public float currentRegenTime = 2;
+    public bool healPlayer;
+    private GameObject playerHealthMask;
+
 
     [HideInInspector] public bool canAttack;
     [HideInInspector] public tpMovement pMove;
@@ -31,6 +37,7 @@ public class PlayerCombat : MonoBehaviour
         weapon = FindObjectOfType<Weapon>();
         canAttack = true;
         ResetColor();
+        playerHealthMask = GameObject.Find("Mask");
 
         currentHealth = maxHealth;
     }
@@ -58,6 +65,19 @@ public class PlayerCombat : MonoBehaviour
             anim.SetBool("Death", true);
         }
         ExitAttack();
+
+
+        if(healPlayer == true && currentHealth <= 100)
+        {
+            currentHealth += healthRegenRate;
+            playerHealthMask.GetComponent<healthMask>().moveMask(currentHealth, maxHealth);
+        }
+
+        if(currentHealth > 100)
+        {
+            currentHealth = 100;
+        }
+
     }
 
     void Attack()
@@ -120,4 +140,20 @@ public class PlayerCombat : MonoBehaviour
         playerTrail.SetActive(true);
         mat.EnableKeyword("_EMISSION");
     }
+
+    public IEnumerator playerRegenHealth()
+    {
+        yield return new WaitForSeconds(healthRegenCD);
+        if(currentHealth <= 100)
+        {
+            healPlayer = true;
+        }
+        else
+        {
+            healPlayer = false;
+            yield return null;
+        }    
+
+    }
+
 }

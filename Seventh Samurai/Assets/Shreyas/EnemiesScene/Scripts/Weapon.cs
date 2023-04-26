@@ -7,6 +7,13 @@ public class Weapon : MonoBehaviour
     public float damage;
     public int numberOfHits;
 
+    private GameObject bossHealthMask;
+
+    private void Start()
+    {
+        bossHealthMask = GameObject.Find("EnemyMask");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         var BE = other.gameObject.GetComponent<BossEnemy>();
@@ -14,6 +21,7 @@ public class Weapon : MonoBehaviour
         var rangedEnemy = other.gameObject.GetComponent<RangedEnemy>();
         if(BE != null)
         {
+            bossHealthMask.GetComponent<healthMask>().moveEnemyMask(BE.currentHealth, BE.maxHealth);
             BE.currentHealth -= damage;
             BE.animator.SetTrigger("Impact");
             numberOfHits += 1;
