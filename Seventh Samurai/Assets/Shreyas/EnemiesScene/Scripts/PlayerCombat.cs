@@ -10,6 +10,7 @@ public class PlayerCombat : MonoBehaviour
     public GameObject playerTrail;
     public GameObject cam;
     public Material mat;
+    public GameObject FlowSparks;
 
     [Header("Health")]
     public float maxHealth;
@@ -20,6 +21,7 @@ public class PlayerCombat : MonoBehaviour
     //public float currentRegenTime = 2;
     public bool healPlayer;
     private GameObject playerHealthMask;
+
 
 
     [HideInInspector] public bool canAttack;
@@ -81,11 +83,13 @@ public class PlayerCombat : MonoBehaviour
         if(weapon.flowState == true)
         {
             //pMove.speed = 15;
+            FlowSparks.SetActive(true);
             timeBetweenAttacks = 0.25f;
         }
         else
         {
             //pMove.speed = 9;
+            FlowSparks.SetActive(false);
             timeBetweenAttacks = 0.35f;
         }
 

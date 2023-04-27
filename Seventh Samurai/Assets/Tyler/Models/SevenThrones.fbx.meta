@@ -3,7 +3,282 @@ guid: 09620761dbdbb4f4d8ab697afbab1bf7
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Armor
+    second: {fileID: 2100000, guid: fd23d7e0e5a578f4883517b824f2579e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Armor.001
+    second: {fileID: 2100000, guid: 447839ec16ebe024380fe96a7b994d7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Armor.003
+    second: {fileID: 2100000, guid: 5726563b9f0679e4098b8c8d4a552198, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLack Armor
+    second: {fileID: 2100000, guid: 943abba638d7f724db2cd4a16e11723c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLack Armor.001
+    second: {fileID: 2100000, guid: c9fe930b83fa00540b9e380fa18b4ed1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLack Armor.002
+    second: {fileID: 2100000, guid: 6fe5c04f8de3c584aa8a5292ef026f0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BodyPaint.002
+    second: {fileID: 2100000, guid: 367d669912adc31488ead146aecfcdda, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChairBack
+    second: {fileID: 2100000, guid: 23c97cbc992d7a440b04832cc6b76aff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chest.002
+    second: {fileID: 2100000, guid: 120c13332b4717c4791b33094e4cea39, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crate.003
+    second: {fileID: 2100000, guid: 40193fc00731280408292ce0f6f91378, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crate.004
+    second: {fileID: 2100000, guid: 1913307e058f1554493cfbd5604dcca8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DarkSteel.002
+    second: {fileID: 2100000, guid: ba4229f44f2afd64eaa8a34c6509f7a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Doors
+    second: {fileID: 2100000, guid: 9dc96ba2a12ae8d448555bf422d3e5b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes.002
+    second: {fileID: 2100000, guid: bd1c7284e776b3443a5da5fe7b8e73ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor
+    second: {fileID: 2100000, guid: 35b11ce2c1766bd4eb83494079c15a27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlowBlack
+    second: {fileID: 2100000, guid: 6d7c92ba9aa8e5b4e9264d5c60f86128, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlowBlue
+    second: {fileID: 2100000, guid: 549abcb4e86da5843966efdd81906c8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlowOrange
+    second: {fileID: 2100000, guid: 0462b40aa79eed94591159147ea2acae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlowOrange.001
+    second: {fileID: 2100000, guid: 3499a1df8148dc9419235d21145f66e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlowPink
+    second: {fileID: 2100000, guid: d04a95336ff64264cbef05bbb21f2fc5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlowWhite
+    second: {fileID: 2100000, guid: 89686fb1364285e4291b98dfa3576ae6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlowYellow
+    second: {fileID: 2100000, guid: bd708b9679696f342b98f352ca0a800c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Handle.002
+    second: {fileID: 2100000, guid: 420229a2b58a9644693cb3514f470bf3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hat
+    second: {fileID: 2100000, guid: 1e83dde052d079348bc8b44ede15f916, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Katana 1
+    second: {fileID: 2100000, guid: 240907961bc757c4694d74f28d722ad8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Katana 2
+    second: {fileID: 2100000, guid: 071a4b816a56f5a4aaf4761e3b98f4c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: f8b8134c89c1f7c4bae40db74011a684, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 1b3242331a720eb45938d5b3bad7cc0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 25453e36bd38bec46af56e2993350cd0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 3d6ccb53e61669148893bc34117b06dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: ea1c91195f6767c4a92d071a5bd02f96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.006
+    second: {fileID: 2100000, guid: 55b3dbdcbd2270642863bb6df870bfd4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.007
+    second: {fileID: 2100000, guid: cbbda763baae5c94eb6b11379f483239, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.008
+    second: {fileID: 2100000, guid: 027da67bfb2c18243b955f0d8da5f147, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Orange Metal
+    second: {fileID: 2100000, guid: 773cc4d9e9a56794a8444fbd36dfceef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Orange Metal.001
+    second: {fileID: 2100000, guid: 21230ba5be3e6bd40a94ef8161dfa8a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Orange Metal.002
+    second: {fileID: 2100000, guid: 5c67806f8692a9042b2791f3b6d9d1f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Outline.003
+    second: {fileID: 2100000, guid: 4dd26d3a0c7f96a42b7d5aa14c882dd5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Outline.004
+    second: {fileID: 2100000, guid: 22c76454d384cb040b24857e304f5b0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scarf
+    second: {fileID: 2100000, guid: 9324237057415724295d48de8387e669, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scarf.001
+    second: {fileID: 2100000, guid: 38f0ae53a76b9c74b9f3f7da436900d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Seat
+    second: {fileID: 2100000, guid: b6c7bd440d2af224890616d224e9110e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sheat Katana 1
+    second: {fileID: 2100000, guid: 2c4cb9365c788ba4cb6744ed5da66ee5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sheat Katana 1_2
+    second: {fileID: 2100000, guid: d0bb343ff9d4c2849a20da7a10feb8eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ShoulderPlates.002
+    second: {fileID: 2100000, guid: 7df06559dcb93ea4a9040e09a8be2210, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skeletch
+    second: {fileID: 2100000, guid: 58008b7a2258ce44893fc8b9b2766e0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skeletch.001
+    second: {fileID: 2100000, guid: 0fc22786fe660f241915c51867607ed2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skeletch.002
+    second: {fileID: 2100000, guid: 73294ea5797ae144d80614459d46a6ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skirt
+    second: {fileID: 2100000, guid: a15040f2dc71d0140897ba8846ca72d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Steel.002
+    second: {fileID: 2100000, guid: bfaae1b063e26194e86bbb8294b83213, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Visor
+    second: {fileID: 2100000, guid: 557826fbfb2014243ba6b9ad69b67176, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Visor.001
+    second: {fileID: 2100000, guid: e79e46fac7a806f4cae4e437cfeedc8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White Armor
+    second: {fileID: 2100000, guid: 0d63a21fd7eb4974ca6deae66217647b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White Armor.001
+    second: {fileID: 2100000, guid: 537ddd0b001975f4aa547242c5c1aaa3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White Armor.002
+    second: {fileID: 2100000, guid: b4f6ddea9d08dd943ba24b834d557f18, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
