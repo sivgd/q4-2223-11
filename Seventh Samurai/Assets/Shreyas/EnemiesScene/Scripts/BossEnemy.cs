@@ -107,6 +107,14 @@ public class BossEnemy : MonoBehaviour
             agent.speed = 2;
             Chase();
             keepTiming = true;
+            if (timeBetweenFireAttack <= 0 || timeBetweenDashAttack <= 0)
+            {
+                keepTiming = false;
+            }
+            else
+            {
+                keepTiming = true;
+            }
         }
 
         if (playerInBasicAttackRange && playerInFireAttackRange)
@@ -133,7 +141,7 @@ public class BossEnemy : MonoBehaviour
             keepTiming = false;
         }
 
-        if (!playerInBasicAttackRange && !alreadyAttacked && timeBetweenDashAttack <= 0 && !reverseDashTrue)
+        if (!playerInBasicAttackRange && !alreadyAttacked && timeBetweenDashAttack <= 0 && !reverseDashTrue && !isAttacking)
         {
             animator.SetFloat("Move", 0);
             agent.speed = 0;
@@ -178,7 +186,6 @@ public class BossEnemy : MonoBehaviour
         reverseDashTrue = false;
         animator.SetBool("ReverseJumpLanded", false);
         animator.SetBool("ReverseJump", false);
-        timeBetweenFireAttack = 0;
     }
 
     //Chase
@@ -246,6 +253,7 @@ public class BossEnemy : MonoBehaviour
 
     IEnumerator fireAttackAnim()
     {
+        isAttacking = true;
         for (int i = 0; i < 3; i++)
         {
             if (playerInFireAttackRange && !playerInBasicAttackRange)
@@ -264,6 +272,7 @@ public class BossEnemy : MonoBehaviour
             }
         }
         animator.ResetTrigger("Impact");
+        isAttacking = false;
         Invoke(nameof(FireAttackReset), timeBetweenFireAttack);
     }
 
@@ -287,6 +296,7 @@ public class BossEnemy : MonoBehaviour
     IEnumerator dashAttackAnim()
     {
         animator.SetBool("Attack3", true);
+        isAttacking = true;
         alreadyAttacked = true;
         Vector3 startingPos = transform.position;
         float dashGo = Random.Range(2, 3);
@@ -315,6 +325,7 @@ public class BossEnemy : MonoBehaviour
             agent.Warp(transform.position);
         }
         animator.SetBool("Attack3", false);
+        isAttacking = false;
         attack3 = false;
         Invoke(nameof(DashAttackReset), timeBetweenDashAttack);
 

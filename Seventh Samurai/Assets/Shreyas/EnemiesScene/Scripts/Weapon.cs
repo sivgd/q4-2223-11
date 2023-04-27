@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Weapon : MonoBehaviour
 {
@@ -60,7 +61,7 @@ public class Weapon : MonoBehaviour
             {
                 BE.enabled = false;
                 BE.col.enabled = false;
-                BE.animator.SetBool("Death", true);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             inCombo = true;
             currentComboTime = comboResetTime;

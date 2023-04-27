@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Tyler/Scenes/BossLevel.unity
     guid: bf2ce9c49b45036409fa0d83c91f7ad9
+  - enabled: 1
+    path: Assets/Shreyas/CutScenes/FinalCutScene.unity
+    guid: 028e0329baae24d6e88f259e0394d77f
   m_configObjects: {}

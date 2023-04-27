@@ -12,6 +12,7 @@ public class pauseButtons : MonoBehaviour
     private GameObject pauseCanvasObj;
     private GameObject settingsCanvasObj;
     private GameObject deathCanvas;
+    private GameObject endCanvas;
     public GameObject fadeOut;
     //buttons
 
@@ -28,6 +29,8 @@ public class pauseButtons : MonoBehaviour
         pauseCanvasObj = GameObject.Find("pauseCanvasObj");
         settingsCanvasObj = GameObject.Find("settingsCanvasObj");
         deathCanvas = GameObject.Find("DeathCanvas");
+        endCanvas = GameObject.Find("EndCanvas");
+        endCanvas.SetActive(false);
         deathCanvas.SetActive(false);
         pauseCanvasObj.SetActive(false);
         settingsCanvasObj.SetActive(false);
