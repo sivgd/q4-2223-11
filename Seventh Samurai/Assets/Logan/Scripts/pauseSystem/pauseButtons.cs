@@ -11,6 +11,7 @@ public class pauseButtons : MonoBehaviour
     private GameObject returnToMenu;
     private GameObject pauseCanvasObj;
     private GameObject settingsCanvasObj;
+    private GameObject deathCanvas;
     public GameObject fadeOut;
     //buttons
 
@@ -26,6 +27,8 @@ public class pauseButtons : MonoBehaviour
         returnToMenu = GameObject.Find("MENU");
         pauseCanvasObj = GameObject.Find("pauseCanvasObj");
         settingsCanvasObj = GameObject.Find("settingsCanvasObj");
+        deathCanvas = GameObject.Find("DeathCanvas");
+        deathCanvas.SetActive(false);
         pauseCanvasObj.SetActive(false);
         settingsCanvasObj.SetActive(false);
         isPaused = false;
@@ -48,6 +51,19 @@ public class pauseButtons : MonoBehaviour
         {
             unPause();
         }
+
+        if(PC.currentHealth <= 0)
+        {
+            StartCoroutine(deathCanvasWait());
+        }
+    }
+    IEnumerator deathCanvasWait()
+    {
+        yield return new WaitForSeconds(3f);
+        deathCanvas.SetActive(true);
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void unPause()
@@ -67,12 +83,18 @@ public class pauseButtons : MonoBehaviour
         StartCoroutine(FadeWait());
     }
 
+    public void resetScene()
+    {
+        Time.timeScale = 1;
+        pauseCanvasObj.SetActive(false);
+        StartCoroutine(FadeWaitReset());
+    }
+
     public void openSettings()
     {
         pauseCanvasObj.SetActive(false);
         settingsCanvasObj.SetActive(true);
     }
-
     public void closeSettings()
     {
         pauseCanvasObj.SetActive(true);
@@ -87,5 +109,15 @@ public class pauseButtons : MonoBehaviour
         PC.canAttack = false;
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene("startScreen");
+    }
+
+    IEnumerator FadeWaitReset()
+    {
+        fadeOut.SetActive(true);
+        tp.speed = 0;
+        tp.canMove = false;
+        PC.canAttack = false;
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("BossLevel");
     }
 }

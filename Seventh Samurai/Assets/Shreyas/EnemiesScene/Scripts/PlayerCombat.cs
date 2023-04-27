@@ -148,7 +148,7 @@ public class PlayerCombat : MonoBehaviour
         {
             healPlayer = true;
         }
-        else
+        else if(currentHealth >= 100)
         {
             healPlayer = false;
             yield return null;

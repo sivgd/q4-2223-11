@@ -23,10 +23,10 @@ public class EnemyWeapon : MonoBehaviour
             StopCoroutine(pc.playerRegenHealth());
             pc.currentHealth -= damage;
             playerHealthMask.GetComponent<healthMask>().moveMask(pc.currentHealth, pc.maxHealth);
-            anim.SetTrigger("Impact");
-            //StopCoroutine(pc.playerRegenHealth());
             pc.healPlayer = false;
             StartCoroutine(pc.playerRegenHealth());
+            anim.SetTrigger("Impact");
+            //StopCoroutine(pc.playerRegenHealth());
         }
     }
 }
