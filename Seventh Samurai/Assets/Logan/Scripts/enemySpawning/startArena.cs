@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class startArena : MonoBehaviour
 {
-
-    public GameObject enemyType1;
-    public GameObject enemyType2;
+    [Header("Spawning")]
+    public GameObject[] enemyTypes;
+    public Transform[] spawnPoints;
+    public int numberOfSpawnPoints;
+    public float spawnRate = 1f;
+    public float timePassed;
 
     //public GameObject arenaLockEnter;
     //public GameObject arenaLockExit;
@@ -14,7 +17,7 @@ public class startArena : MonoBehaviour
     public Animator doorAnimatorEntrance;
     public Animator doorAnimatorExit;
 
-    public bool finishArena = false;
+    public bool finishArena = true;
 
 
     private void Update()
@@ -27,6 +30,17 @@ public class startArena : MonoBehaviour
             doorAnimatorEntrance.SetBool("closeDoors", false);
             doorAnimatorExit.SetBool("closeDoors", false);
         }
+
+        if(finishArena == false)
+        {
+            timePassed += 1 * Time.deltaTime;
+
+            if(timePassed >= spawnRate)
+            {
+                spawnEnemies();
+                timePassed = 0;
+            }
+        }
     }
 
 
@@ -35,6 +49,7 @@ public class startArena : MonoBehaviour
         if(other.gameObject.name == "Player")
         {
             activateArenaLocks();
+            finishArena = false;
         }
     }
 
@@ -57,5 +72,11 @@ public class startArena : MonoBehaviour
         doorAnimatorExit.SetBool("closeDoors", false);
     }
 
+    public void spawnEnemies()
+    {
+        int randIntTransform = Random.Range(0, numberOfSpawnPoints);
+        int randIntType = Random.Range(0, 2);
 
+        Instantiate(enemyTypes[randIntType], spawnPoints[randIntTransform].position, Quaternion.identity);
+    }
 }

@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class RangedEnemy : MonoBehaviour
 {
     [Header("EnemyMove")]
+    GameObject playerObj = GameObject.Find("Player (1)");
     public Transform player;
     public Animator gruntAnimator;
     public Animator bowAnimator;
@@ -42,6 +43,7 @@ public class RangedEnemy : MonoBehaviour
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
         rangeCol = gameObject.GetComponent<CapsuleCollider>();
+        player = playerObj.GetComponent<Transform>();
         currentHealth = maxHealth;
     }
 
