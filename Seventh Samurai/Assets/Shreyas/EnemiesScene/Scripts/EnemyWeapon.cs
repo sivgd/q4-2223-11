@@ -17,6 +17,7 @@ public class EnemyWeapon : MonoBehaviour
     {
         var anim = other.gameObject.GetComponent<Animator>();
         var pc = other.gameObject.GetComponent<PlayerCombat>();
+        var playerWeapon = other.gameObject.GetComponentInChildren<Weapon>();
         //var move = other.gameObject.GetComponent<tpMovement>();
         if (pc != null)
         {
@@ -26,6 +27,10 @@ public class EnemyWeapon : MonoBehaviour
             pc.healPlayer = false;
             StartCoroutine(pc.playerRegenHealth());
             anim.SetTrigger("Impact");
+            playerWeapon.comboLevel = 0;
+            playerWeapon.inCombo = false;
+            playerWeapon.currentComboTime = 0;
+            playerWeapon.flowState = false;
             //StopCoroutine(pc.playerRegenHealth());
         }
     }

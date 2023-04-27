@@ -15,7 +15,7 @@ public class FireAttackDamage : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var pc = other.gameObject.GetComponent<PlayerCombat>();
-
+        var playerWeapon = other.gameObject.GetComponentInChildren<Weapon>();
         if (pc != null)
         {
             StopCoroutine(pc.playerRegenHealth());
@@ -25,6 +25,10 @@ public class FireAttackDamage : MonoBehaviour
             //StopCoroutine(pc.playerRegenHealth());
             pc.healPlayer = false;
             StartCoroutine(pc.playerRegenHealth());
+            playerWeapon.comboLevel = 0;
+            playerWeapon.inCombo = false;
+            playerWeapon.currentComboTime = 0;
+            playerWeapon.flowState = false;
         }
     }
 }

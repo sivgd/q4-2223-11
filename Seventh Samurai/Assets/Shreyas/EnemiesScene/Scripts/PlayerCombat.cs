@@ -78,6 +78,17 @@ public class PlayerCombat : MonoBehaviour
             currentHealth = 100;
         }
 
+        if(weapon.flowState == true)
+        {
+            pMove.speed = 15;
+            timeBetweenAttacks = 0.25f;
+        }
+        else
+        {
+            pMove.speed = 9;
+            timeBetweenAttacks = 0.35f;
+        }
+
     }
 
     void Attack()

@@ -9,10 +9,41 @@ public class Weapon : MonoBehaviour
 
     private GameObject bossHealthMask;
 
+
+    [Header("Flow State Junk")]
+    public bool inCombo;
+    public float comboResetTime;
+    public float currentComboTime;
+    public float comboDecayRate;
+    public int comboLevel;
+    public int flowStateLevel;
+    public bool flowState;
+
+
     private void Start()
     {
         bossHealthMask = GameObject.Find("EnemyMask");
     }
+
+    private void Update()
+    {
+        if(inCombo == true)
+        {
+            currentComboTime -= comboDecayRate * Time.deltaTime;
+            if(currentComboTime <= 0)
+            {
+                inCombo = false;
+                comboLevel = 0;
+            }
+
+            if(comboLevel >= flowStateLevel)
+            {
+                flowState = true;
+            }
+
+        }
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,6 +62,9 @@ public class Weapon : MonoBehaviour
                 BE.col.enabled = false;
                 BE.animator.SetBool("Death", true);
             }
+            inCombo = true;
+            currentComboTime = comboResetTime;
+            comboLevel += 1;
         }
         if(gruntEnemy != null)
         {
@@ -43,6 +77,9 @@ public class Weapon : MonoBehaviour
                 gruntEnemy.gruntCol.enabled = false;
                 gruntEnemy.animator.SetBool("Death", true);
             }
+            inCombo = true;
+            currentComboTime = comboResetTime;
+            comboLevel += 1;
         }
         if (rangedEnemy != null)
         {
@@ -57,6 +94,9 @@ public class Weapon : MonoBehaviour
                 rangedEnemy.gruntAnimator.SetBool("Death", true);
                 rangedEnemy.bowAnimator.SetBool("Death", true);
             }
+            inCombo = true;
+            currentComboTime = comboResetTime;
+            comboLevel += 1;
         }
     }
 }
