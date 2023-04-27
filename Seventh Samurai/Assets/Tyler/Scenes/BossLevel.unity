@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6679,7 +6679,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844837452}
-  m_LocalRotation: {x: 0.06878037, y: 0.0125390785, z: -0.00086455833, w: 0.9975527}
+  m_LocalRotation: {x: 0.068780154, y: 0.012781755, z: -0.0008812906, w: 0.9975496}
   m_LocalPosition: {x: 50.24, y: 2.380393, z: 20.557032}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -6957,19 +6957,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99654764
+      value: 0.9965427
       objectReference: {fileID: 0}
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.082150966
+      value: 0.082150556
       objectReference: {fileID: 0}
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.01196076
+      value: 0.012364811
       objectReference: {fileID: 0}
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0009859919
+      value: -0.0010193002
       objectReference: {fileID: 0}
     - target: {fileID: 571646066323120696, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6990,6 +6990,22 @@ PrefabInstance:
     - target: {fileID: 571646066358459300, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: numberOfHits
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 571646066358459300, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
+      propertyPath: comboDecayRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 571646066358459300, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
+      propertyPath: comboResetRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 571646066358459300, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
+      propertyPath: comboResetTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 571646066358459300, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
+      propertyPath: flowStateLevel
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 571646066602925146, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7197,7 +7213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4379608679015153779, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: maxHealth
-      value: 1
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4379608679015153779, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: healthMask
