@@ -80,12 +80,12 @@ public class PlayerCombat : MonoBehaviour
 
         if(weapon.flowState == true)
         {
-            pMove.speed = 15;
+            //pMove.speed = 15;
             timeBetweenAttacks = 0.25f;
         }
         else
         {
-            pMove.speed = 9;
+            //pMove.speed = 9;
             timeBetweenAttacks = 0.35f;
         }
 

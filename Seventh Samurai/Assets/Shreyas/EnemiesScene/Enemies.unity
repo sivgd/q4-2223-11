@@ -169,7 +169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &92271168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,6 +446,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   numberOfHits: 0
+  inCombo: 0
+  comboResetTime: 0
+  currentComboTime: 0
+  comboDecayRate: 0
+  comboLevel: 0
+  flowStateLevel: 0
+  flowState: 0
 --- !u!1 &217347115
 GameObject:
   m_ObjectHideFlags: 0
