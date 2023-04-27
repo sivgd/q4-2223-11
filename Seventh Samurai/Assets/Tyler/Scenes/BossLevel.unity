@@ -6654,7 +6654,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 5000
-  field of view: 40
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -6679,7 +6679,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844837452}
-  m_LocalRotation: {x: 0.068780564, y: 0.012310126, z: -0.00084877224, w: 0.99755555}
+  m_LocalRotation: {x: 0.070875786, y: 0.011537389, z: -0.00081983826, w: 0.9974181}
   m_LocalPosition: {x: 50.24, y: 2.380393, z: 20.557032}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -6957,19 +6957,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99655217
+      value: 0.9962726
       objectReference: {fileID: 0}
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08215133
+      value: 0.08563972
       objectReference: {fileID: 0}
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.011579553
+      value: 0.010292742
       objectReference: {fileID: 0}
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000954567
+      value: -0.0008847654
       objectReference: {fileID: 0}
     - target: {fileID: 571646066323120696, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6978,6 +6978,10 @@ PrefabInstance:
     - target: {fileID: 571646066323120696, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalPosition.z
       value: -19.609894
+      objectReference: {fileID: 0}
+    - target: {fileID: 571646066323120698, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 571646066323120699, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_CameraRadius
@@ -7029,19 +7033,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 571646066602925146, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99794686
+      value: 0.99906653
       objectReference: {fileID: 0}
     - target: {fileID: 571646066602925146, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.062452152
+      value: 0.040795665
       objectReference: {fileID: 0}
     - target: {fileID: 571646066602925146, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.014179001
+      value: 0.0141949095
       objectReference: {fileID: 0}
     - target: {fileID: 571646066602925146, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0008873311
+      value: -0.0005796319
       objectReference: {fileID: 0}
     - target: {fileID: 571646066716638622, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalPosition.y
