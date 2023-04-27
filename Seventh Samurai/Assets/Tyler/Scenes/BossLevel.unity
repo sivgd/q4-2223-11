@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6679,7 +6679,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844837452}
-  m_LocalRotation: {x: 0.06878031, y: 0.012611564, z: -0.00086955616, w: 0.99755174}
+  m_LocalRotation: {x: 0.068780564, y: 0.012310126, z: -0.00084877224, w: 0.99755555}
   m_LocalPosition: {x: 50.24, y: 2.380393, z: 20.557032}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -6957,27 +6957,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9965462
+      value: 0.99655217
       objectReference: {fileID: 0}
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08215085
+      value: 0.08215133
       objectReference: {fileID: 0}
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.012081446
+      value: 0.011579553
       objectReference: {fileID: 0}
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0009959408
+      value: -0.000954567
       objectReference: {fileID: 0}
     - target: {fileID: 571646066323120696, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.9346433
+      value: 7.934643
       objectReference: {fileID: 0}
     - target: {fileID: 571646066323120696, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.609896
+      value: -19.609894
       objectReference: {fileID: 0}
     - target: {fileID: 571646066323120699, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_CameraRadius
@@ -6994,6 +6994,14 @@ PrefabInstance:
     - target: {fileID: 571646066358459300, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: numberOfHits
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 571646066358459300, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
+      propertyPath: flowDecayRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 571646066358459300, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
+      propertyPath: flowResetTime
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 571646066358459300, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: comboDecayRate
@@ -7217,7 +7225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4379608679015153779, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: maxHealth
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4379608679015153779, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: FlowSparks

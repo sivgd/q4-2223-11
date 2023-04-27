@@ -20,6 +20,10 @@ public class Weapon : MonoBehaviour
     public int flowStateLevel;
     public bool flowState;
 
+    public float flowResetTime;
+    public float flowComboTime;
+    public float flowDecayRate;
+
 
     private void Start()
     {
@@ -40,9 +44,22 @@ public class Weapon : MonoBehaviour
             if(comboLevel >= flowStateLevel)
             {
                 flowState = true;
+                
             }
 
         }
+
+        if (flowState == true)
+        {
+            flowComboTime -= flowDecayRate * Time.deltaTime;
+            if (flowComboTime <= 0)
+            {
+                flowState = false;
+            }
+
+        }
+
+
     }
 
 
@@ -65,6 +82,7 @@ public class Weapon : MonoBehaviour
             }
             inCombo = true;
             currentComboTime = comboResetTime;
+            flowComboTime = flowResetTime;
             comboLevel += 1;
         }
         if(gruntEnemy != null)
@@ -80,6 +98,7 @@ public class Weapon : MonoBehaviour
             }
             inCombo = true;
             currentComboTime = comboResetTime;
+            flowComboTime = flowResetTime;
             comboLevel += 1;
         }
         if (rangedEnemy != null)
@@ -97,6 +116,7 @@ public class Weapon : MonoBehaviour
             }
             inCombo = true;
             currentComboTime = comboResetTime;
+            flowComboTime = flowResetTime;
             comboLevel += 1;
         }
     }
