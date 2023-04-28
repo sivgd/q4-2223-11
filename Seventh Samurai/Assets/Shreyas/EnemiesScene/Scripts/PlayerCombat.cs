@@ -71,7 +71,7 @@ public class PlayerCombat : MonoBehaviour
 
         if(healPlayer == true && currentHealth <= 100)
         {
-            currentHealth += healthRegenRate;
+            currentHealth += healthRegenRate * Time.timeScale;
             playerHealthMask.GetComponent<healthMask>().moveMask(currentHealth, maxHealth);
         }
 
