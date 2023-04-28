@@ -713,6 +713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
+  playerObj: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 7379160112393395614}
   whatIsGround:
@@ -804,8 +805,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6612649, y: 0.7518696, z: 0.2}
-  m_Center: {x: 0.39205748, y: -0.12409042, z: -0.00000003218623}
+  m_Size: {x: 0.2723871, y: 0.7518696, z: 0.2}
+  m_Center: {x: 0.38327956, y: -0.12409042, z: -0.000000032065188}
 --- !u!114 &1340801096186829758
 MonoBehaviour:
   m_ObjectHideFlags: 0

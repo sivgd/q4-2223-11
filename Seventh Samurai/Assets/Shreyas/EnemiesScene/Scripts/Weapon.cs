@@ -68,6 +68,7 @@ public class Weapon : MonoBehaviour
         var BE = other.gameObject.GetComponent<BossEnemy>();
         var gruntEnemy = other.gameObject.GetComponent<MeleeGruntEnemy>();
         var rangedEnemy = other.gameObject.GetComponent<RangedEnemy>();
+        var startArena = FindObjectOfType<startArena>();
         if(BE != null)
         {
             bossHealthMask.GetComponent<healthMask>().moveEnemyMask(BE.currentHealth, BE.maxHealth);
@@ -94,6 +95,7 @@ public class Weapon : MonoBehaviour
                 gruntEnemy.enabled = false;
                 gruntEnemy.agent.speed = 0;
                 gruntEnemy.gruntCol.enabled = false;
+                startArena.numberEnemiesAlive.Remove(gruntEnemy.gameObject);
                 gruntEnemy.animator.SetBool("Death", true);
             }
             inCombo = true;
@@ -111,6 +113,7 @@ public class Weapon : MonoBehaviour
                 rangedEnemy.enabled = false;
                 rangedEnemy.agent.speed = 0;
                 rangedEnemy.rangeCol.enabled = false;
+                startArena.numberEnemiesAlive.Remove(rangedEnemy.gameObject);
                 rangedEnemy.gruntAnimator.SetBool("Death", true);
                 rangedEnemy.bowAnimator.SetBool("Death", true);
             }

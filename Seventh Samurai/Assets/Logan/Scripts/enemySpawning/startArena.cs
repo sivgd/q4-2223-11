@@ -7,49 +7,58 @@ public class startArena : MonoBehaviour
     [Header("Spawning")]
     public GameObject[] enemyTypes;
     public Transform[] spawnPoints;
-    public int numberOfSpawnPoints;
     public float spawnRate = 1f;
-    public float timePassed;
-
-    //public GameObject arenaLockEnter;
-    //public GameObject arenaLockExit;
+    public int maxNumberOfEnemies;
+    public List<GameObject> numberEnemiesAlive;
+    [HideInInspector] public int numberOfSpawnPoints;
+    [HideInInspector] public int numberOfEnemyTypes;
+    [HideInInspector]public float timePassed;
+    [HideInInspector]public int numberOfEnemies;
 
     public Animator doorAnimatorEntrance;
     public Animator doorAnimatorExit;
+    public GameObject nextArena;
 
-    public bool finishArena = true;
+    [HideInInspector]public bool arenaStarted;
 
-
+    private void Awake()
+    {
+        numberOfSpawnPoints = spawnPoints.Length;
+        numberOfEnemyTypes = enemyTypes.Length;
+        timePassed = spawnRate;
+        deactivateArenaLocks();
+        nextArena.SetActive(false);
+    }
     private void Update()
     {
-        if(finishArena == true)
+        if(arenaStarted == true)
         {
-            doorAnimatorEntrance.SetBool("openDoors", true);
-            doorAnimatorExit.SetBool("openDoors", true);
-
-            doorAnimatorEntrance.SetBool("closeDoors", false);
-            doorAnimatorExit.SetBool("closeDoors", false);
-        }
-
-        if(finishArena == false)
-        {
-            timePassed += 1 * Time.deltaTime;
-
-            if(timePassed >= spawnRate)
+            if(numberOfEnemies < maxNumberOfEnemies)
             {
-                spawnEnemies();
-                timePassed = 0;
+                timePassed += 1 * Time.deltaTime;
+
+                if (timePassed >= spawnRate)
+                {
+                    spawnEnemies();
+                    timePassed = 0;
+                }
+            }
+
+            if(numberEnemiesAlive.Count == 0 && timePassed == 0)
+            {
+                arenaStarted = false;
+                gameObject.SetActive(false);
+                nextArena.SetActive(true);
+                deactivateArenaLocks();
             }
         }
     }
-
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.name == "Player")
         {
             activateArenaLocks();
-            finishArena = false;
+            arenaStarted = true;
         }
     }
 
@@ -75,8 +84,10 @@ public class startArena : MonoBehaviour
     public void spawnEnemies()
     {
         int randIntTransform = Random.Range(0, numberOfSpawnPoints);
-        int randIntType = Random.Range(0, 2);
+        int randIntType = Random.Range(0, numberOfEnemyTypes);
 
-        Instantiate(enemyTypes[randIntType], spawnPoints[randIntTransform].position, Quaternion.identity);
+        GameObject enemy = Instantiate(enemyTypes[randIntType], spawnPoints[randIntTransform].position, Quaternion.identity);
+        numberEnemiesAlive.Add(enemy);
+        numberOfEnemies += 1;
     }
 }

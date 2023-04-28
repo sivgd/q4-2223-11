@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1053287043}
   - component: {fileID: 1053287044}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spot Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1053287043
@@ -77,7 +77,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -104,12 +104,12 @@ GameObject:
   - component: {fileID: 1815236534415573401}
   - component: {fileID: 2205541920567020008}
   - component: {fileID: 4071877239710721137}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: contcell_OBJ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1815236534415573401
 Transform:
@@ -186,12 +186,12 @@ GameObject:
   - component: {fileID: 5369855541967375241}
   - component: {fileID: 3206554224891293234}
   - component: {fileID: 2849773162926276631}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Palm-tree.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5369855541967375241
 Transform:
@@ -267,12 +267,12 @@ GameObject:
   - component: {fileID: 2218797360254664898}
   - component: {fileID: 4563049689892535706}
   - component: {fileID: 8714200203817172065}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Palm-tree.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2218797360254664898
 Transform:
@@ -348,12 +348,12 @@ GameObject:
   - component: {fileID: 7992201848598529630}
   - component: {fileID: 267475041150518093}
   - component: {fileID: 4765294712275351245}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Palm-tree.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7992201848598529630
 Transform:
@@ -429,12 +429,12 @@ GameObject:
   - component: {fileID: 3165290206284532335}
   - component: {fileID: 2403805609090547469}
   - component: {fileID: 3536870157265997418}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: contcell_OBJ.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3165290206284532335
 Transform:
@@ -510,12 +510,12 @@ GameObject:
   - component: {fileID: 6112405197231575533}
   - component: {fileID: 6619899966825229888}
   - component: {fileID: 1964787216731465421}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Palm-tree.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &6112405197231575533
 Transform:
@@ -592,12 +592,12 @@ GameObject:
   - component: {fileID: 8430603219066534977}
   - component: {fileID: 1015447156246615509}
   - component: {fileID: 1157776829460903131}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: contcell_OBJ.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8494332952507173619
 Transform:
@@ -687,12 +687,12 @@ GameObject:
   - component: {fileID: 6308067799330988706}
   - component: {fileID: 8749312967909357657}
   - component: {fileID: 8252240778410943391}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Palm-tree.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &6308067799330988706
 Transform:
@@ -768,12 +768,12 @@ GameObject:
   - component: {fileID: 4034443757950288393}
   - component: {fileID: 2749544794319660656}
   - component: {fileID: 8718782742855620825}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Palm-tree.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4034443757950288393
 Transform:
@@ -849,12 +849,12 @@ GameObject:
   - component: {fileID: 7512499384686418143}
   - component: {fileID: 1603425533209459603}
   - component: {fileID: 3123126910161794951}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: contcell_OBJ.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7512499384686418143
 Transform:
@@ -930,12 +930,12 @@ GameObject:
   - component: {fileID: 7448967299234027918}
   - component: {fileID: 696381207107126584}
   - component: {fileID: 2021054074582310648}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: contcell_OBJ.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7448967299234027918
 Transform:
@@ -1011,12 +1011,12 @@ GameObject:
   - component: {fileID: 3539958916347788149}
   - component: {fileID: 1100065666876617354}
   - component: {fileID: 7797448171831696352}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Palm-tree.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3539958916347788149
 Transform:
@@ -1092,12 +1092,12 @@ GameObject:
   - component: {fileID: 6107346354504438765}
   - component: {fileID: 1120166392100058471}
   - component: {fileID: 7276470415535609385}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Palm-tree.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &6107346354504438765
 Transform:
@@ -1174,12 +1174,12 @@ GameObject:
   - component: {fileID: 6392860683742096093}
   - component: {fileID: 6566826894237283440}
   - component: {fileID: 2741453495984093870}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: contcell_OBJ.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5706609800264013962
 Transform:
@@ -1269,12 +1269,12 @@ GameObject:
   - component: {fileID: 1172841140957576940}
   - component: {fileID: 1058145241070397207}
   - component: {fileID: 8122915219860790707}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: contcell_OBJ.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1172841140957576940
 Transform:
@@ -1350,12 +1350,12 @@ GameObject:
   - component: {fileID: 6089441248241247243}
   - component: {fileID: 1360923339273109519}
   - component: {fileID: 2133347912301810479}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Palm-tree.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &6089441248241247243
 Transform:
@@ -1431,12 +1431,12 @@ GameObject:
   - component: {fileID: 3130497041318186675}
   - component: {fileID: 3814389920993467235}
   - component: {fileID: 777359392481531367}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: contcell_OBJ.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3130497041318186675
 Transform:
@@ -1511,11 +1511,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8337283330046227680}
   - component: {fileID: 1179724238617469015}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8337283330046227680
@@ -1578,7 +1578,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1605,12 +1605,12 @@ GameObject:
   - component: {fileID: 7928160320779326367}
   - component: {fileID: 5591335838119362985}
   - component: {fileID: 2861977910336952349}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: contcell_OBJ.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7928160320779326367
 Transform:
@@ -1686,12 +1686,12 @@ GameObject:
   - component: {fileID: 8038167120588687918}
   - component: {fileID: 492322089465351579}
   - component: {fileID: 8879761071447467520}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Palm-tree.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8038167120588687918
 Transform:
@@ -1767,12 +1767,12 @@ GameObject:
   - component: {fileID: 4331103282582911149}
   - component: {fileID: 747050044917455822}
   - component: {fileID: 9164547559792244190}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: contcell_OBJ.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4331103282582911149
 Transform:
@@ -1848,12 +1848,12 @@ GameObject:
   - component: {fileID: 3000840600466937995}
   - component: {fileID: 7559923682526030659}
   - component: {fileID: 1761319193905647778}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: contcell_OBJ.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3000840600466937995
 Transform:
@@ -1929,12 +1929,12 @@ GameObject:
   - component: {fileID: 2114467802477559508}
   - component: {fileID: 2414323889816541717}
   - component: {fileID: 8362544379534093539}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Palm-tree.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2114467802477559508
 Transform:
@@ -2010,12 +2010,12 @@ GameObject:
   - component: {fileID: 1684899032898905201}
   - component: {fileID: 6996302913197831402}
   - component: {fileID: 3587349742869470323}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Palm-tree.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1684899032898905201
 Transform:
@@ -2091,12 +2091,12 @@ GameObject:
   - component: {fileID: 2335518953961595732}
   - component: {fileID: 4711724607015404981}
   - component: {fileID: 7641615547260131961}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Palm-tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2335518953961595732
 Transform:
@@ -2186,7 +2186,7 @@ Transform:
   m_GameObject: {fileID: 9181418982407302462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -82.88002, y: -1.315204, z: -4.733328}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 1815236534415573401}
   - {fileID: 3165290206284532335}

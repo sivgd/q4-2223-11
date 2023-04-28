@@ -7,6 +7,7 @@ public class MeleeGruntEnemy : MonoBehaviour
 {
     [Header("EnemyMove")]
     [HideInInspector] public NavMeshAgent agent;
+    public GameObject playerObj;
     public Transform player;
     public Animator animator;
     public LayerMask whatIsGround, whatIsPlayer, whatIsEnemy;
@@ -36,6 +37,8 @@ public class MeleeGruntEnemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         gruntCol = gameObject.GetComponent<CapsuleCollider>();
         detect = gameObject.GetComponentInChildren<DetectEnemy>();
+        playerObj = GameObject.Find("Player");
+        player = playerObj.GetComponent<Transform>();
         currentHealth = maxHealth;
         DeathTrue = false;
     }
