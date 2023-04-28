@@ -5006,6 +5006,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1916897545779539005, guid: ff0f992125d644b9c9d709f4efef6a71, type: 3}
+      propertyPath: fireAttackRange
+      value: 37.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1916897545779539005, guid: ff0f992125d644b9c9d709f4efef6a71, type: 3}
       propertyPath: reverseDashForce
       value: 8
       objectReference: {fileID: 0}
@@ -6536,7 +6540,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844837452}
-  m_LocalRotation: {x: 0.06878056, y: 0.012312845, z: -0.0008489597, w: 0.9975555}
+  m_LocalRotation: {x: 0.0687803, y: 0.01261036, z: -0.00086947303, w: 0.99755174}
   m_LocalPosition: {x: 50.24, y: 2.650393, z: 13.457031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -6859,19 +6863,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9965521
+      value: 0.9965462
       objectReference: {fileID: 0}
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08215133
+      value: 0.08215085
       objectReference: {fileID: 0}
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.011584084
+      value: 0.012079441
       objectReference: {fileID: 0}
     - target: {fileID: 571646066066129612, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00095494045
+      value: -0.0009957756
       objectReference: {fileID: 0}
     - target: {fileID: 571646066323120696, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12144,7 +12148,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 305.69
+  m_Intensity: 1805.74
   m_Range: 123
   m_SpotAngle: 179
   m_InnerSpotAngle: 179
