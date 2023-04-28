@@ -1289,6 +1289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d09c31a882514b149a35d17b4c30efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerObj: {fileID: 0}
   player: {fileID: 0}
   gruntAnimator: {fileID: 8334520844223959769}
   bowAnimator: {fileID: 1764269974764284658}
@@ -1304,15 +1305,15 @@ MonoBehaviour:
   walkPointRange: 0
   alreadyAttacked: 0
   rangeCol: {fileID: 0}
-  AttackRange: 14.2
-  timeBetweenAttack: 2
+  AttackRange: 22.18
+  timeBetweenAttack: 10
   playerInAttackRange: 0
   projectile: {fileID: 4274355300578045711, guid: 89a205c69263d405da42cd1c3010d471, type: 3}
   firingPoint: {fileID: 1764269975326261722}
   shootForce: 50
   bulletsShot: 0
   shooting: 0
-  maxHealth: 10
+  maxHealth: 15
   currentHealth: 0
   turnSpeed: 0.1
 --- !u!54 &1764269973881091965

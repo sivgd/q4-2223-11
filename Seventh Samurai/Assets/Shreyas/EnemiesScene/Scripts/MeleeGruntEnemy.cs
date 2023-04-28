@@ -51,7 +51,7 @@ public class MeleeGruntEnemy : MonoBehaviour
         if (!playerInAttackRange && detect.enemyDetectTrue == false)
         {
             animator.SetFloat("Move", 1);
-            agent.speed = 4;
+            agent.speed = 8;
             Chase();
         }
         else if(detect.enemyDetectTrue == true)
@@ -64,6 +64,10 @@ public class MeleeGruntEnemy : MonoBehaviour
             animator.SetFloat("Move", 0);
             Attack();
         }
+
+        direction = (player.position - transform.position).normalized;
+        rotGoal = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
     }
 
     private void Chase()
@@ -74,15 +78,14 @@ public class MeleeGruntEnemy : MonoBehaviour
 
     private void Attack()
     {
+        gruntCol.enabled = false;
         agent.SetDestination(transform.position);
 
         if (!alreadyAttacked)
         {
             StartCoroutine(attackAnim());
         }
-        direction = (player.position - transform.position).normalized;
-        rotGoal = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
+        gruntCol.enabled = true;
     }
     IEnumerator attackAnim()
     {

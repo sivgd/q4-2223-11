@@ -5,35 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class pauseButtons : MonoBehaviour
 {
-    //urgdhtdth
-    private GameObject resumeButton;
-    private GameObject settingsButton;
-    private GameObject returnToMenu;
     private GameObject pauseCanvasObj;
     private GameObject settingsCanvasObj;
-    private GameObject deathCanvas;
-    private GameObject endCanvas;
+    private GameObject deathCanvasObj;
     public GameObject fadeOut;
-    //buttons
 
     //bools
     public bool isPaused;
+    public bool isDead;
     public tpMovement tp;
     public PlayerCombat PC;
     // Start is called before the first frame update
     void Start()
     {
-        resumeButton = GameObject.Find("RESUME");
-        settingsButton = GameObject.Find("SETTINGS");
-        returnToMenu = GameObject.Find("MENU");
         pauseCanvasObj = GameObject.Find("pauseCanvasObj");
         settingsCanvasObj = GameObject.Find("settingsCanvasObj");
-        deathCanvas = GameObject.Find("DeathCanvas");
-        //endCanvas = GameObject.Find("EndCanvas");
-        //endCanvas.SetActive(false);
-        deathCanvas.SetActive(false);
+        deathCanvasObj = GameObject.Find("deathCanvasObj");
+        deathCanvasObj.SetActive(false);
         pauseCanvasObj.SetActive(false);
         settingsCanvasObj.SetActive(false);
+        isDead = false;
         isPaused = false;
     }
 
@@ -41,7 +32,7 @@ public class pauseButtons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && isPaused == false)
+        if(Input.GetKeyDown(KeyCode.Escape) && isPaused == false && !isDead)
         {
             pauseCanvasObj.SetActive(true);
             isPaused = true;
@@ -49,24 +40,17 @@ public class pauseButtons : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
-
         else if(Input.GetKeyDown(KeyCode.Escape) && isPaused == true)
         {
             unPause();
         }
 
-        if(PC.currentHealth <= 0)
+
+        if(PC.currentHealth <= 0 && isDead == false)
         {
-            StartCoroutine(deathCanvasWait());
+            isDead = true;
+            StartCoroutine(DeathWait());
         }
-    }
-    IEnumerator deathCanvasWait()
-    {
-        yield return new WaitForSeconds(3f);
-        deathCanvas.SetActive(true);
-        Time.timeScale = 0;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
     }
 
     public void unPause()
@@ -77,7 +61,6 @@ public class pauseButtons : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
     }
-
 
     public void returnToMenuButton()
     {
@@ -90,6 +73,7 @@ public class pauseButtons : MonoBehaviour
     {
         Time.timeScale = 1;
         pauseCanvasObj.SetActive(false);
+        deathCanvasObj.SetActive(false);
         StartCoroutine(FadeWaitReset());
     }
 
@@ -102,6 +86,15 @@ public class pauseButtons : MonoBehaviour
     {
         pauseCanvasObj.SetActive(true);
         settingsCanvasObj.SetActive(false);
+    }
+
+    IEnumerator DeathWait()
+    {
+        yield return new WaitForSeconds(3);
+        deathCanvasObj.SetActive(true);
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     IEnumerator FadeWait()
@@ -121,6 +114,6 @@ public class pauseButtons : MonoBehaviour
         tp.canMove = false;
         PC.canAttack = false;
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("BossLevel");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

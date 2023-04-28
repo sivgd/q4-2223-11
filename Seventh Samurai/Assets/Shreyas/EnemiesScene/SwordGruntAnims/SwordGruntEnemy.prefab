@@ -627,7 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e26b5277c845a4aa55b986445d02bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 5
   playerHealthMask: {fileID: 0}
 --- !u!1 &1340801095941100365
 GameObject:
@@ -688,7 +688,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 4
+  m_Speed: 8
   m_Acceleration: 12
   avoidancePriority: 1
   m_AngularSpeed: 5000
@@ -732,9 +732,9 @@ MonoBehaviour:
   DeathTrue: 0
   gruntCol: {fileID: 0}
   timeBetweenAttack: 2
-  AttackRange: 1.46
+  AttackRange: 0.94
   playerInAttackRange: 0
-  maxHealth: 10
+  maxHealth: 25
   currentHealth: 0
   turnSpeed: 0.1
 --- !u!54 &1340801095941100358
@@ -805,8 +805,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2723871, y: 0.7518696, z: 0.2}
-  m_Center: {x: 0.38327956, y: -0.12409042, z: -0.000000032065188}
+  m_Size: {x: 0.27238712, y: 0.3182515, z: 0.2}
+  m_Center: {x: 0.3832795, y: -0.22011808, z: -0.00000007067487}
 --- !u!114 &1340801096186829758
 MonoBehaviour:
   m_ObjectHideFlags: 0

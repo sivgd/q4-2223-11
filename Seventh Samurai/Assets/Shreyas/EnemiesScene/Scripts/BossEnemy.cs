@@ -101,10 +101,10 @@ public class BossEnemy : MonoBehaviour
             keepTiming = false;
         }
 
-        if (!playerInBasicAttackRange && playerInFireAttackRange && !isAttacking)
+        if (!playerInBasicAttackRange && playerInFireAttackRange && !isAttacking && !reverseDashTrue)
         {
             animator.SetFloat("Move", 1);
-            agent.speed = 2;
+            agent.speed = 8;
             Chase();
             keepTiming = true;
             if (timeBetweenFireAttack <= 0 || timeBetweenDashAttack <= 0)
@@ -253,6 +253,7 @@ public class BossEnemy : MonoBehaviour
 
     IEnumerator fireAttackAnim()
     {
+        col.enabled = false;
         isAttacking = true;
         for (int i = 0; i < 3; i++)
         {
@@ -272,6 +273,7 @@ public class BossEnemy : MonoBehaviour
             }
         }
         animator.ResetTrigger("Impact");
+        col.enabled = true;
         isAttacking = false;
         Invoke(nameof(FireAttackReset), timeBetweenFireAttack);
     }
