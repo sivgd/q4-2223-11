@@ -40,7 +40,7 @@ public class PlayerCombat : MonoBehaviour
         canAttack = true;
         ResetColor();
         playerHealthMask = GameObject.Find("Mask");
-
+        pMove.speed = 9;
         currentHealth = maxHealth;
     }
 
@@ -82,15 +82,15 @@ public class PlayerCombat : MonoBehaviour
 
         if(weapon.flowState == true)
         {
-            //pMove.speed = 15;
             FlowSparks.SetActive(true);
             timeBetweenAttacks = 0.25f;
+            anim.SetFloat("SpeedMultiplier", 1.34f);
         }
         else
         {
-            //pMove.speed = 9;
             FlowSparks.SetActive(false);
             timeBetweenAttacks = 0.35f;
+            anim.SetFloat("SpeedMultiplier", 0.75f);
         }
 
     }
@@ -99,7 +99,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Time.time - lastComboEnd > 0.01f && comboCounter <= combo.Count)
         {
-            pMove.speed = 0;
+            //pMove.speed = 0;
             CancelInvoke("EndCombo");
 
             if(Time.time - lastClickedTime >= timeBetweenAttacks)
@@ -132,7 +132,7 @@ public class PlayerCombat : MonoBehaviour
         if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.2f && anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             Invoke("EndCombo", 0.35f);
-            pMove.speed = 0;
+            //pMove.speed = 0;
         }
     }
 

@@ -104,7 +104,7 @@ public class BossEnemy : MonoBehaviour
         if (!playerInBasicAttackRange && playerInFireAttackRange && !isAttacking && !reverseDashTrue)
         {
             animator.SetFloat("Move", 1);
-            agent.speed = 8;
+            agent.speed = 6;
             Chase();
             keepTiming = true;
             if (timeBetweenFireAttack <= 0 || timeBetweenDashAttack <= 0)
@@ -117,7 +117,7 @@ public class BossEnemy : MonoBehaviour
             }
         }
 
-        if (playerInBasicAttackRange && playerInFireAttackRange)
+        if (playerInBasicAttackRange && playerInFireAttackRange && !isAttacking && !reverseDashTrue)
         {
             animator.SetFloat("Move", 0);
             agent.speed = 0;
@@ -133,7 +133,7 @@ public class BossEnemy : MonoBehaviour
             }
         }
 
-        if (playerInFireAttackRange && !playerInBasicAttackRange && timeBetweenFireAttack <= 0 && !reverseDashTrue)
+        if (playerInFireAttackRange && timeBetweenFireAttack <= 0 && !reverseDashTrue)
         {
             animator.SetFloat("Move", 0);
             agent.speed = 0;
