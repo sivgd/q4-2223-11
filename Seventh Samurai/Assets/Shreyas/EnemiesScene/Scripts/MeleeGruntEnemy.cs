@@ -16,7 +16,7 @@ public class MeleeGruntEnemy : MonoBehaviour
     [HideInInspector] public float walkPointRange;
     [HideInInspector] public bool alreadyAttacked;
     [HideInInspector] public bool DeathTrue;
-    [HideInInspector] public CapsuleCollider gruntCol;
+    public CapsuleCollider gruntCol;
     DetectEnemy detect;
 
     [Header("Attack")]

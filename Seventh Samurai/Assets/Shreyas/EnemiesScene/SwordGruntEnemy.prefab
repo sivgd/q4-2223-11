@@ -675,9 +675,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.45
-  m_Height: 3.72
+  m_Height: 5.877516
   m_Direction: 1
-  m_Center: {x: 0, y: 1.88, z: 0}
+  m_Center: {x: 0, y: 2.9587579, z: 0}
 --- !u!195 &1340801095941100360
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -730,11 +730,11 @@ MonoBehaviour:
   walkPointRange: 10
   alreadyAttacked: 0
   DeathTrue: 0
-  gruntCol: {fileID: 0}
+  gruntCol: {fileID: 1340801095941100362}
   timeBetweenAttack: 2
-  AttackRange: 0.94
+  AttackRange: 1.66
   playerInAttackRange: 0
-  maxHealth: 25
+  maxHealth: 300
   currentHealth: 0
   turnSpeed: 0.1
 --- !u!54 &1340801095941100358
