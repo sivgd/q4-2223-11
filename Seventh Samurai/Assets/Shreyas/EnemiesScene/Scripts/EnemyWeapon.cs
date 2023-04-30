@@ -7,10 +7,12 @@ public class EnemyWeapon : MonoBehaviour
     public float damage;
 
     public GameObject playerHealthMask;
+    public GameObject flowBarMask;
 
     public void Start()
     {
         playerHealthMask = GameObject.Find("Mask");
+        flowBarMask = GameObject.Find("flowBarMask");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,6 +33,9 @@ public class EnemyWeapon : MonoBehaviour
             playerWeapon.inCombo = false;
             playerWeapon.currentComboTime = 0;
             playerWeapon.flowState = false;
+
+            flowBarMask.GetComponent<healthMask>().moveFocusMask(pc.GetComponentInChildren<Weapon>().comboLevel, pc.GetComponentInChildren<Weapon>().flowStateLevel);
+
             //StopCoroutine(pc.playerRegenHealth());
         }
     }

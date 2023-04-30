@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     public int numberOfHits;
 
     private GameObject bossHealthMask;
+    private GameObject flowBarMask;
 
     [Header("Flow State Junk")]
     public bool inCombo;
@@ -27,17 +28,20 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         bossHealthMask = GameObject.Find("EnemyMask");
+        flowBarMask = GameObject.Find("flowBarMask");
     }
 
     private void Update()
     {
-        if(inCombo == true)
+
+        if (inCombo == true)
         {
             currentComboTime -= comboDecayRate * Time.deltaTime;
             if(currentComboTime <= 0)
             {
                 inCombo = false;
                 comboLevel = 0;
+                flowBarMask.GetComponent<healthMask>().moveFocusMask(comboLevel, flowStateLevel);
             }
 
             if(comboLevel >= flowStateLevel)
@@ -45,6 +49,9 @@ public class Weapon : MonoBehaviour
                 flowState = true;
                 
             }
+
+
+
 
         }
 
@@ -72,6 +79,10 @@ public class Weapon : MonoBehaviour
         if(BE != null)
         {
             bossHealthMask.GetComponent<healthMask>().moveEnemyMask(BE.currentHealth, BE.maxHealth);
+            if (comboLevel <= flowStateLevel)
+            {
+                flowBarMask.GetComponent<healthMask>().moveFocusMask(comboLevel, flowStateLevel);
+            }
             BE.currentHealth -= damage;
             BE.animator.SetTrigger("Impact");
             numberOfHits += 1;
@@ -88,6 +99,10 @@ public class Weapon : MonoBehaviour
         }
         if(gruntEnemy != null)
         {
+            if (comboLevel <= flowStateLevel)
+            {
+                flowBarMask.GetComponent<healthMask>().moveFocusMask(comboLevel, flowStateLevel);
+            }
             gruntEnemy.currentHealth -= damage;
             gruntEnemy.impactTrue = true;
             gruntEnemy.animator.SetTrigger("Impact");
@@ -106,6 +121,10 @@ public class Weapon : MonoBehaviour
         }
         if (rangedEnemy != null)
         {
+            if (comboLevel <= flowStateLevel)
+            {
+                flowBarMask.GetComponent<healthMask>().moveFocusMask(comboLevel, flowStateLevel);
+            }
             rangedEnemy.currentHealth -= damage;
             rangedEnemy.impactTrue = true;
             rangedEnemy.gruntAnimator.SetTrigger("Impact");

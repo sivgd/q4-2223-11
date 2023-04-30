@@ -17,4 +17,10 @@ public class healthMask : MonoBehaviour
         transform.localPosition = new Vector3((percentToMove - 1) * 201, 0, 0);
     }
 
+    public void moveFocusMask(float currentVal, float maxVal)
+    {
+        float percentToMove = (float)currentVal / (float)maxVal;
+        transform.localPosition = new Vector3((percentToMove - 1) * 200, 0, 0);
+    }
+
 }
