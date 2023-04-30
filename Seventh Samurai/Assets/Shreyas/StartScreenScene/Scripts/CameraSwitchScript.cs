@@ -5,10 +5,10 @@ using UnityEngine;
 public class CameraSwitchScript : MonoBehaviour
 {
     public GameObject[] cameras;
-    public GameObject Camera1;
-    public GameObject Camera2;
-    public GameObject Camera3;
-    public GameObject Camera4;
+    //public GameObject Camera1;
+    //public GameObject Camera2;
+    //public GameObject Camera3;
+    //public GameObject Camera4;
 
     public int currentCam;
     public GameObject Fade;
