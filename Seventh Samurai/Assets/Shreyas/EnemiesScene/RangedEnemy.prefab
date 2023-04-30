@@ -1314,7 +1314,7 @@ MonoBehaviour:
   shootForce: 50
   bulletsShot: 0
   shooting: 0
-  maxHealth: 15
+  maxHealth: 10
   currentHealth: 0
   knockbackForce: 4
   knockbackTime: 0.2

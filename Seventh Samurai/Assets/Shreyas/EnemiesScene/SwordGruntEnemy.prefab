@@ -738,7 +738,7 @@ MonoBehaviour:
   knockbackForce: 4
   knockbackTime: 0.3
   impactTrue: 0
-  maxHealth: 25
+  maxHealth: 15
   currentHealth: 0
   turnSpeed: 0.1
 --- !u!54 &1340801095941100358
