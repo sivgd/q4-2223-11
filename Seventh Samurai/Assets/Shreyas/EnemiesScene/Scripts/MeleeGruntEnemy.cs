@@ -16,6 +16,7 @@ public class MeleeGruntEnemy : MonoBehaviour
     [HideInInspector] public float walkPointRange;
     [HideInInspector] public bool alreadyAttacked;
     [HideInInspector] public bool DeathTrue;
+    [HideInInspector] public Rigidbody rb;
     public CapsuleCollider gruntCol;
     DetectEnemy detect;
 
@@ -24,10 +25,16 @@ public class MeleeGruntEnemy : MonoBehaviour
     public float AttackRange;
     [HideInInspector] public bool playerInAttackRange;
 
+    [Header("Knockback")]
+    public float knockbackForce;
+    public float knockbackTime;
+    public bool impactTrue;
+    Weapon weapon;
 
     [Header("Health")]
     public float maxHealth;
     public float currentHealth;
+
 
     public float turnSpeed;
     Quaternion rotGoal;
@@ -36,9 +43,12 @@ public class MeleeGruntEnemy : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         gruntCol = gameObject.GetComponent<CapsuleCollider>();
+        rb = gameObject.GetComponent<Rigidbody>();
+        weapon = FindObjectOfType<Weapon>();
         detect = gameObject.GetComponentInChildren<DetectEnemy>();
         playerObj = GameObject.Find("Player");
         player = playerObj.GetComponent<Transform>();
+        impactTrue = false;
         currentHealth = maxHealth;
         DeathTrue = false;
     }
@@ -48,7 +58,7 @@ public class MeleeGruntEnemy : MonoBehaviour
         playerInAttackRange = Physics.CheckSphere(transform.position, AttackRange, whatIsPlayer);
 
 
-        if (!playerInAttackRange && detect.enemyDetectTrue == false)
+        if (!playerInAttackRange && detect.enemyDetectTrue == false && !impactTrue)
         {
             animator.SetFloat("Move", 1);
             agent.speed = 8;
@@ -64,28 +74,40 @@ public class MeleeGruntEnemy : MonoBehaviour
             animator.SetFloat("Move", 0);
             Attack();
         }
+        if(impactTrue)
+        {
+            StartCoroutine(knockback());
+        }
 
         direction = (player.position - transform.position).normalized;
         rotGoal = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
     }
 
+    IEnumerator knockback()
+    {
+        rb.isKinematic = false;
+        rb.AddForce(-transform.forward * knockbackForce, ForceMode.Impulse);
+        yield return new WaitForSeconds(knockbackTime);
+        rb.isKinematic = true;
+        impactTrue = false;
+    }
+
     private void Chase()
     {
+        animator.ResetTrigger("Impact");
         animator.SetBool("Attack", false);
         agent.SetDestination(player.position);
     }
 
     private void Attack()
     {
-        gruntCol.enabled = false;
         agent.SetDestination(transform.position);
 
         if (!alreadyAttacked)
         {
             StartCoroutine(attackAnim());
         }
-        gruntCol.enabled = true;
     }
     IEnumerator attackAnim()
     {

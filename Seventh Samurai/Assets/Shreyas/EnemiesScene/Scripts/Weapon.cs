@@ -10,7 +10,6 @@ public class Weapon : MonoBehaviour
 
     private GameObject bossHealthMask;
 
-
     [Header("Flow State Junk")]
     public bool inCombo;
     public float comboResetTime;
@@ -68,6 +67,7 @@ public class Weapon : MonoBehaviour
         var BE = other.gameObject.GetComponent<BossEnemy>();
         var gruntEnemy = other.gameObject.GetComponent<MeleeGruntEnemy>();
         var rangedEnemy = other.gameObject.GetComponent<RangedEnemy>();
+        var rb = other.gameObject.GetComponent<Rigidbody>();
         var startArena = FindObjectOfType<startArena>();
         if(BE != null)
         {
@@ -89,6 +89,7 @@ public class Weapon : MonoBehaviour
         if(gruntEnemy != null)
         {
             gruntEnemy.currentHealth -= damage;
+            gruntEnemy.impactTrue = true;
             gruntEnemy.animator.SetTrigger("Impact");
             if (gruntEnemy.currentHealth <= 0)
             {
@@ -106,6 +107,7 @@ public class Weapon : MonoBehaviour
         if (rangedEnemy != null)
         {
             rangedEnemy.currentHealth -= damage;
+            rangedEnemy.impactTrue = true;
             rangedEnemy.gruntAnimator.SetTrigger("Impact");
             rangedEnemy.bowAnimator.SetTrigger("Impact");
             if (rangedEnemy.currentHealth <= 0)

@@ -1305,7 +1305,8 @@ MonoBehaviour:
   walkPointRange: 0
   alreadyAttacked: 0
   rangeCol: {fileID: 0}
-  AttackRange: 22.18
+  rb: {fileID: 0}
+  AttackRange: 10.69
   timeBetweenAttack: 10
   playerInAttackRange: 0
   projectile: {fileID: 4274355300578045711, guid: 89a205c69263d405da42cd1c3010d471, type: 3}
@@ -1315,6 +1316,9 @@ MonoBehaviour:
   shooting: 0
   maxHealth: 15
   currentHealth: 0
+  knockbackForce: 5
+  knockbackTime: 0.3
+  impactTrue: 0
   turnSpeed: 0.1
 --- !u!54 &1764269973881091965
 Rigidbody:

@@ -17,6 +17,7 @@ public class RangedEnemy : MonoBehaviour
     [HideInInspector] public float walkPointRange;
     [HideInInspector] public bool alreadyAttacked;
     [HideInInspector] public CapsuleCollider rangeCol;
+    [HideInInspector] public Rigidbody rb;
 
     [Header("Range")]
     public float AttackRange;
@@ -34,6 +35,12 @@ public class RangedEnemy : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
 
+    [Header("Knockback")]
+    public float knockbackForce;
+    public float knockbackTime;
+    public bool impactTrue;
+    Weapon weapon;
+
     [Header("Look")]
     public float turnSpeed;
     Quaternion rotGoal;
@@ -43,8 +50,11 @@ public class RangedEnemy : MonoBehaviour
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
         rangeCol = gameObject.GetComponent<CapsuleCollider>();
+        rb = gameObject.GetComponent<Rigidbody>();
         playerObj = GameObject.Find("Player");
         player = playerObj.GetComponent<Transform>();
+        weapon = FindObjectOfType<Weapon>();
+        impactTrue = false;
         currentHealth = maxHealth;
     }
 
@@ -52,7 +62,7 @@ public class RangedEnemy : MonoBehaviour
     {
         playerInAttackRange = Physics.CheckSphere(transform.position, AttackRange, whatIsPlayer);
 
-        if (!playerInAttackRange && !alreadyAttacked)
+        if (!playerInAttackRange && !alreadyAttacked && !impactTrue)
         {
             gruntAnimator.SetFloat("Move", 1);
             bowAnimator.SetFloat("Move", 1);
@@ -67,10 +77,22 @@ public class RangedEnemy : MonoBehaviour
             agent.speed = 0;
             Attack();
         }
-
+        if (impactTrue)
+        {
+            StartCoroutine(knockback());
+        }
         direction = (player.position - transform.position).normalized;
         rotGoal = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
+    }
+
+    IEnumerator knockback()
+    {
+        rb.isKinematic = false;
+        rb.AddForce(-transform.forward * knockbackForce, ForceMode.Impulse);
+        yield return new WaitForSeconds(knockbackTime);
+        rb.isKinematic = true;
+        impactTrue = false;
     }
 
     private void Chase()
