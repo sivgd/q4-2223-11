@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
+using Cinemachine;
 
 public class SettingsMenuStuff : MonoBehaviour
 {
@@ -13,6 +14,21 @@ public class SettingsMenuStuff : MonoBehaviour
     public TMP_Dropdown resolutionDropdown;
     public static float cameraSensitivity;
 
+    public GameObject settingsMenuGameObject;
+    private float mastVol = -20;
+    private float sfxVol = 0;
+    private float enviroVol = 0;
+    private float musicVol = 0;
+
+    public Slider mastVolSlider;
+    public Slider musicVolSlider;
+    public Slider sfxVolSlider;
+    public Slider enviroVolSlider;
+    public Slider camSensSlider;
+    public float camSens;
+
+
+    public CinemachineFreeLook playerCam;
 
     private void Start()
     {
@@ -37,7 +53,29 @@ public class SettingsMenuStuff : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
+        mastVol = PlayerPrefs.GetFloat("mastVolPref");
+        sfxVol =  PlayerPrefs.GetFloat("sfxVolPref");
+        enviroVol = PlayerPrefs.GetFloat("enviroVolPref");
+        musicVol = PlayerPrefs.GetFloat("musicVolPref");
+        camSens = PlayerPrefs.GetFloat("camSensPref");
+
+        mastVolSlider.value = mastVol;
+        musicVolSlider.value = musicVol;
+        sfxVolSlider.value = sfxVol;
+        enviroVolSlider.value = enviroVol;
+        camSensSlider.value = camSens;
+
+
+        if(playerCam != null)
+        {
+            playerCam.m_XAxis.m_MaxSpeed = camSens;
+        }
+
+        //settingsMenuGameObject.SetActive(false);
+
     }
+
 
 
     public void SetResolution(int resolutionIndex)
@@ -49,21 +87,26 @@ public class SettingsMenuStuff : MonoBehaviour
     public void SetMastVolume(float volume)
     {
         audioMixer.SetFloat("masterVolParam", volume);
+        PlayerPrefs.SetFloat("mastVolPref", volume);
+        
     }
 
     public void SetSFXVolume(float volume)
     {
         audioMixer.SetFloat("sfxVolParam", volume);
+        PlayerPrefs.SetFloat("sfxVolPref", volume);
     }
 
     public void SetMusicVolume(float volume)
     {
         audioMixer.SetFloat("musicVolParam", volume);
+        PlayerPrefs.SetFloat("musicVolPref", volume);
     }
 
     public void SetEnviroVolume(float volume)
     {
         audioMixer.SetFloat("enviroVolParam", volume);
+        PlayerPrefs.SetFloat("enviroVolPref", volume);
     }
 
     public void SetQuality(int qualityIndex)
@@ -78,7 +121,9 @@ public class SettingsMenuStuff : MonoBehaviour
 
     public void SetCamSens(float sensitivity)
     {
-        cameraSensitivity = sensitivity;
+        camSens = sensitivity;
+        playerCam.m_XAxis.m_MaxSpeed = camSens;
+        PlayerPrefs.SetFloat("camSensPref", sensitivity);
     }
 
 }
