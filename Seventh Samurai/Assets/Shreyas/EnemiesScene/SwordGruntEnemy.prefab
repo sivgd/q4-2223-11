@@ -735,7 +735,7 @@ MonoBehaviour:
   timeBetweenAttack: 2
   AttackRange: 1.66
   playerInAttackRange: 0
-  knockbackForce: 3
+  knockbackForce: 5
   knockbackTime: 0.2
   impactTrue: 0
   maxHealth: 25

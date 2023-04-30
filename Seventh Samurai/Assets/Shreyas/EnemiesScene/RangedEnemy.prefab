@@ -1316,7 +1316,7 @@ MonoBehaviour:
   shooting: 0
   maxHealth: 15
   currentHealth: 0
-  knockbackForce: 3
+  knockbackForce: 5
   knockbackTime: 0.2
   impactTrue: 0
   turnSpeed: 0.1
