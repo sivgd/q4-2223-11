@@ -70,7 +70,7 @@ public class RangedEnemy : MonoBehaviour
             Chase();
         }
 
-        if (playerInAttackRange)
+        if (playerInAttackRange && !impactTrue)
         {
             gruntAnimator.SetFloat("Move", 0);
             bowAnimator.SetFloat("Move", 0);
