@@ -19,6 +19,9 @@ public class startArena : MonoBehaviour
     public Animator doorAnimatorExit;
     public GameObject nextArena;
 
+    public AudioSource doorNoise1;
+    public AudioSource doorNoise2;
+
     [HideInInspector]public bool arenaStarted;
 
     private void Awake()
@@ -67,6 +70,8 @@ public class startArena : MonoBehaviour
     {
         doorAnimatorEntrance.SetBool("closeDoors", true);
         doorAnimatorExit.SetBool("closeDoors", true);
+        doorNoise1.Play();
+        doorNoise2.Play();
 
         doorAnimatorEntrance.SetBool("openDoors", false);
         doorAnimatorExit.SetBool("openDoors", false);
@@ -76,6 +81,8 @@ public class startArena : MonoBehaviour
     {
         doorAnimatorEntrance.SetBool("openDoors", true);
         doorAnimatorExit.SetBool("openDoors", true);
+        doorNoise1.Play();
+        doorNoise2.Play();
 
         doorAnimatorEntrance.SetBool("closeDoors", false);
         doorAnimatorExit.SetBool("closeDoors", false);

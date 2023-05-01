@@ -4657,7 +4657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &873180207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4672,6 +4672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeOut: {fileID: 1637085332}
   isPaused: 0
+  isDead: 0
   tp: {fileID: 1035661637}
   PC: {fileID: 1035661635}
 --- !u!4 &873180208
@@ -4990,10 +4991,13 @@ MonoBehaviour:
   timeBetweenAttacks: 0.35
   playerTrail: {fileID: 0}
   cam: {fileID: 1218430107}
-  BossAnimator: {fileID: 0}
   mat: {fileID: 2100000, guid: ddfaba609a7cf3a4a8c437ea14e0732b, type: 2}
+  FlowSparks: {fileID: 0}
   maxHealth: 0
   currentHealth: 0
+  healthRegenCD: 0
+  healthRegenRate: 0
+  healPlayer: 0
   canAttack: 0
   pMove: {fileID: 0}
 --- !u!114 &1035661636
@@ -13491,6 +13495,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   numberOfHits: 0
+  inCombo: 0
+  comboResetTime: 0
+  currentComboTime: 0
+  comboDecayRate: 0
+  comboLevel: 0
+  flowStateLevel: 0
+  flowState: 0
+  flowResetTime: 0
+  flowComboTime: 0
+  flowDecayRate: 0
 --- !u!65 &2077861878
 BoxCollider:
   m_ObjectHideFlags: 0
