@@ -7,6 +7,7 @@ public class RitualStartedText : MonoBehaviour
 {
     public TMP_Text textLabel;
     public string Text;
+    public int textSpeed;
 
     public void Run(string textToType, TMP_Text textLabel)
     {
@@ -20,7 +21,7 @@ public class RitualStartedText : MonoBehaviour
 
         while(charIndex < textToType.Length)
         {
-            t += Time.deltaTime * 8;
+            t += Time.deltaTime * textSpeed;
             charIndex = Mathf.FloorToInt(t);
             charIndex = Mathf.Clamp(charIndex, 0, textToType.Length);
 
