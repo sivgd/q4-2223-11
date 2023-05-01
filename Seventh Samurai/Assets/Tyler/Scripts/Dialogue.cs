@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class Dialogue : MonoBehaviour
 {
-    public Animator blackScreen;
+    //public Animator blackScreen;
     public TextMeshProUGUI textComponent;
     public TextMeshProUGUI nameComponent;
-    public Sprite characterSprite;
-    public GameObject characterIcon;
+    //public Sprite characterSprite;
+    //public GameObject characterIcon;
     public Sprite[] sprites;
     public string[] names;
     public string[] lines;
@@ -22,14 +22,14 @@ public class Dialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        blackScreen.Play("BlackScreenTransition");
+        //blackScreen.Play("BlackScreenTransition");
         index = 0;
-        blackScreen.SetInteger("IndexNum", index);
+        //blackScreen.SetInteger("IndexNum", index);
         textComponent.text = string.Empty;
         nameComponent.text = string.Empty;
-        characterSprite = sprites[0];
+        //characterSprite = sprites[0];
         nameComponent.text = names[0];
-        characterIcon.GetComponent<Image>().sprite = characterSprite;
+        //characterIcon.GetComponent<Image>().sprite = characterSprite;
 
         
         StartDialogue();
@@ -43,9 +43,9 @@ public class Dialogue : MonoBehaviour
             if(textComponent.text == lines[index])
             {
                 NextLine();
-                characterSprite = sprites[index];
+                //characterSprite = sprites[index];
                 nameComponent.text = names[index];
-                characterIcon.GetComponent<Image>().sprite = sprites[index];
+                //characterIcon.GetComponent<Image>().sprite = sprites[index];
             }
             else
             {
@@ -83,15 +83,8 @@ public class Dialogue : MonoBehaviour
         else
         {
             gameObject.SetActive(false); 
-            blackScreen.Play("BlackScreenTransition(Negitive)");
-            Invoke("SceneSwitch", 3);
+            //blackScreen.Play("BlackScreenTransition(Negitive)");
+            //Invoke("SceneSwitch", 3);
         }
     }
-
-    void SceneSwitch()
-    {
-        SceneManager.LoadScene("Level");
-    }
-
-
 }
