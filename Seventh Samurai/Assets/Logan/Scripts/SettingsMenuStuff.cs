@@ -8,12 +8,16 @@ using Cinemachine;
 
 public class SettingsMenuStuff : MonoBehaviour
 {
-
-    public AudioMixer audioMixer;
+    [Header("Resolution")]
     Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
-    public static float cameraSensitivity;
 
+    [Header("CamSense")]
+    public static float cameraSensitivity;
+    public CinemachineFreeLook playerCam;
+
+    [Header("Volume")]
+    public AudioMixer audioMixer;
     public GameObject settingsMenuGameObject;
     private float mastVol = -20;
     private float sfxVol = 0;
@@ -26,9 +30,6 @@ public class SettingsMenuStuff : MonoBehaviour
     public Slider enviroVolSlider;
     public Slider camSensSlider;
     public float camSens;
-
-
-    public CinemachineFreeLook playerCam;
 
     private void Start()
     {
@@ -49,10 +50,10 @@ public class SettingsMenuStuff : MonoBehaviour
                 currentResolutionIndex = i;
             }
         }
-
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
 
         mastVol = PlayerPrefs.GetFloat("mastVolPref");
         sfxVol =  PlayerPrefs.GetFloat("sfxVolPref");
@@ -66,8 +67,7 @@ public class SettingsMenuStuff : MonoBehaviour
         enviroVolSlider.value = enviroVol;
         camSensSlider.value = camSens;
 
-
-        if(playerCam != null)
+        if (playerCam != null)
         {
             playerCam.m_XAxis.m_MaxSpeed = camSens;
         }
@@ -84,29 +84,88 @@ public class SettingsMenuStuff : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
+    //Master Volume
     public void SetMastVolume(float volume)
     {
-        audioMixer.SetFloat("masterVolParam", volume);
+        if(volume < 1)
+        {
+            volume = .001f;
+        }
+
+        RefreshMastSlider(volume);
         PlayerPrefs.SetFloat("mastVolPref", volume);
-        
+        audioMixer.SetFloat("masterVolParam", Mathf.Log10(volume/100) * 20);
     }
-
-    public void SetSFXVolume(float volume)
+    public void SetMastVolumeFromSlider()
     {
-        audioMixer.SetFloat("sfxVolParam", volume);
-        PlayerPrefs.SetFloat("sfxVolPref", volume);
+        SetMastVolume(mastVolSlider.value);
+    }
+    public void RefreshMastSlider(float volume)
+    {
+        mastVolSlider.value = volume;
     }
 
+    //Music Volume
     public void SetMusicVolume(float volume)
     {
-        audioMixer.SetFloat("musicVolParam", volume);
+        if (volume < 1)
+        {
+            volume = .001f;
+        }
+
+        RefreshMusicSlider(volume);
         PlayerPrefs.SetFloat("musicVolPref", volume);
+        audioMixer.SetFloat("musicVolParam", Mathf.Log10(volume / 100) * 20);
+    }
+    public void SetMusicVolumeFromSlider()
+    {
+        SetMusicVolume(musicVolSlider.value);
+    }
+    public void RefreshMusicSlider(float volume)
+    {
+        musicVolSlider.value = volume;
     }
 
+    //Environment Volume
     public void SetEnviroVolume(float volume)
     {
-        audioMixer.SetFloat("enviroVolParam", volume);
+        if (volume < 1)
+        {
+            volume = .001f;
+        }
+
+        RefreshEnvSlider(volume);
         PlayerPrefs.SetFloat("enviroVolPref", volume);
+        audioMixer.SetFloat("enviroVolParam", Mathf.Log10(volume / 100) * 20);
+    }
+    public void SetEnvVolumeFromSlider()
+    {
+        SetEnviroVolume(enviroVolSlider.value);
+    }
+    public void RefreshEnvSlider(float volume)
+    {
+        enviroVolSlider.value = volume;
+    }
+
+    //SFX Volume
+    public void SetSFXVolume(float volume)
+    {
+        if (volume < 1)
+        {
+            volume = .001f;
+        }
+
+        RefreshSFXSlider(volume);
+        PlayerPrefs.SetFloat("sfxVolPref", volume);
+        audioMixer.SetFloat("sfxVolParam", Mathf.Log10(volume / 100) * 20);
+    }
+    public void SetSFXVolumeFromSlider()
+    {
+        SetSFXVolume(sfxVolSlider.value);
+    }
+    public void RefreshSFXSlider(float volume)
+    {
+        sfxVolSlider.value = volume;
     }
 
     public void SetQuality(int qualityIndex)
