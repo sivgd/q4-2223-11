@@ -19,6 +19,8 @@ public class Weapon : MonoBehaviour
     public int comboLevel;
     public int flowStateLevel;
     public bool flowState;
+    public GameObject flowStateText;
+    public Animator flowStateTextAni;
 
     public float flowResetTime;
     public float flowComboTime;
@@ -29,6 +31,7 @@ public class Weapon : MonoBehaviour
     {
         bossHealthMask = GameObject.Find("EnemyMask");
         flowBarMask = GameObject.Find("flowBarMask");
+        flowStateText.SetActive(false);
     }
 
     private void Update()
@@ -57,6 +60,8 @@ public class Weapon : MonoBehaviour
 
         if (flowState == true)
         {
+            flowStateText.SetActive(true);
+            //flowStateTextAni.Play("FlowStateActive");
             flowComboTime -= flowDecayRate * Time.deltaTime;
             if (flowComboTime <= 0)
             {
@@ -65,6 +70,10 @@ public class Weapon : MonoBehaviour
 
         }
 
+        if (flowState == false)
+        {
+            flowStateText.SetActive(false);
+        }
 
     }
 
