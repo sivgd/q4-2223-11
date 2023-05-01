@@ -17,8 +17,10 @@ public class Dialogue : MonoBehaviour
     public string[] lines;
     public float textSpeed;
     public int index;
+    tpMovement tpMovement;
+    PlayerCombat PlayerCombat;
 
-    public pauseButtons PB;
+    //public pauseButtons PB;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,13 +40,15 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !PB.isPaused)
+        if (Input.GetMouseButtonDown(0) /*&& !PB.isPaused*/)
         {
             if(textComponent.text == lines[index])
             {
                 NextLine();
                 //characterSprite = sprites[index];
                 nameComponent.text = names[index];
+                tpMovement.canMove = false;
+                PlayerCombat.canAttack = false;
                 //characterIcon.GetComponent<Image>().sprite = sprites[index];
             }
             else
@@ -52,6 +56,8 @@ public class Dialogue : MonoBehaviour
                 StopAllCoroutines();
                 textComponent.text = lines[index];
                 nameComponent.text = names[index];
+                tpMovement.canMove = true;
+                PlayerCombat.canAttack = true;
             }
         }
     }
