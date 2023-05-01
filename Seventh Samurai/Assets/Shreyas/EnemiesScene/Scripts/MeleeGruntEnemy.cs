@@ -73,19 +73,21 @@ public class MeleeGruntEnemy : MonoBehaviour
         {
             animator.SetFloat("Move", 0);
             Attack();
+            direction = (player.position - transform.position).normalized;
+            rotGoal = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
         }
         if(impactTrue)
         {
             StartCoroutine(knockback());
         }
-
-        direction = (player.position - transform.position).normalized;
-        rotGoal = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
     }
 
     IEnumerator knockback()
     {
+        direction = (player.position - transform.position).normalized;
+        rotGoal = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
         rb.isKinematic = false;
         rb.AddForce(-transform.forward * knockbackForce, ForceMode.Impulse);
         yield return new WaitForSeconds(knockbackTime);
@@ -98,6 +100,7 @@ public class MeleeGruntEnemy : MonoBehaviour
         animator.ResetTrigger("Impact");
         animator.SetBool("Attack", false);
         agent.SetDestination(player.position);
+
     }
 
     private void Attack()

@@ -629,6 +629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   playerHealthMask: {fileID: 0}
+  flowBarMask: {fileID: 0}
 --- !u!1 &1340801095941100365
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,7 +736,7 @@ MonoBehaviour:
   timeBetweenAttack: 2
   AttackRange: 1.66
   playerInAttackRange: 0
-  knockbackForce: 4
+  knockbackForce: 6
   knockbackTime: 0.3
   impactTrue: 0
   maxHealth: 15

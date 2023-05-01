@@ -76,18 +76,22 @@ public class RangedEnemy : MonoBehaviour
             bowAnimator.SetFloat("Move", 0);
             agent.speed = 0;
             Attack();
+            direction = (player.position - transform.position).normalized;
+            rotGoal = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
         }
         if (impactTrue)
         {
             StartCoroutine(knockback());
         }
-        direction = (player.position - transform.position).normalized;
-        rotGoal = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
+
     }
 
     IEnumerator knockback()
     {
+        direction = (player.position - transform.position).normalized;
+        rotGoal = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
         rb.isKinematic = false;
         rb.AddForce(-transform.forward * knockbackForce, ForceMode.Impulse);
         yield return new WaitForSeconds(knockbackTime);
