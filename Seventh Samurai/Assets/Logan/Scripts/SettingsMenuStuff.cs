@@ -55,11 +55,11 @@ public class SettingsMenuStuff : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
 
 
-        mastVol = PlayerPrefs.GetFloat("mastVolPref");
-        sfxVol =  PlayerPrefs.GetFloat("sfxVolPref");
-        enviroVol = PlayerPrefs.GetFloat("enviroVolPref");
-        musicVol = PlayerPrefs.GetFloat("musicVolPref");
-        camSens = PlayerPrefs.GetFloat("camSensPref");
+        mastVol = PlayerPrefs.GetFloat("mastVolPref", 50);
+        sfxVol =  PlayerPrefs.GetFloat("sfxVolPref", 50);
+        enviroVol = PlayerPrefs.GetFloat("enviroVolPref", 50);
+        musicVol = PlayerPrefs.GetFloat("musicVolPref", 50);
+        camSens = PlayerPrefs.GetFloat("camSensPref", 450);
 
         mastVolSlider.value = mastVol;
         musicVolSlider.value = musicVol;
