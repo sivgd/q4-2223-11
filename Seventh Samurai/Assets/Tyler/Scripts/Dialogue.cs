@@ -17,13 +17,17 @@ public class Dialogue : MonoBehaviour
     public string[] lines;
     public float textSpeed;
     public int index;
-    tpMovement tpMovement;
-    PlayerCombat PlayerCombat;
+    public GameObject player;
+    tpMovement tPMovement;
+    PlayerCombat playerCombat;
 
     //public pauseButtons PB;
     // Start is called before the first frame update
     void Start()
     {
+        tPMovement = player.GetComponent<tpMovement>();
+        playerCombat = player.GetComponent<PlayerCombat>();
+
         //blackScreen.Play("BlackScreenTransition");
         index = 0;
         //blackScreen.SetInteger("IndexNum", index);
@@ -47,8 +51,7 @@ public class Dialogue : MonoBehaviour
                 NextLine();
                 //characterSprite = sprites[index];
                 nameComponent.text = names[index];
-                tpMovement.canMove = false;
-                PlayerCombat.canAttack = false;
+                
                 //characterIcon.GetComponent<Image>().sprite = sprites[index];
             }
             else
@@ -56,14 +59,15 @@ public class Dialogue : MonoBehaviour
                 StopAllCoroutines();
                 textComponent.text = lines[index];
                 nameComponent.text = names[index];
-                tpMovement.canMove = true;
-                PlayerCombat.canAttack = true;
             }
         }
     }
 
     void StartDialogue()
-    {
+    { 
+        tPMovement.enabled = false;
+        playerCombat.canAttack = false;
+
         index = 0;
         StartCoroutine(TypeLine());
     }
@@ -88,6 +92,8 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
+            tPMovement.enabled = true;
+            playerCombat.canAttack = true;
             gameObject.SetActive(false); 
             //blackScreen.Play("BlackScreenTransition(Negitive)");
             //Invoke("SceneSwitch", 3);

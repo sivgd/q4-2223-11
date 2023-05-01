@@ -22,6 +22,8 @@ public class startArena : MonoBehaviour
     public AudioSource doorNoise1;
     public AudioSource doorNoise2;
 
+    public AudioSource music;
+
     [HideInInspector]public bool arenaStarted;
 
     private void Awake()
@@ -73,6 +75,8 @@ public class startArena : MonoBehaviour
         doorNoise1.Play();
         doorNoise2.Play();
 
+        music.Play();
+
         doorAnimatorEntrance.SetBool("openDoors", false);
         doorAnimatorExit.SetBool("openDoors", false);
     }
@@ -83,6 +87,8 @@ public class startArena : MonoBehaviour
         doorAnimatorExit.SetBool("openDoors", true);
         doorNoise1.Play();
         doorNoise2.Play();
+
+        music.Stop();
 
         doorAnimatorEntrance.SetBool("closeDoors", false);
         doorAnimatorExit.SetBool("closeDoors", false);
