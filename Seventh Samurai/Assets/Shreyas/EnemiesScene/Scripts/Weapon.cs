@@ -36,7 +36,7 @@ public class Weapon : MonoBehaviour
         bossHealthMask = GameObject.Find("EnemyMask");
         flowBarMask = GameObject.Find("flowBarMask");
         flowStateText.SetActive(false);
-        flowBarSound = GameObject.Find("FlowSound").GetComponent<AudioSource>();
+        flowBarSound = GameObject.Find("FlowAchievedSound").GetComponent<AudioSource>();
     }
 
     private void Update()

@@ -23,6 +23,7 @@ public class startArena : MonoBehaviour
     public AudioSource doorNoise2;
 
     public AudioSource music;
+    public Animator musicFade;
 
     [HideInInspector]public bool arenaStarted;
 
@@ -51,10 +52,7 @@ public class startArena : MonoBehaviour
 
             if(numberEnemiesAlive.Count == 0 && timePassed == 0)
             {
-                arenaStarted = false;
-                gameObject.SetActive(false);
-                nextArena.SetActive(true);
-                deactivateArenaLocks();
+                StartCoroutine(musicFadeWait());
             }
         }
     }
@@ -88,10 +86,19 @@ public class startArena : MonoBehaviour
         doorNoise1.Play();
         doorNoise2.Play();
 
-        music.Stop();
-
         doorAnimatorEntrance.SetBool("closeDoors", false);
         doorAnimatorExit.SetBool("closeDoors", false);
+    }
+
+    IEnumerator musicFadeWait()
+    {
+        arenaStarted = false;
+        gameObject.SetActive(false);
+        nextArena.SetActive(true);
+        deactivateArenaLocks();
+        musicFade.enabled = true;
+        yield return new WaitForSeconds(4);
+        music.Stop();
     }
 
     public void spawnEnemies()
