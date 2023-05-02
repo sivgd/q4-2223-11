@@ -7,6 +7,7 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
     public GameObject anim;
+    public Animator animMusic;
     public void PlayGame()
     {
         StartCoroutine(FadeWait());
@@ -19,6 +20,7 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator FadeWait()
     {
+        animMusic.enabled = true;
         anim.SetActive(true);
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
