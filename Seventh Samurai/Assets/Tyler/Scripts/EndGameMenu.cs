@@ -22,6 +22,8 @@ public class EndGameMenu : MonoBehaviour
     {
         yield return new WaitForSeconds(timeWait);
         endUI.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public IEnumerator waitforFade()
