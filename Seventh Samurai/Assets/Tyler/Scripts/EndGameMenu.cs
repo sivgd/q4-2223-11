@@ -28,6 +28,7 @@ public class EndGameMenu : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene("StartScreen");
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void returnToMenu()
