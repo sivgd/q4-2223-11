@@ -15,6 +15,8 @@ public class pauseButtons : MonoBehaviour
     public bool isDead;
     public tpMovement tp;
     public PlayerCombat PC;
+
+    private GameMaster gm;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,8 @@ public class pauseButtons : MonoBehaviour
         settingsCanvasObj.SetActive(false);
         isDead = false;
         isPaused = false;
+
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
     }
 
 
@@ -60,6 +64,15 @@ public class pauseButtons : MonoBehaviour
         Time.timeScale = 1;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    public void checkPoint()
+    {
+        Time.timeScale = 1;
+        pauseCanvasObj.SetActive(false);
+        deathCanvasObj.SetActive(false);
+        tp.groundCheck.transform.position = gm.lastCheckPointPos;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void returnToMenuButton()
