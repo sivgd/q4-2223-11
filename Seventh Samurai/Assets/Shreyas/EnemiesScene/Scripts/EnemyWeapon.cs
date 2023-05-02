@@ -8,11 +8,13 @@ public class EnemyWeapon : MonoBehaviour
 
     public GameObject playerHealthMask;
     public GameObject flowBarMask;
+    public AudioSource playerDam;
 
     public void Start()
     {
         playerHealthMask = GameObject.Find("Mask");
         flowBarMask = GameObject.Find("flowBarMask");
+        playerDam = GameObject.Find("HitSound").GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,6 +25,7 @@ public class EnemyWeapon : MonoBehaviour
         //var move = other.gameObject.GetComponent<tpMovement>();
         if (pc != null)
         {
+            playerDam.Play();
             StopCoroutine(pc.playerRegenHealth());
             pc.currentHealth -= damage;
             playerHealthMask.GetComponent<healthMask>().moveMask(pc.currentHealth, pc.maxHealth);

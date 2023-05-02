@@ -74,6 +74,7 @@ public class BossEnemy : MonoBehaviour
     Vector3 lookDirection;
     Vector3 direction;
     Rigidbody rb;
+    public AudioSource playerDam;
 
     private void Awake()
     {
@@ -83,6 +84,7 @@ public class BossEnemy : MonoBehaviour
         animator = GetComponent<Animator>();
         weapon = FindObjectOfType<EnemyWeapon>();
         playerWeapon = FindObjectOfType<Weapon>();
+        playerDam = GameObject.Find("HitSound").GetComponent<AudioSource>();
         keepTiming = true;
         canRotate = true;
         reverseDashTrue = false;

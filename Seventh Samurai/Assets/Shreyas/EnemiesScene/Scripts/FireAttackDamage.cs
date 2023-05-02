@@ -7,6 +7,7 @@ public class FireAttackDamage : MonoBehaviour
     public float damage;
     
     public GameObject playerHealthMask;
+    public AudioSource playerDam;
 
     public void Start()
     {
@@ -16,8 +17,10 @@ public class FireAttackDamage : MonoBehaviour
     {
         var pc = other.gameObject.GetComponent<PlayerCombat>();
         var playerWeapon = other.gameObject.GetComponentInChildren<Weapon>();
+        playerDam = GameObject.Find("HitSound").GetComponent<AudioSource>();
         if (pc != null)
         {
+            playerDam.Play();
             StopCoroutine(pc.playerRegenHealth());
             pc.currentHealth -= damage;
             playerHealthMask.GetComponent<healthMask>().moveMask(pc.currentHealth, pc.maxHealth);

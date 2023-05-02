@@ -11053,19 +11053,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 571646066602925146, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7151991
+      value: 0.7151992
       objectReference: {fileID: 0}
     - target: {fileID: 571646066602925146, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.03304482
+      value: 0.033044823
       objectReference: {fileID: 0}
     - target: {fileID: 571646066602925146, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6973952
+      value: -0.69739515
       objectReference: {fileID: 0}
     - target: {fileID: 571646066602925146, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.03222221
+      value: 0.032222208
       objectReference: {fileID: 0}
     - target: {fileID: 571646066716638622, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11086,6 +11086,18 @@ PrefabInstance:
     - target: {fileID: 571646066716638622, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.036879696
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852590725983673443, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852590725983673443, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7ebd71cfe2c47c54db120e7195d755c9, type: 3}
+    - target: {fileID: 3852590725983673443, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4002765824046324427, guid: 49a9ea4d930754cc68f8c22a74e83368, type: 3}
       propertyPath: m_RootOrder

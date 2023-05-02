@@ -26,4 +26,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Shreyas/CutScenes/FinalCutScene/FinalCutScene.unity
     guid: 028e0329baae24d6e88f259e0394d77f
+  - enabled: 1
+    path: Assets/Logan/TheaterScenes/TheaterScene1.unity
+    guid: 573fcae63cb8f474ea5bcf6354018d9a
+  - enabled: 1
+    path: Assets/Logan/TheaterScenes/TheaterScene2.unity
+    guid: a97d479e6a8f486448a1f61d6287508a
+  - enabled: 1
+    path: Assets/Logan/TheaterScenes/TheaterScene3.unity
+    guid: c0cbeb7bfe6e6fc4a9b526cba1ba0e73
   m_configObjects: {}

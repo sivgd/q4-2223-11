@@ -29,11 +29,14 @@ public class Weapon : MonoBehaviour
     public AudioSource hitSound;
     public AudioSource bossHitSound;
 
+    public AudioSource flowBarSound;
+
     private void Start()
     {
         bossHealthMask = GameObject.Find("EnemyMask");
         flowBarMask = GameObject.Find("flowBarMask");
         flowStateText.SetActive(false);
+        flowBarSound = GameObject.Find("FlowSound").GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -54,7 +57,6 @@ public class Weapon : MonoBehaviour
                 flowState = true;
                 
             }
-
 
 
 

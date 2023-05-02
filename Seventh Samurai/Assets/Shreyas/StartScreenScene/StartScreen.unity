@@ -515,6 +515,7 @@ GameObject:
   - component: {fileID: 13058011}
   - component: {fileID: 13058010}
   - component: {fileID: 13058009}
+  - component: {fileID: 13058012}
   m_Layer: 5
   m_Name: CutScene3
   m_TagString: Untagged
@@ -586,10 +587,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 13058012}
+        m_TargetAssemblyTypeName: openCertainScene, Assembly-CSharp
+        m_MethodName: openScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -636,6 +637,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13058007}
   m_CullTransparentMesh: 1
+--- !u!114 &13058012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13058007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717fea6671a3df14e8aa6bbe73d17bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: TheaterScene3
 --- !u!1 &48830956
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +1007,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cutscene Two
+  m_text: Boss Scene
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 535d32e57dca0ca489e2b29587a13244, type: 2}
   m_sharedMaterial: {fileID: -5390045485235710554, guid: 535d32e57dca0ca489e2b29587a13244, type: 2}
@@ -7907,6 +7921,7 @@ GameObject:
   - component: {fileID: 321933576}
   - component: {fileID: 321933575}
   - component: {fileID: 321933574}
+  - component: {fileID: 321933577}
   m_Layer: 5
   m_Name: CutScene1
   m_TagString: Untagged
@@ -7978,10 +7993,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 321933577}
+        m_TargetAssemblyTypeName: openCertainScene, Assembly-CSharp
+        m_MethodName: openScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8028,6 +8043,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321933572}
   m_CullTransparentMesh: 1
+--- !u!114 &321933577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321933572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717fea6671a3df14e8aa6bbe73d17bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: TheaterScene1
 --- !u!1 &362870430
 GameObject:
   m_ObjectHideFlags: 0
@@ -16919,7 +16947,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CutsceneOne
+  m_text: Starting Scene
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 535d32e57dca0ca489e2b29587a13244, type: 2}
   m_sharedMaterial: {fileID: -5390045485235710554, guid: 535d32e57dca0ca489e2b29587a13244, type: 2}
@@ -18839,6 +18867,7 @@ GameObject:
   - component: {fileID: 1052956054}
   - component: {fileID: 1052956053}
   - component: {fileID: 1052956052}
+  - component: {fileID: 1052956055}
   m_Layer: 5
   m_Name: CutScene2
   m_TagString: Untagged
@@ -18910,10 +18939,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1052956055}
+        m_TargetAssemblyTypeName: openCertainScene, Assembly-CSharp
+        m_MethodName: openScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -18960,6 +18989,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052956050}
   m_CullTransparentMesh: 1
+--- !u!114 &1052956055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052956050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717fea6671a3df14e8aa6bbe73d17bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: TheaterScene2
 --- !u!1 &1061134155
 GameObject:
   m_ObjectHideFlags: 0
@@ -20530,7 +20572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1311525996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20999,7 +21041,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cutscene Three
+  m_text: Ending Cutscene
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 535d32e57dca0ca489e2b29587a13244, type: 2}
   m_sharedMaterial: {fileID: -5390045485235710554, guid: 535d32e57dca0ca489e2b29587a13244, type: 2}
