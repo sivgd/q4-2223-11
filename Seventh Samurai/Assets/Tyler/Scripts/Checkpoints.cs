@@ -1,21 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Checkpoints : MonoBehaviour
 {
-    private GameMaster gm;
+    public GameObject Player;
+    public static Vector3 respawnLoc;
+
 
     void Start()
     {
-        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+        Player = GameObject.Find("Player");
+
+        if(respawnLoc != new Vector3(0, 0, 0))
+        {
+            Player.transform.position = respawnLoc;
+        }
+    }
+
+    private void Update()
+    {
+        Debug.Log(respawnLoc);
+
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            gm.lastCheckPointPos = transform.position;
+            respawnLoc = other.transform.position;
         }
     }
+
+    public void lastCheckpoint()
+    {
+        
+        Player.transform.position = respawnLoc;
+        
+    }
+
 }

@@ -26,6 +26,8 @@ public class Weapon : MonoBehaviour
     public float flowComboTime;
     public float flowDecayRate;
 
+    public AudioSource hitSound;
+    public AudioSource bossHitSound;
 
     private void Start()
     {
@@ -85,13 +87,16 @@ public class Weapon : MonoBehaviour
         var rangedEnemy = other.gameObject.GetComponent<RangedEnemy>();
         var rb = other.gameObject.GetComponent<Rigidbody>();
         var startArena = FindObjectOfType<startArena>();
-        if(BE != null)
+        hitSound = other.gameObject.GetComponentInChildren<AudioSource>();
+        if (BE != null)
         {
             bossHealthMask.GetComponent<healthMask>().moveEnemyMask(BE.currentHealth, BE.maxHealth);
             if (comboLevel <= flowStateLevel)
             {
                 flowBarMask.GetComponent<healthMask>().moveFocusMask(comboLevel, flowStateLevel);
             }
+
+            bossHitSound.Play();
             BE.currentHealth -= damage;
             BE.animator.SetTrigger("Impact");
             numberOfHits += 1;
@@ -112,6 +117,7 @@ public class Weapon : MonoBehaviour
             {
                 flowBarMask.GetComponent<healthMask>().moveFocusMask(comboLevel, flowStateLevel);
             }
+            hitSound.Play();
             gruntEnemy.currentHealth -= damage;
             gruntEnemy.impactTrue = true;
             gruntEnemy.animator.SetTrigger("Impact");
@@ -134,6 +140,7 @@ public class Weapon : MonoBehaviour
             {
                 flowBarMask.GetComponent<healthMask>().moveFocusMask(comboLevel, flowStateLevel);
             }
+            hitSound.Play();
             rangedEnemy.currentHealth -= damage;
             rangedEnemy.impactTrue = true;
             rangedEnemy.gruntAnimator.SetTrigger("Impact");

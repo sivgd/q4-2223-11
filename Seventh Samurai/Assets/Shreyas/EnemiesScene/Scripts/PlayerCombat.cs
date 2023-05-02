@@ -31,6 +31,9 @@ public class PlayerCombat : MonoBehaviour
     int comboCounter;
     Weapon weapon;
     Animator anim;
+
+    public AudioSource swing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -115,6 +118,7 @@ public class PlayerCombat : MonoBehaviour
                 }
                 anim.runtimeAnimatorController = combo[comboCounter].animatorOV;
                 anim.Play("AttackState", 0, 0);
+                swing.Play();
                 weapon.damage = combo[comboCounter].damage;
                 comboCounter++;
                 lastClickedTime = Time.time;

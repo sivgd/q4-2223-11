@@ -26,6 +26,11 @@ public class BossEnemy : MonoBehaviour
     [HideInInspector] public Animator animator;
     EnemyWeapon weapon;
     bool canRotate;
+    public AudioSource fireAttackSound;
+    public AudioSource chargeUpSound;
+    public AudioSource launchSound;
+    public AudioSource swingSound;
+
 
     [Header("Attack Stuff")]
     float timeDuringAttack;
@@ -215,16 +220,19 @@ public class BossEnemy : MonoBehaviour
         //Hit1
         weapon.damage = damage1;
         animator.SetBool("Hit1", true);
+        swingSound.Play();
         yield return new WaitForSeconds(1f);
         animator.SetBool("Hit1", false);
         //Hit2
         weapon.damage = damage2;
         animator.SetBool("Hit2", true);
+        swingSound.Play();
         yield return new WaitForSeconds(0.5f);
         animator.SetBool("Hit2", false);
         //Hit3
         weapon.damage = damage3;
         animator.SetBool("Hit3", true);
+        swingSound.Play();
         yield return new WaitForSeconds(0.5f);
         animator.SetBool("Hit3", false);
         //Reset
@@ -241,6 +249,8 @@ public class BossEnemy : MonoBehaviour
     //Fire Attack
     private void FireAttack()
     {
+        //fireAttackSound = fire.GetComponentInChildren<AudioSource>();
+
         if (attack3 == false)
         {
             agent.SetDestination(transform.position);
@@ -253,6 +263,7 @@ public class BossEnemy : MonoBehaviour
 
     IEnumerator fireAttackAnim()
     {
+        fireAttackSound.Play();
         col.enabled = false;
         isAttacking = true;
         for (int i = 0; i < 3; i++)
@@ -301,11 +312,14 @@ public class BossEnemy : MonoBehaviour
         isAttacking = true;
         alreadyAttacked = true;
         Vector3 startingPos = transform.position;
+        chargeUpSound.Play();
         float dashGo = Random.Range(2, 3);
         yield return new WaitForSeconds(dashGo);
+        launchSound.Play();
         lastPosition = new Vector3(player.position.x, 0, player.position.z);
         yield return new WaitForSeconds(0.1f);
         animator.SetBool("DashTrue", true);
+        
         for (float time = 0; time < 1; time += Time.deltaTime * dashSpeed)
         {
             if (!playerInBasicAttackRange)
