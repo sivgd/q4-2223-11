@@ -13,9 +13,18 @@ public class SceneChangeAfterCutScene : MonoBehaviour
         StartCoroutine(changeAfterCutScene());
     }
 
+
     IEnumerator changeAfterCutScene()
     {
         yield return new WaitForSeconds(cutSceneLength);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }
