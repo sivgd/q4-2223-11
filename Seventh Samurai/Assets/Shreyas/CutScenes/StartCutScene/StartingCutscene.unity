@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.029643869, g: 0.017717203, b: 0.019852372, a: 1}
+  m_IndirectSpecularColor: {r: 0.029654928, g: 0.017776769, b: 0.019863583, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -204,7 +204,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-140262
+  m_Name: pb_Mesh3200144
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -667,7 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b927834811454a3f8db5640edd237e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutSceneLength: 37
+  cutSceneLength: 40
 --- !u!1 &692143963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,7 +1417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1853094968961178454, guid: dff659021541eee45ba056339295a244, type: 3}
       propertyPath: field of view
-      value: 21.908125
+      value: 19.455158
       objectReference: {fileID: 0}
     - target: {fileID: -1608772914328701191, guid: dff659021541eee45ba056339295a244, type: 3}
       propertyPath: m_IsActive
@@ -1798,7 +1798,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 206
+  m_SortingOrder: -46
   m_TargetDisplay: 0
 --- !u!224 &1656470224
 RectTransform:
@@ -6929,7 +6929,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 1000
-  field of view: 19.455156
+  field of view: 19.455158
   orthographic: 0
   orthographic size: 0.0017142909
   m_Depth: 0
@@ -7239,7 +7239,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 1000
-  field of view: 19.455156
+  field of view: 19.455158
   orthographic: 0
   orthographic size: 0.0017143207
   m_Depth: 0
@@ -7368,7 +7368,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 1000
-  field of view: 19.455156
+  field of view: 19.455158
   orthographic: 0
   orthographic size: 0.0017142328
   m_Depth: 0
@@ -7479,7 +7479,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 1000
-  field of view: 19.455156
+  field of view: 19.455158
   orthographic: 0
   orthographic size: 0.0017141781
   m_Depth: 0
