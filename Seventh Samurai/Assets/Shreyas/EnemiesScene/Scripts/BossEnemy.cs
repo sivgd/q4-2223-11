@@ -124,7 +124,7 @@ public class BossEnemy : MonoBehaviour
             }
         }
 
-        if (playerInBasicAttackRange && playerInFireAttackRange && !isAttacking && !reverseDashTrue)
+        if (playerInBasicAttackRange && !isAttacking && !reverseDashTrue)
         {
             animator.SetFloat("Move", 0);
             agent.speed = 0;
@@ -265,11 +265,11 @@ public class BossEnemy : MonoBehaviour
 
     IEnumerator fireAttackAnim()
     {
-        fireAttackSound.Play();
         col.enabled = false;
         isAttacking = true;
         for (int i = 0; i < 3; i++)
         {
+            fireAttackSound.Play();
             if (playerInFireAttackRange && !playerInBasicAttackRange)
             {
                 animator.SetBool("Attack", true);

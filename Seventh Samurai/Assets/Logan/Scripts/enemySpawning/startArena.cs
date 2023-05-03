@@ -15,6 +15,7 @@ public class startArena : MonoBehaviour
     [HideInInspector]public float timePassed;
     [HideInInspector]public int numberOfEnemies;
 
+    public BoxCollider BC;
     public Animator doorAnimatorEntrance;
     public Animator doorAnimatorExit;
     public GameObject nextArena;
@@ -62,6 +63,7 @@ public class startArena : MonoBehaviour
         {
             activateArenaLocks();
             arenaStarted = true;
+            BC.enabled = false;
         }
     }
 

@@ -15,7 +15,6 @@ public class SceneChange : MonoBehaviour
 
     IEnumerator FadeWait()
     {
-        tp.animator.SetFloat("Speed", 0);
         tp.canMove = false;
         PC.canAttack = false;
         anim.SetActive(true);

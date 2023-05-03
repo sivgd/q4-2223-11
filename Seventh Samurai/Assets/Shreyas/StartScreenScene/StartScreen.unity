@@ -873,7 +873,9 @@ MonoBehaviour:
     Animation Implementation
 
     Movement
-    System'
+    System
+
+    Music And SFX'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 535d32e57dca0ca489e2b29587a13244, type: 2}
   m_sharedMaterial: {fileID: -5390045485235710554, guid: 535d32e57dca0ca489e2b29587a13244, type: 2}
@@ -23988,7 +23990,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3867476822695518101, guid: e09e0c11661c67747961e9ddbcffcf94, type: 2}
   m_audioClip: {fileID: 8300000, guid: ae28f65dff3fe2e48a66c589016bc6be, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0

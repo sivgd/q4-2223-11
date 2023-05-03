@@ -9,6 +9,7 @@ public class SceneChangeAfterCutScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
         StartCoroutine(changeAfterCutScene());
     }
 
@@ -17,13 +18,4 @@ public class SceneChangeAfterCutScene : MonoBehaviour
         yield return new WaitForSeconds(cutSceneLength);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-    }
-
 }
