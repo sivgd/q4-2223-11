@@ -56,6 +56,7 @@ public class pauseButtons : MonoBehaviour
     public void unPause()
     {
         pauseCanvasObj.SetActive(false);
+        settingsCanvasObj.SetActive(false);
         isPaused = false;
         Time.timeScale = 1;
         Cursor.visible = false;
