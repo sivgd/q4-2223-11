@@ -52,8 +52,8 @@ public class PlayerCombat : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && canAttack == true && pMove.isGrounded == true)
         {
-            mat.color = Color.cyan;
-            mat.SetColor("_EmissionColor", Color.cyan);
+            //mat.color = Color.cyan;
+            //mat.SetColor("_EmissionColor", Color.cyan);
             Attack();
         }
 
