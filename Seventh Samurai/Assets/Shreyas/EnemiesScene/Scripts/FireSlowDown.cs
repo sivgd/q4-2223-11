@@ -9,7 +9,7 @@ public class FireSlowDown : MonoBehaviour
         var move = other.gameObject.GetComponent<tpMovement>();
         var pc = other.gameObject.GetComponent<PlayerCombat>();
 
-        if (pc != null)
+        if (pc != null && move != null)
         {
             move.speed = 2;
             move.animator.SetFloat("Speed", 0.5f);
@@ -22,7 +22,7 @@ public class FireSlowDown : MonoBehaviour
     {
         var move = other.gameObject.GetComponent<tpMovement>();
         var pc = other.gameObject.GetComponent<PlayerCombat>();
-        if (pc != null)
+        if (pc != null && move != null)
         {
             move.speed = 2;
             move.animator.SetFloat("Speed", 0.5f);
@@ -35,7 +35,7 @@ public class FireSlowDown : MonoBehaviour
     {
         var move = other.gameObject.GetComponent<tpMovement>();
         var pc = other.gameObject.GetComponent<PlayerCombat>();
-        if (pc != null)
+        if (pc != null && move != null)
         {
             move.speed = 9;
             move.animator.SetFloat("Speed", 1f);

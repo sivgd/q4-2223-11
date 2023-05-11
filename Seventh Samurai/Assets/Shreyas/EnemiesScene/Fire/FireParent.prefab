@@ -869,7 +869,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10000
+      scalar: 15000
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4933,6 +4933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46880adbac009b44f9f35c5dd965d7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  move2: {fileID: 0}
 --- !u!1 &3548975235497005352
 GameObject:
   m_ObjectHideFlags: 0
@@ -4979,7 +4980,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 0a6ad74cc8bce9a45992e048a72c4c4e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -4996,7 +4997,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 1.5, z: 22}
+  m_Size: {x: 2, y: 1.5, z: 60}
   m_Center: {x: 0, y: 0.21, z: 0}
 --- !u!114 &8769926066558837991
 MonoBehaviour:

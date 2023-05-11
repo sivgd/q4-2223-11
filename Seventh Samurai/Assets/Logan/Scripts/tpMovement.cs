@@ -13,7 +13,7 @@ public class tpMovement : MonoBehaviour
     [HideInInspector] public CharacterController controller;
 
     [Header("Needed Values")]
-    public float speed = 6f;
+    public float speed;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
     public float turnSmoothTime = 0.1f;
