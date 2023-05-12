@@ -14914,6 +14914,7 @@ GameObject:
   - component: {fileID: 5015060420850764613}
   - component: {fileID: 8299220280546117064}
   - component: {fileID: 8027026561190405165}
+  - component: {fileID: 3257097404131781630}
   m_Layer: 0
   m_Name: Camera.001
   m_TagString: Untagged
@@ -14921,6 +14922,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3257097404131781630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3257097404131781629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 29ff967ef7d929f4ebf682884582489f, type: 2}
 --- !u!1 &4964960145332723337 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4258411891960909470, guid: 99fb977f9e16f4ddc960e47124ee574b, type: 3}
@@ -14970,6 +14988,7 @@ GameObject:
   - component: {fileID: 2258018773530134791}
   - component: {fileID: 7147603217615488241}
   - component: {fileID: 8279756043472899998}
+  - component: {fileID: 6034998189776196090}
   m_Layer: 0
   m_Name: Camera.002
   m_TagString: Untagged
@@ -14977,6 +14996,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &6034998189776196090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6034998189776196089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 29ff967ef7d929f4ebf682884582489f, type: 2}
 --- !u!4 &6359348933703840972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -2864023103238530265, guid: 99fb977f9e16f4ddc960e47124ee574b, type: 3}
@@ -15048,7 +15084,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -15081,7 +15117,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0

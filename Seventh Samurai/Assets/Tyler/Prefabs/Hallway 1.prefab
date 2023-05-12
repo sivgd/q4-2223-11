@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 5.62, y: 4.34, z: 0.26}
   m_Children: []
   m_Father: {fileID: 1217368739572697122}
-  m_RootOrder: 20
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &436350775
 BoxCollider:
@@ -1560,7 +1560,7 @@ Transform:
   m_LocalScale: {x: 5.62, y: 4.34, z: 0.26}
   m_Children: []
   m_Father: {fileID: 1217368739572697122}
-  m_RootOrder: 21
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8048982033457365918
 BoxCollider:
@@ -4355,7 +4355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4918397680711715495, guid: 8b78794cec17a7d4b8e7abb2f6d4c0a7, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4998760925413146635, guid: 8b78794cec17a7d4b8e7abb2f6d4c0a7, type: 3}
       propertyPath: m_IsActive
@@ -4443,7 +4443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7076854180982115016, guid: 8b78794cec17a7d4b8e7abb2f6d4c0a7, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7853836624058579067, guid: 8b78794cec17a7d4b8e7abb2f6d4c0a7, type: 3}
       propertyPath: m_LocalPosition.x

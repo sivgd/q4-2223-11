@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 71543684}
   - component: {fileID: 71543683}
   - component: {fileID: 71543682}
+  - component: {fileID: 71543685}
   m_Layer: 0
   m_Name: Camera.002
   m_TagString: Untagged
@@ -300,7 +301,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -367,6 +368,23 @@ Transform:
   m_Father: {fileID: 1081883530}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &71543685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71543681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 29ff967ef7d929f4ebf682884582489f, type: 2}
 --- !u!1 &135448955
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,6 +396,7 @@ GameObject:
   - component: {fileID: 135448958}
   - component: {fileID: 135448957}
   - component: {fileID: 135448956}
+  - component: {fileID: 135448959}
   m_Layer: 0
   m_Name: Camera.003
   m_TagString: Untagged
@@ -408,7 +427,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -475,6 +494,23 @@ Transform:
   m_Father: {fileID: 350453741}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &135448959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135448955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 29ff967ef7d929f4ebf682884582489f, type: 2}
 --- !u!1001 &233129597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1333,6 +1369,7 @@ GameObject:
   - component: {fileID: 285226403}
   - component: {fileID: 285226402}
   - component: {fileID: 285226401}
+  - component: {fileID: 285226404}
   m_Layer: 0
   m_Name: Camera.007
   m_TagString: Untagged
@@ -1363,7 +1400,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1430,6 +1467,23 @@ Transform:
   m_Father: {fileID: 646854243}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -4.258661, y: -68.22298, z: -0.2796378}
+--- !u!114 &285226404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285226400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 29ff967ef7d929f4ebf682884582489f, type: 2}
 --- !u!1 &350453739
 GameObject:
   m_ObjectHideFlags: 0
@@ -6626,6 +6680,7 @@ GameObject:
   - component: {fileID: 601762198}
   - component: {fileID: 601762197}
   - component: {fileID: 601762196}
+  - component: {fileID: 601762199}
   m_Layer: 0
   m_Name: Camera.005
   m_TagString: Untagged
@@ -6656,7 +6711,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -6723,6 +6778,23 @@ Transform:
   m_Father: {fileID: 430596367}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -6.1773567, y: -1.8265411, z: -0.06403682}
+--- !u!114 &601762199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601762195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 29ff967ef7d929f4ebf682884582489f, type: 2}
 --- !u!1 &603024812
 GameObject:
   m_ObjectHideFlags: 0
@@ -6734,6 +6806,7 @@ GameObject:
   - component: {fileID: 603024815}
   - component: {fileID: 603024814}
   - component: {fileID: 603024813}
+  - component: {fileID: 603024816}
   m_Layer: 0
   m_Name: Camera.004
   m_TagString: Untagged
@@ -6764,7 +6837,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -6831,6 +6904,23 @@ Transform:
   m_Father: {fileID: 1760540834}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -7.8879786, y: -16.509834, z: 0.011866714}
+--- !u!114 &603024816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603024812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 29ff967ef7d929f4ebf682884582489f, type: 2}
 --- !u!1 &646854242
 GameObject:
   m_ObjectHideFlags: 0
@@ -12431,6 +12521,7 @@ GameObject:
   - component: {fileID: 1284696405}
   - component: {fileID: 1284696404}
   - component: {fileID: 1284696403}
+  - component: {fileID: 1284696406}
   m_Layer: 0
   m_Name: Camera.006
   m_TagString: Untagged
@@ -12461,7 +12552,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -12528,6 +12619,23 @@ Transform:
   m_Father: {fileID: 896082959}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1284696406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284696402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 29ff967ef7d929f4ebf682884582489f, type: 2}
 --- !u!1 &1331518873
 GameObject:
   m_ObjectHideFlags: 0
@@ -12590,6 +12698,7 @@ GameObject:
   - component: {fileID: 1460885798}
   - component: {fileID: 1460885797}
   - component: {fileID: 1460885796}
+  - component: {fileID: 1460885799}
   m_Layer: 0
   m_Name: Camera.001
   m_TagString: Untagged
@@ -12620,7 +12729,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -12687,6 +12796,23 @@ Transform:
   m_Father: {fileID: 1331518874}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -9.220712, y: 33.328266, z: 10.467258}
+--- !u!114 &1460885799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460885795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 29ff967ef7d929f4ebf682884582489f, type: 2}
 --- !u!1 &1599792397
 GameObject:
   m_ObjectHideFlags: 0
